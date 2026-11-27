@@ -1,11 +1,10 @@
 ---
 import Base from '../../layouts/Base.astro';
-import PriceBoard from '../../components/PriceBoard.astro';
-import BoardScript from '../../components/BoardScript.astro';
+import DoseNav from '../../components/DoseNav.astro';
 import Faq from '../../components/Faq.astro';
 import DoseMatrix from '../../components/DoseMatrix.astro';
 import DoseStats from '../../components/DoseStats.astro';
-import { DRUGS, DRUG_LIST, listingsFor, doseStats, gbp, doseLabel, gmt, GENERATED_AT, type DrugKey } from '../../lib/data';
+import { DRUGS, DRUG_LIST, listingsFor, doseStats, gbp, doseLabel, gmt, latestCheck, STALE_HOURS, GENERATED_AT, type DrugKey } from '../../lib/data';
 import { SHARED_FAQS, DRUG_FAQS } from '../../lib/content';
 
 export function getStaticPaths() {
@@ -26,7 +25,9 @@ const jsonld = {
     {
       '@type': 'Dataset', name: `${d.name} prices in the UK by dose`,
       description: `Published ${d.name} (${d.generic}) prices from ${ls.length} UK online pharmacies and clinics at every dose, read from each provider's own website daily.`,
-      url: site + d.path, dateModified: GENERATED_AT || undefined, isAccessibleForFree: true, license: 'https://creativecommons.org/licenses/by/4.0/',
+      url: site + d.path, dateModified: latestCheck(ls) || GENERATED_AT || undefined,
+      measurementTechnique: `Automated daily read of each provider's own product page or product data; a price is published only if confirmed in the last ${STALE_HOURS} hours. Source URL and check time are given per price in the downloads.`,
+      isBasedOn: ls.map((l) => l.url), isAccessibleForFree: true, license: 'https://creativecommons.org/licenses/by/4.0/',
       creator: { '@type': 'Organization', name: 'Best Weight Loss Meds', url: site },
       spatialCoverage: 'United Kingdom', variableMeasured: 'Price in GBP per pen or pack, by dose',
       distribution: [
@@ -44,13 +45,14 @@ const jsonld = {
   <section class="hero">
     <div class="wrap">
       <h1>{d.name} prices UK</h1>
-      <p class="lede">{d.form} ({d.generic}) from {ls.length} UK providers, {monthYear}. Published prices by dose. A prescriber decides whether this medicine, and which dose, is suitable for you.</p>
-      {GENERATED_AT && <p class="freshbar"><span><span class="dot" aria-hidden="true"></span>Prices checked <strong>{gmt(GENERATED_AT)}</strong></span><span>Next check tomorrow morning</span><a href="#all-doses">Every dose side by side</a></p>}
-      <PriceBoard drug={drug} />
+      <p class="lede">{d.form} ({d.generic}) from {ls.length} UK providers, {monthYear}. A prescriber decides whether it's suitable for you, and at which dose.</p>
+      {GENERATED_AT && <p class="freshbar"><span><span class="dot" aria-hidden="true"></span>Prices checked <strong>{gmt(GENERATED_AT)}</strong></span><span>Next check tomorrow morning</span></p>}
+      <p class="notice small" style="margin:1rem 0 0"><strong>Prescription-only.</strong> Supplied only after a consultation with a UK-registered prescriber, who may decide it isn't suitable for you. Choose a provider on more than price.</p>
+      <DoseNav drug={drug} current="all" />
     </div>
   </section>
 
-  <DoseMatrix drug={drug} />
+  <DoseMatrix drug={drug} first />
   <DoseStats drug={drug} />
 
   {years.length > 0 && (
@@ -74,5 +76,4 @@ const jsonld = {
   )}
 
   <Faq items={faqs} />
-  <BoardScript />
 </Base>

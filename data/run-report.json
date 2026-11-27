@@ -1,208 +1,73 @@
 {
- "startedAt": "2026-11-27T13:42:31Z",
+ "startedAt": "2026-11-27T14:14:35Z",
  "results": [
   {
-   "provider": "chemist4u",
-   "drug": "wegovy-pill",
-   "url": "https://www.chemist-4-u.com/wegovy-pills",
-   "via": "direct",
-   "method": "text",
-   "status": "updated",
-   "prices": {
-    "1.5mg": 99.0,
-    "4mg": 99.0,
-    "9mg": 119.0,
-    "25mg": 199.0
-   }
-  },
-  {
-   "provider": "chemist4u",
+   "provider": "genmeds",
    "drug": "mounjaro",
-   "url": "https://www.chemist-4-u.com/mounjaro-injections",
+   "url": "https://www.genmeds.co.uk/treatments/weight-loss/mounjaro",
    "via": "direct",
-   "method": "text",
-   "status": "updated",
-   "prices": {
-    "2.5mg": 148.0,
-    "5mg": 188.0,
-    "7.5mg": 248.0,
-    "10mg": 278.0,
-    "12.5mg": 288.0,
-    "15mg": 298.0
-   }
-  },
-  {
-   "provider": "the-independent-pharmacy",
-   "drug": "mounjaro",
-   "url": "https://www.theindependentpharmacy.co.uk/weight-loss/mounjaro-injections",
-   "via": "direct",
-   "method": "jsonld",
-   "status": "updated",
+   "method": "pattern",
+   "status": "held",
    "prices": {
     "2.5mg": 179.99,
     "5mg": 199.99,
-    "7.5mg": 259.99,
-    "12.5mg": 309.99,
-    "10mg": 289.99,
-    "15mg": 329.99
+    "7.5mg": 249.99,
+    "10mg": 279.99,
+    "12.5mg": 299.99,
+    "15mg": 309.99
    }
   },
   {
-   "provider": "the-independent-pharmacy",
+   "provider": "genmeds",
    "drug": "wegovy",
-   "url": "https://www.theindependentpharmacy.co.uk/weight-loss/wegovy-injections",
+   "url": "https://genmeds.co.uk/treatments/weight-loss/wegovy",
    "via": "direct",
-   "method": "jsonld",
+   "method": "text",
    "status": "updated",
    "prices": {
-    "0.25mg": 114.99,
-    "0.5mg": 129.99,
-    "1mg": 144.99,
-    "1.7mg": 169.99,
-    "2.4mg": 189.99,
+    "0.25mg": 134.99,
+    "0.5mg": 159.99,
+    "1mg": 169.99,
+    "1.7mg": 199.99,
+    "2.4mg": 239.99,
     "7.2mg": 259.99
    }
   },
   {
-   "provider": "the-independent-pharmacy",
+   "provider": "genmeds",
    "drug": "wegovy-pill",
-   "url": "https://www.theindependentpharmacy.co.uk/weight-loss/wegovy-pill",
-   "via": "direct",
-   "method": "jsonld",
-   "status": "updated",
-   "prices": {
-    "1.5mg": 128.99,
-    "4mg": 139.99,
-    "9mg": 159.99,
-    "25mg": 229.99
-   }
-  },
-  {
-   "provider": "juniper",
-   "drug": "mounjaro",
-   "url": "https://www.myjuniper.co.uk/gip-injections",
-   "via": "direct",
-   "method": "jsmap",
-   "status": "updated",
-   "prices": {
-    "2.5mg": 199.0,
-    "5mg": 229.0,
-    "7.5mg": 279.0,
-    "10mg": 304.0,
-    "12.5mg": 329.0,
-    "15mg": 339.0
-   }
-  },
-  {
-   "provider": "juniper",
-   "drug": "wegovy",
-   "url": "https://www.myjuniper.co.uk/glp-medication",
-   "via": "direct",
-   "method": "jsmap",
-   "status": "updated",
-   "prices": {
-    "0.25mg": 164.0,
-    "0.5mg": 164.0,
-    "1mg": 179.0,
-    "1.7mg": 209.0,
-    "2.4mg": 229.0
-   }
-  },
-  {
-   "provider": "juniper",
-   "drug": "wegovy-pill",
-   "url": "https://www.myjuniper.co.uk/oral-pill",
+   "url": "https://genmeds.co.uk/treatments/weight-loss/wegovy-pill",
    "via": "direct",
    "method": "text",
    "status": "updated",
    "prices": {
-    "1.5mg": 154.0,
-    "4mg": 179.0,
-    "9mg": 219.0,
-    "25mg": 259.0
-   }
-  },
-  {
-   "provider": "medicspot",
-   "drug": "mounjaro",
-   "url": "https://www.medicspot.co.uk/weight-loss/injections/mounjaro-uk",
-   "via": "direct",
-   "method": "fields",
-   "status": "updated",
-   "prices": {
-    "15mg": 329.0,
-    "12.5mg": 309.0,
-    "10mg": 289.0,
-    "7.5mg": 269.0,
-    "5mg": 219.0,
-    "2.5mg": 199.0
-   }
-  },
-  {
-   "provider": "medicspot",
-   "drug": "wegovy",
-   "url": "https://www.medicspot.co.uk/weight-loss/injections/wegovy-injections-uk",
-   "via": "direct",
-   "method": "fields",
-   "status": "held",
-   "prices": {
-    "7.2mg": 269.0,
-    "2.4mg": 219.0,
-    "1.7mg": 199.0,
-    "1mg": 179.0,
-    "0.5mg": 159.0,
-    "0.25mg": 139.0
-   }
-  },
-  {
-   "provider": "medicspot",
-   "drug": "wegovy-pill",
-   "url": "https://www.medicspot.co.uk/weight-loss/pills-tablets/wegovy-tablets-uk",
-   "via": "direct",
-   "method": "fields",
-   "status": "held",
-   "prices": {
-    "25mg": 229.0,
-    "9mg": 179.0,
-    "4mg": 159.0,
-    "1.5mg": 139.0
+    "1.5mg": 139.99,
+    "4mg": 149.99,
+    "9mg": 169.99,
+    "25mg": 229.99
    }
   }
  ],
- "finishedAt": "2026-11-27T13:42:46Z",
- "total": 11,
- "ok": 11,
+ "finishedAt": "2026-11-27T14:14:40Z",
+ "total": 3,
+ "ok": 3,
  "hitRate": 1.0,
  "failures": [],
  "held": [
   {
-   "provider": "medicspot",
-   "drug": "wegovy",
-   "url": "https://www.medicspot.co.uk/weight-loss/injections/wegovy-injections-uk",
+   "provider": "genmeds",
+   "drug": "mounjaro",
+   "url": "https://www.genmeds.co.uk/treatments/weight-loss/mounjaro",
    "via": "direct",
-   "method": "fields",
+   "method": "pattern",
    "status": "held",
    "prices": {
-    "7.2mg": 269.0,
-    "2.4mg": 219.0,
-    "1.7mg": 199.0,
-    "1mg": 179.0,
-    "0.5mg": 159.0,
-    "0.25mg": 139.0
-   }
-  },
-  {
-   "provider": "medicspot",
-   "drug": "wegovy-pill",
-   "url": "https://www.medicspot.co.uk/weight-loss/pills-tablets/wegovy-tablets-uk",
-   "via": "direct",
-   "method": "fields",
-   "status": "held",
-   "prices": {
-    "25mg": 229.0,
-    "9mg": 179.0,
-    "4mg": 159.0,
-    "1.5mg": 139.0
+    "2.5mg": 179.99,
+    "5mg": 199.99,
+    "7.5mg": 249.99,
+    "10mg": 279.99,
+    "12.5mg": 299.99,
+    "15mg": 309.99
    }
   }
  ]

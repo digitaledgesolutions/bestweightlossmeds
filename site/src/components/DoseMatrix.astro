@@ -1,18 +1,18 @@
 ---
 // Every provider x every dose in one table, cheapest in each column marked.
 // Server-rendered; a small script lets you sort by any column. Scrolls sideways on phones.
-import { DRUGS, listingsFor, ranked, gbp, doseLabel, type DrugKey } from '../lib/data';
-interface Props { drug: DrugKey }
-const { drug } = Astro.props;
+import { DRUGS, listingsFor, ranked, gbp, doseLabel, checkedAt, type DrugKey } from '../lib/data';
+interface Props { drug: DrugKey; first?: boolean }
+const { drug, first = false } = Astro.props;
 const d = DRUGS[drug];
 const rows = listingsFor(drug).sort((a, b) => a.provider.name.localeCompare(b.provider.name));
 const lows = Object.fromEntries(d.doses.map((x) => [x, ranked(drug, x)[0]?.prices[x]]));
 const lowYear = Math.min(...rows.map((l) => l.firstYear ?? Infinity));
 ---
-<section class="section" id="all-doses">
+<section class:list={["section", { "section-first": first }]} id="all-doses">
   <div class="wrap">
     <h2>Every dose, every provider</h2>
-    <p class="muted measure">{rows.length} providers, listed A to Z. Tap a column heading to sort. A dash means the provider doesn't publish a price for that dose.</p>
+    <p class="muted measure">{rows.length} providers, listed A to Z. Tap a column heading to sort. A dash means the provider doesn't publish a price for that dose. Each check time links to the page we read the price from.</p>
     <div class="mx-wrap" tabindex="0" role="region" aria-label={`${d.name} prices at every dose`}>
       <table class="mx" data-mx>
         <thead>
@@ -20,6 +20,7 @@ const lowYear = Math.min(...rows.map((l) => l.firstYear ?? Infinity));
             <th scope="col" class="mx-name"><button type="button" data-sort="name" aria-sort="ascending">Provider</button></th>
             {d.doses.map((x) => <th scope="col"><button type="button" data-sort={x}>{doseLabel(x)}</button></th>)}
             <th scope="col"><button type="button" data-sort="year">12 months*</button></th>
+            <th scope="col">Checked</th>
           </tr>
         </thead>
         <tbody>
@@ -34,6 +35,7 @@ const lowYear = Math.min(...rows.map((l) => l.firstYear ?? Infinity));
                 return <td class="num">{v != null ? gbp(v) : <span class="muted">–</span>}</td>;
               })}
               <td class="num">{l.firstYear != null ? gbp(l.firstYear, 0) : <span class="muted">–</span>}</td>
+              <td class="small"><a href={l.url} rel="nofollow noopener noreferrer" target="_blank"><time datetime={l.verifiedAt}>{checkedAt(l.verifiedAt)}</time></a></td>
             </tr>
           ))}
         </tbody>

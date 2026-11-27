@@ -2,8 +2,7 @@
 import Base from '../../../layouts/Base.astro';
 import sources from '../../../../../scraper/sources.json';
 import {
-  ALL_PROVIDERS, DRUGS, listingsForProvider, cheapest, ranked, gbp, doseLabel, ago,
-} from '../../../lib/data';
+  ALL_PROVIDERS, DRUGS, listingsForProvider, cheapest, ranked, gbp, doseLabel, checkedAt, SOURCE_LABEL } from '../../../lib/data';
 
 // A page for every provider we track, whether or not today's check succeeded.
 export function getStaticPaths() {
@@ -31,7 +30,7 @@ const ext = `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-w
     <div class="wrap">
       <h1>{p.name}</h1>
       {listings.length > 0 ? (
-        <p class="lede">Current prices for {listings.map((l) => DRUGS[l.drug].name).join(', ').replace(/, ([^,]*)$/, ' and $1')}, last checked {ago(latest!)}.</p>
+        <p class="lede">Current prices for {listings.map((l) => DRUGS[l.drug].name).join(', ').replace(/, ([^,]*)$/, ' and $1')}, last checked <time datetime={latest}>{checkedAt(latest!)}</time>.</p>
       ) : (
         <p class="lede">We couldn't confirm {p.name}'s prices in the last 48 hours, so none are shown. We'll try again tomorrow morning.</p>
       )}
@@ -51,7 +50,7 @@ const ext = `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-w
       <section class="section">
         <div class="wrap">
           <h2>{d.name}</h2>
-          <p class="muted small">{d.form}. Price checked <time datetime={l.verifiedAt}>{ago(l.verifiedAt)}</time>.</p>
+          <p class="muted small">{d.form}. Checked <time datetime={l.verifiedAt}>{checkedAt(l.verifiedAt)}</time>, read from <a href={l.url} rel="nofollow noopener noreferrer" target="_blank">{SOURCE_LABEL[l.sourceType]}</a>.</p>
           <table class="dtable" style="max-width:40rem">
             <thead><tr><th scope="col">Dose</th><th scope="col">Price</th><th scope="col">Range across providers</th></tr></thead>
             <tbody>

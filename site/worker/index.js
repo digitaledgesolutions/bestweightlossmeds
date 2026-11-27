@@ -24,6 +24,13 @@ const REDIRECTS = new Map([
   ['/uk/wegovy-pill', '/uk/wegovy-pill/'],
 ]);
 const COOKIE = 'bwm_preview';
+// [name, pattern, kind]: 'user' = fetched live to answer someone's question; 'search' = indexing for citations.
+const AI_AGENTS = [
+  ['ChatGPT-User', /ChatGPT-User/i, 'user'], ['Claude-User', /Claude-User/i, 'user'],
+  ['Perplexity-User', /Perplexity-User/i, 'user'], ['MistralAI-User', /MistralAI-User/i, 'user'],
+  ['OAI-SearchBot', /OAI-SearchBot/i, 'search'], ['Claude-SearchBot', /Claude-SearchBot/i, 'search'],
+  ['PerplexityBot', /PerplexityBot/i, 'search'], ['Bingbot', /bingbot/i, 'search'], ['Googlebot', /Googlebot/i, 'search'],
+];
 const SECURITY = {
   'X-Content-Type-Options': 'nosniff',
   'Referrer-Policy': 'strict-origin-when-cross-origin',
@@ -79,8 +86,20 @@ export default {
       if (!cookie.split(/;\s*/).includes(`${COOKIE}=${token}`)) return closed(env);
     }
 
+    // Old ?dose=5mg links on a medicine page -> that dose's own page.
+    const dq = url.searchParams.get('dose');
+    if (dq && /^\/uk\/(mounjaro|wegovy|wegovy-pill)\/$/.test(url.pathname) && /^\d+(\.\d+)?mg$/.test(dq)) {
+      return withHeaders(Response.redirect(new URL(url.pathname + dq.replace('.', '-') + '/', url).href, 301), env);
+    }
+
     const to = REDIRECTS.get(url.pathname);
     if (to) return withHeaders(Response.redirect(new URL(to, url).href, 301), env);
+
+    // Log AI assistants fetching pages live for a user (and AI search crawlers) to Workers Logs,
+    // so we can see who checks which prices. No IPs or cookies are logged.
+    const ua = req.headers.get('User-Agent') || '';
+    const ai = AI_AGENTS.find(([, re]) => re.test(ua));
+    if (ai) console.log(JSON.stringify({ event: 'ai_fetch', agent: ai[0], kind: ai[2], path: url.pathname }));
 
     const res = await env.ASSETS.fetch(req);
     const isAsset = /\.(woff2|svg|png|ico)$/.test(url.pathname);

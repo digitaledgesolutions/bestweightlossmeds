@@ -1,0 +1,41 @@
+---
+// Public corrections log. Add an entry to data/corrections.json whenever a published price,
+// offer or provider detail turns out to be wrong: {date, provider, medicine, what, fix}.
+// Newest first. Never remove entries.
+import Base from '../../layouts/Base.astro';
+import corrections from '../../../../data/corrections.json';
+type Entry = { date: string; provider: string; medicine?: string; what: string; fix: string };
+const rows = (corrections as Entry[]).slice().sort((a, b) => b.date.localeCompare(a.date));
+const day = (d: string) => new Date(d + 'T12:00:00Z').toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+---
+<Base title="Corrections | Best Weight Loss Meds"
+  description="Every time a price or detail we published turned out to be wrong, what it was and what we changed."
+  current="/uk/corrections/">
+  <section class="hero">
+    <div class="wrap">
+      <h1>Corrections</h1>
+      <p class="lede">When a price or detail we published turns out to be wrong, we list it here with what we changed. Entries are never removed.</p>
+    </div>
+  </section>
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      {rows.length === 0 ? (
+        <p class="measure">No corrections since the site relaunched on 27 November 2026.</p>
+      ) : (
+        <table class="dtable">
+          <thead><tr><th scope="col">Date</th><th scope="col">Provider</th><th scope="col">What was wrong</th><th scope="col">What we changed</th></tr></thead>
+          <tbody>
+            {rows.map((r) => (
+              <tr>
+                <td><time datetime={r.date}>{day(r.date)}</time></td>
+                <td>{r.provider}{r.medicine && <span class="muted small"> · {r.medicine}</span>}</td>
+                <td>{r.what}</td>
+                <td>{r.fix}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )}
+    </div>
+  </section>
+</Base>

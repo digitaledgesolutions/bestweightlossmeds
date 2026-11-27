@@ -15,7 +15,10 @@
   "provider": "genmeds",
   "drug": "mounjaro",
   "url": "https://www.genmeds.co.uk/treatments/weight-loss/mounjaro",
-  "method": "html"
+  "method": "pattern",
+  "marker": "One-time price",
+  "end": "Start Consultation",
+  "pattern": "(?P<dose>\\d+(?:\\.\\d+)?\\s?mg) Strength £(?P<price>[\\d,.]+)"
  },
  {
   "provider": "get-weightloss",

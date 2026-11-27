@@ -1,0 +1,39 @@
+---
+// One dose of one medicine: every provider publishing that dose, A to Z by default.
+import Base from '../../../layouts/Base.astro';
+import PriceBoard from '../../../components/PriceBoard.astro';
+import BoardScript from '../../../components/BoardScript.astro';
+import DoseNav from '../../../components/DoseNav.astro';
+import Faq from '../../../components/Faq.astro';
+import { DRUGS, DRUG_LIST, ranked, doseStats, doseSlug, doseLabel, gbp, gmt, GENERATED_AT, type DrugKey } from '../../../lib/data';
+import { SHARED_FAQS } from '../../../lib/content';
+
+export function getStaticPaths() {
+  return DRUG_LIST.flatMap((d) => d.doses.filter((x) => ranked(d.key, x).length > 0)
+    .map((x) => ({ params: { drug: d.key, dose: doseSlug(x) }, props: { dose: x } })));
+}
+const drug = Astro.params.drug as DrugKey;
+const { dose } = Astro.props as { dose: string };
+const d = DRUGS[drug];
+const s = doseStats(drug).find((x) => x.dose === dose)!;
+const unit = drug === 'wegovy-pill' ? 'pack of 30 tablets' : 'pen (four weekly doses)';
+---
+<Base
+  title={`${d.name} ${doseLabel(dose)} published prices, UK | Best Weight Loss Meds`}
+  description={`${d.name} (${d.generic}) ${doseLabel(dose)}: prices published by ${s.n} UK providers, checked daily. Prescription-only: supplied after a consultation.`}
+  current={d.path}>
+  <div class="wrap">
+    <p class="crumbs"><a href="/uk/price-lists/">Price lists</a> / <a href={d.path}>{d.name}</a> / {doseLabel(dose)}</p>
+  </div>
+  <section class="hero" style="padding-top:0.75rem">
+    <div class="wrap">
+      <h1>{d.name} {doseLabel(dose)}</h1>
+      <p class="lede">{s.n} UK providers publish a price for {d.name} {doseLabel(dose)} ({d.generic}), from {gbp(s.low!)} to {gbp(s.high!)} per {unit}.</p>
+      {GENERATED_AT && <p class="freshbar"><span><span class="dot" aria-hidden="true"></span>Prices checked <strong>{gmt(GENERATED_AT)}</strong></span><span>Next check tomorrow morning</span></p>}
+      <DoseNav drug={drug} current={dose} />
+      <PriceBoard drug={drug} dose={dose} />
+    </div>
+  </section>
+  <Faq items={SHARED_FAQS} />
+  <BoardScript />
+</Base>

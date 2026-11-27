@@ -6,10 +6,10 @@ export function getStaticPaths() {
 const q = (s: string) => /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
 export function GET({ params }: { params: { drug: DrugKey } }) {
   const d = DRUGS[params.drug];
-  const head = ['provider', ...d.doses.map((x) => `price_${x}`), 'first_year_total', 'subscription', 'checked_at_utc', 'source_url'];
+  const head = ['provider', ...d.doses.map((x) => `price_${x}`), 'first_year_total', 'subscription', 'checked_at_utc', 'source_url', 'source_type'];
   const rows = listingsFor(d.key).sort((a, b) => a.provider.name.localeCompare(b.provider.name)).map((l) => [
     l.provider.name, ...d.doses.map((x) => l.prices[x] != null ? l.prices[x].toFixed(2) : ''),
-    l.firstYear ?? '', l.provider.subscription ? 'yes' : 'no', l.verifiedAt, l.url,
+    l.firstYear ?? '', l.provider.subscription ? 'yes' : 'no', l.verifiedAt, l.url, l.sourceType === 'data' ? 'product_data' : 'page_text',
   ].map((v) => q(String(v))).join(','));
   return new Response([head.join(','), ...rows].join('\n') + '\n', { headers: { 'Content-Type': 'text/csv; charset=utf-8' } });
 }
