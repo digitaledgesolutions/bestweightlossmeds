@@ -118,7 +118,8 @@ def fetch(url, proxy=False):
 # ---------------------------------------------------------------- helpers
 def dose_re(d):
     n = d.replace("mg", "").strip()
-    return re.compile(r"(?<![\d.])" + re.escape(n) + r"\s*mg", re.I)
+    tail = r"(?:\.0)?" if "." not in n else ""     # "1.0mg" is the same dose as "1mg"
+    return re.compile(r"(?<![\d.])" + re.escape(n) + tail + r"\s*mg", re.I)
 
 
 def to_price(v, pence=False):
@@ -202,7 +203,9 @@ def ex_woo(body, doses):
     return assign(pairs, doses)
 
 
-def ex_jsonld(body, doses):
+def ex_jsonld(body, doses, prefer_list=False):
+    """prefer_list: when an offer carries a StrikethroughPrice (e.g. the price before a
+    promo code), publish that list price instead of the discounted one."""
     pairs = []
     for m in re.finditer(r'<script[^>]*application/ld\+json[^>]*>(.*?)</script>', body, re.S | re.I):
         try:
@@ -220,6 +223,10 @@ def ex_jsonld(body, doses):
                     pr = o.get("price") or o.get("lowPrice")
                     if pr is None and isinstance(o.get("priceSpecification"), dict):
                         pr = o["priceSpecification"].get("price")
+                    if prefer_list and isinstance(o.get("priceSpecification"), dict):
+                        for c in o["priceSpecification"].get("priceComponent") or []:
+                            if isinstance(c, dict) and str(c.get("priceType", "")).endswith("StrikethroughPrice"):
+                                pr = c.get("price")
                     label = str(o.get("name") or o.get("sku") or n.get("name") or "")
                     pairs.append((label, to_price(pr), None))
     return assign(pairs, doses)
@@ -288,6 +295,24 @@ def ex_text(body, doses, marker=""):
     return out, {}
 
 
+def ex_pattern(body, doses, pattern, marker="", end=""):
+    """Site-specific regex over the visible text, with named groups `dose` and `price`.
+    Optional marker/end limit the text to one table. Use when the page has a clear
+    per-dose price table but no structured data."""
+    t = strip_html(body)
+    if marker:
+        ix = t.find(marker)
+        if ix < 0:
+            return {}, {}
+        t = t[ix:]
+    if end:
+        ix = t.find(end, len(marker))
+        if ix >= 0:
+            t = t[:ix]
+    pairs = [(m.group("dose"), to_price(m.group("price")), None) for m in re.finditer(pattern, t)]
+    return assign(pairs, doses)
+
+
 def ex_positional(body, doses, price_marker=""):
     t = strip_html(body)
     order = sorted((m.start(), d) for d in doses for m in [dose_re(d).search(t)] if m)
@@ -300,7 +325,8 @@ def ex_positional(body, doses, price_marker=""):
 STRUCTURED = [("jsonld", ex_jsonld), ("shopify_inline", ex_shopify_inline),
               ("woo", ex_woo), ("embedded", ex_embedded)]
 FIXED = {"shopify": ex_shopify, "wcapi": ex_wcapi, "woo": ex_woo, "jsonld": ex_jsonld,
-         "shopify_inline": ex_shopify_inline, "embedded": ex_embedded}
+         "shopify_inline": ex_shopify_inline, "embedded": ex_embedded,
+         "jsonld_list": lambda b, d: ex_jsonld(b, d, prefer_list=True)}
 LOW_CONFIDENCE = {"text", "positional"}
 
 
@@ -316,6 +342,9 @@ def extract(src, body, doses):
             log(f"    {method} parse error: {e}")
         if method in ("shopify", "wcapi"):
             return {}, {}, method
+    if method == "pattern":
+        p, w = ex_pattern(body, doses, src["pattern"], src.get("marker", ""), src.get("end", ""))
+        return p, w, "pattern"
     if method == "positional":
         p, w = ex_positional(body, doses, src.get("priceMarker", ""))
         return p, w, "positional"
@@ -435,7 +464,7 @@ def main():
                   prices, dropped = repair_ladder(prices, doses)
                   if dropped:
                       res["dropped"] = dropped
-                  offer = find_offer(body) if not body.lstrip().startswith(("{", "[")) else None
+                  offer = (find_offer(body) if src.get("offer", True) and not body.lstrip().startswith(("{", "[")) else None)
                   prev = provs.get(slug, {}).get(drug)
                   rec, status = merge(prev, prices, method, was, offer, url, ts)
                   provs.setdefault(slug, {})[drug] = rec

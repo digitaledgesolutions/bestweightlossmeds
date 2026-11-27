@@ -63,6 +63,26 @@ class Extractors(unittest.TestCase):
         self.assertEqual(m, "jsonld")
         self.assertEqual(p["2.5mg"], 120.0)
 
+    def test_pattern_with_bounds(self):
+        body = ("<p>From £99</p><p>Select a dose 0.25 mg £144.99 1 mg £154.99 Select a plan</p>"
+                "<p>7.2 mg £274.99</p>")
+        p, _ = r.ex_pattern(body, r.DOSES["wegovy"], r"(?P<dose>[\d.]+ mg) £(?P<price>[\d.]+)",
+                            "Select a dose", "Select a plan")
+        self.assertEqual(p, {"0.25mg": 144.99, "1mg": 154.99})
+
+    def test_one_point_zero_mg_is_1mg(self):
+        p, _ = r.assign([("1.0mg", 124.99, None), ("10mg", 259.99, None)], r.DOSES["wegovy"])
+        self.assertEqual(p, {"1mg": 124.99})
+
+    def test_jsonld_list_price(self):
+        ld = {"offers": [{"name": "Mounjaro 1 2.5mg Pen", "price": 143.99, "priceSpecification": {
+            "priceComponent": [{"price": 163.99, "priceType": "https://schema.org/StrikethroughPrice"},
+                               {"price": 143.99, "priceType": "https://schema.org/SalePrice"}]}},
+            {"name": "Mounjaro 1 15mg Pen", "price": 279.49}]}
+        body = f'<script type="application/ld+json">{json.dumps(ld)}</script>'
+        self.assertEqual(r.ex_jsonld(body, MJ, prefer_list=True)[0], {"2.5mg": 163.99, "15mg": 279.49})
+        self.assertEqual(r.ex_jsonld(body, MJ)[0]["2.5mg"], 143.99)
+
     def test_offer(self):
         self.assertEqual(r.find_offer("<div>Get £20 off your first order today</div>"),
                          "Get £20 off your first order today")

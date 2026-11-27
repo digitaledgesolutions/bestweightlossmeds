@@ -562,5 +562,150 @@
   "url": "https://www.numan.com/weight-loss/mounjaro",
   "method": "auto",
   "proxy": false
+ },
+ {
+  "provider": "cloud-pharmacy",
+  "drug": "mounjaro",
+  "url": "https://www.cloudpharmacy.co.uk/products/mounjaro/",
+  "method": "pattern",
+  "pattern": "(?P<dose>\\d+(?:\\.\\d+)?mg) (?:Recommended Starting Dose|Step-up|Highest dose) £[\\d.]+ every 4 weeks £(?P<price>[\\d.]+) /month"
+ },
+ {
+  "provider": "cloud-pharmacy",
+  "drug": "wegovy",
+  "url": "https://www.cloudpharmacy.co.uk/products/wegovy-weight-loss-injection/",
+  "method": "pattern",
+  "pattern": "(?P<dose>\\d+(?:\\.\\d+)?mg) (?:Recommended Starting Dose|Step-up|Highest dose) £[\\d.]+ every 4 weeks £(?P<price>[\\d.]+) /month"
+ },
+ {
+  "provider": "cloud-pharmacy",
+  "drug": "wegovy-pill",
+  "url": "https://www.cloudpharmacy.co.uk/products/wegovy-oral-pill/",
+  "method": "pattern",
+  "marker": "Dose Stage Price",
+  "pattern": "(?P<dose>\\d+(?:\\.\\d+)?mg) (?:Starter|Titration|Maintenance) £(?P<price>[\\d.]+)"
+ },
+ {
+  "provider": "privatedoc",
+  "drug": "mounjaro",
+  "url": "https://www.privatedoc.com/weight-loss/treatments/mounjaro",
+  "method": "pattern",
+  "pattern": "Month \\d+(?: \\(Starter Pack\\))? £(?P<price>[\\d.]+) (?P<dose>\\d+(?:\\.\\d+)?mg)"
+ },
+ {
+  "provider": "privatedoc",
+  "drug": "wegovy",
+  "url": "https://www.privatedoc.com/weight-loss/treatments/wegovy",
+  "method": "pattern",
+  "pattern": "(?P<dose>\\d+(?:\\.\\d+)?mg) - Month \\d+ (?:> )?£(?P<price>[\\d.]+)"
+ },
+ {
+  "provider": "privatedoc",
+  "drug": "wegovy-pill",
+  "url": "https://www.privatedoc.com/weight-loss/treatments/wegovy-pill",
+  "method": "pattern",
+  "pattern": "(?P<dose>\\d+(?:\\.\\d+)?mg) £(?P<price>[\\d.]+) Daily oral semaglutide pack"
+ },
+ {
+  "provider": "phlo-clinic",
+  "drug": "mounjaro",
+  "url": "https://phloclinic.co.uk/weight-loss-service/mounjaro",
+  "method": "pattern",
+  "pattern": "(?P<dose>\\d+(?:\\.\\d+)?mg)(?: \\(renewal\\))? 4-week supply \\+ Free delivery £(?P<price>[\\d.]+)"
+ },
+ {
+  "provider": "phlo-clinic",
+  "drug": "wegovy",
+  "url": "https://phloclinic.co.uk/weight-loss-service/wegovy",
+  "method": "pattern",
+  "pattern": "(?P<dose>\\d+(?:\\.\\d+)?mg)(?: \\(renewal\\))? 4-week supply \\+ Free delivery £(?P<price>[\\d.]+)"
+ },
+ {
+  "provider": "phlo-clinic",
+  "drug": "wegovy-pill",
+  "url": "https://phloclinic.co.uk/weight-loss-service/wegovy-oral-tablets",
+  "method": "pattern",
+  "pattern": "(?P<dose>\\d+(?:\\.\\d+)?mg)(?: \\(renewal\\))? 30-day supply \\+ Free delivery £(?P<price>[\\d.]+)"
+ },
+ {
+  "provider": "assured-pharmacy",
+  "drug": "mounjaro",
+  "url": "https://www.assuredpharmacy.co.uk/treatments/weight-management",
+  "method": "pattern",
+  "marker": "Mounjaro injection full price list",
+  "end": "Wegovy injection full price list",
+  "pattern": "(?P<dose>\\d+(?:\\.\\d+)?mg) £(?P<price>[\\d.]+)",
+  "offer": false
+ },
+ {
+  "provider": "assured-pharmacy",
+  "drug": "wegovy",
+  "url": "https://www.assuredpharmacy.co.uk/treatments/weight-management",
+  "method": "pattern",
+  "marker": "Wegovy injection full price list",
+  "end": "Wegovy tablet full price list",
+  "pattern": "(?P<dose>\\d+(?:\\.\\d+)?mg) £(?P<price>[\\d.]+)",
+  "offer": false
+ },
+ {
+  "provider": "assured-pharmacy",
+  "drug": "wegovy-pill",
+  "url": "https://www.assuredpharmacy.co.uk/treatments/weight-management",
+  "method": "pattern",
+  "marker": "Wegovy tablet full price list",
+  "end": "Foundayo tablet full price list",
+  "pattern": "(?P<dose>\\d+(?:\\.\\d+)?mg) £(?P<price>[\\d.]+)",
+  "offer": false
+ },
+ {
+  "provider": "pprx",
+  "drug": "mounjaro",
+  "url": "https://pprx.co.uk/weight-loss/mounjaro",
+  "method": "pattern",
+  "marker": "Select a dose",
+  "end": "Select a plan",
+  "pattern": "(?P<dose>\\d+(?:\\.\\d+)? mg) £(?P<price>[\\d.]+)",
+  "offer": false
+ },
+ {
+  "provider": "pprx",
+  "drug": "wegovy",
+  "url": "https://pprx.co.uk/weight-loss/wegovy",
+  "method": "pattern",
+  "marker": "Select a dose",
+  "end": "Select a plan",
+  "pattern": "(?P<dose>\\d+(?:\\.\\d+)? mg) £(?P<price>[\\d.]+)",
+  "offer": false
+ },
+ {
+  "provider": "pprx",
+  "drug": "wegovy-pill",
+  "url": "https://pprx.co.uk/weight-loss/wegovy-pill",
+  "method": "pattern",
+  "marker": "Select a dose",
+  "end": "Select a plan",
+  "pattern": "(?P<dose>\\d+(?:\\.\\d+)? mg) £(?P<price>[\\d.]+)",
+  "offer": false
+ },
+ {
+  "provider": "chemist-click",
+  "drug": "mounjaro",
+  "url": "https://www.chemistclick.co.uk/weight-loss/mounjaro",
+  "method": "jsonld_list",
+  "offer": false
+ },
+ {
+  "provider": "chemist-click",
+  "drug": "wegovy",
+  "url": "https://www.chemistclick.co.uk/weight-loss/wegovy",
+  "method": "jsonld_list",
+  "offer": false
+ },
+ {
+  "provider": "chemist-click",
+  "drug": "wegovy-pill",
+  "url": "https://www.chemistclick.co.uk/weight-loss/oral-wegovy-tablets",
+  "method": "jsonld",
+  "offer": false
  }
 ]

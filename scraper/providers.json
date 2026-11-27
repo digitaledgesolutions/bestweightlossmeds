@@ -24,6 +24,14 @@
   "subscription": false
  },
  {
+  "slug": "assured-pharmacy",
+  "name": "Assured Pharmacy",
+  "gphc": "9013252",
+  "gphcVerified": false,
+  "homepage": "https://www.assuredpharmacy.co.uk/",
+  "subscription": false
+ },
+ {
   "slug": "bolt-pharmacy",
   "name": "Bolt Pharmacy",
   "gphc": "9013085",
@@ -40,6 +48,14 @@
   "subscription": false
  },
  {
+  "slug": "chemist-click",
+  "name": "Chemist Click",
+  "gphc": "9013251",
+  "gphcVerified": false,
+  "homepage": "https://www.chemistclick.co.uk/",
+  "subscription": false
+ },
+ {
   "slug": "chemist4u",
   "name": "Chemist4U",
   "gphc": "9012464",
@@ -53,6 +69,14 @@
   "gphc": "1033781",
   "gphcVerified": false,
   "homepage": "https://click2pharmacy.co.uk/",
+  "subscription": false
+ },
+ {
+  "slug": "cloud-pharmacy",
+  "name": "Cloud Pharmacy",
+  "gphc": "9012073",
+  "gphcVerified": false,
+  "homepage": "https://www.cloudpharmacy.co.uk/",
   "subscription": false
  },
  {
@@ -232,14 +256,6 @@
   "subscription": false
  },
  {
-  "slug": "lvae",
-  "name": "L'vae",
-  "gphc": "9013068",
-  "gphcVerified": false,
-  "homepage": "",
-  "subscription": false
- },
- {
   "slug": "live-well-weight-loss",
   "name": "Live Well Weight Loss",
   "gphc": "9012516",
@@ -261,6 +277,14 @@
   "gphc": "9010938",
   "gphcVerified": false,
   "homepage": "https://www.lotusweightloss.co.uk/",
+  "subscription": false
+ },
+ {
+  "slug": "lvae",
+  "name": "L'vae",
+  "gphc": "9013068",
+  "gphcVerified": false,
+  "homepage": "",
   "subscription": false
  },
  {
@@ -424,6 +448,14 @@
   "subscription": false
  },
  {
+  "slug": "phlo-clinic",
+  "name": "Phlo Clinic",
+  "gphc": "9011171",
+  "gphcVerified": false,
+  "homepage": "https://phloclinic.co.uk/",
+  "subscription": false
+ },
+ {
   "slug": "pills2u",
   "name": "Pills2U",
   "gphc": "9012634",
@@ -448,11 +480,27 @@
   "subscription": false
  },
  {
+  "slug": "pprx",
+  "name": "PPRX Private Clinic",
+  "gphc": "9012740",
+  "gphcVerified": false,
+  "homepage": "https://pprx.co.uk/",
+  "subscription": false
+ },
+ {
   "slug": "prescription-doctor",
   "name": "Prescription Doctor",
   "gphc": "1099351",
   "gphcVerified": false,
   "homepage": "https://www.prescriptiondoctor.com/",
+  "subscription": false
+ },
+ {
+  "slug": "privatedoc",
+  "name": "PrivateDoc",
+  "gphc": "1107567",
+  "gphcVerified": false,
+  "homepage": "https://www.privatedoc.com/",
   "subscription": false
  },
  {
