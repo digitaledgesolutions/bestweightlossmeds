@@ -1,0 +1,62 @@
+<script>
+  // Dose switching, drug switching and the subscription filter. ~1.5 KB, no framework.
+  const gbp = (v: number) => '£' + v.toLocaleString('en-GB', { minimumFractionDigits: v % 1 ? 2 : 0, maximumFractionDigits: 2 });
+  const label = (d: string) => d.replace('mg', ' mg');
+
+  function render(board: HTMLElement) {
+    const dose = board.querySelector<HTMLElement>('.dose[aria-pressed="true"]')?.dataset.dose;
+    if (!dose) return;
+    const limit = Number(board.dataset.limit || 0);
+    const noSub = board.querySelector<HTMLInputElement>('[data-nosub]')?.checked;
+    const list = board.querySelector('[data-list]');
+    if (!list) return;
+    const rows = [...list.querySelectorAll<HTMLElement>('[data-row]')];
+    const price = (r: HTMLElement) => JSON.parse(r.dataset.p || '{}')[dose];
+    const shown = rows.filter((r) => price(r) != null && !(noSub && r.dataset.sub === '1'))
+      .sort((a, b) => price(a) - price(b));
+    const best = shown.length ? price(shown[0]) : null;
+    rows.forEach((r) => (r.hidden = true));
+    shown.forEach((r, i) => {
+      const p = price(r);
+      const was = JSON.parse(r.dataset.w || '{}')[dose];
+      r.querySelector('[data-amount]')!.textContent = gbp(p);
+      const w = r.querySelector<HTMLElement>('[data-was]')!;
+      w.hidden = !was; w.textContent = was ? gbp(was) : '';
+      r.querySelector('[data-rank]')!.textContent = String(i + 1);
+      r.querySelectorAll<HTMLElement>('[data-change]').forEach((c) => (c.hidden = c.dataset.cdose !== dose));
+      r.classList.toggle('is-best', p === best);
+      r.querySelector<HTMLElement>('[data-bestnote]')!.hidden = p !== best;
+      r.hidden = limit > 0 && i >= limit;
+      list.appendChild(r);
+    });
+    rows.filter((r) => !shown.includes(r)).forEach((r) => list.appendChild(r));
+    const count = board.querySelector('[data-count]');
+    if (count) count.innerHTML = `<strong>${shown.length}</strong> providers with a verified ${label(dose)} price`;
+  }
+
+  document.querySelectorAll<HTMLElement>('[data-board]').forEach((board) => {
+    board.addEventListener('click', (e) => {
+      const btn = (e.target as HTMLElement).closest<HTMLElement>('.dose');
+      if (!btn) return;
+      board.querySelectorAll('.dose').forEach((b) => b.setAttribute('aria-pressed', String(b === btn)));
+      render(board);
+      const u = new URL(location.href); u.searchParams.set('dose', btn.dataset.dose!);
+      history.replaceState(null, '', u);
+    });
+    board.querySelector('[data-nosub]')?.addEventListener('change', () => render(board));
+    const want = new URL(location.href).searchParams.get('dose');
+    const btn = want && board.querySelector<HTMLElement>(`.dose[data-dose="${CSS.escape(want)}"]`);
+    if (btn) btn.click();
+  });
+
+  // Drug switcher on the home page.
+  document.querySelectorAll<HTMLElement>('[data-drugswitch]').forEach((seg) => {
+    seg.addEventListener('click', (e) => {
+      const btn = (e.target as HTMLElement).closest<HTMLElement>('[data-drug]');
+      if (!btn) return;
+      e.preventDefault();
+      seg.querySelectorAll('[data-drug]').forEach((b) => b.setAttribute('aria-pressed', String(b === btn)));
+      document.querySelectorAll<HTMLElement>('[data-board]').forEach((b) => (b.hidden = b.dataset.board !== btn.dataset.drug));
+    });
+  });
+</script>

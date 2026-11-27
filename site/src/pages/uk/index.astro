@@ -1,0 +1,58 @@
+---
+import Base from '../../layouts/Base.astro';
+import PriceBoard from '../../components/PriceBoard.astro';
+import BoardScript from '../../components/BoardScript.astro';
+import Faq from '../../components/Faq.astro';
+import { DRUG_LIST, cheapest, liveProviders, priceCount, gmt, GENERATED_AT, gbp, doseLabel } from '../../lib/data';
+import { SHARED_FAQS, METHOD } from '../../lib/content';
+const count = liveProviders().length;
+---
+<Base
+  title="Mounjaro and Wegovy prices in the UK, compared by dose | Best Weight Loss Meds"
+  description="Compare UK prices for Mounjaro, Wegovy and the Wegovy pill at every dose. Prices are read from each provider's own site every day."
+  current="/uk/">
+  <section class="hero">
+    <div class="wrap">
+      <h1>What will your dose cost?</h1>
+      <p class="lede">Prices for every dose of Mounjaro, Wegovy and the Wegovy pill from {count} UK providers, checked every morning.</p>
+      {GENERATED_AT && <p class="freshbar"><span><span class="dot" aria-hidden="true"></span>Checked <strong>{gmt(GENERATED_AT)}</strong></span><span><strong>{priceCount()}</strong> verified prices</span><span>No paid placements</span></p>}
+      <div class="picker">
+        <div class="seg" role="group" aria-label="Medicine" data-drugswitch>
+          {DRUG_LIST.map((d, i) => <button type="button" data-drug={d.key} aria-pressed={String(i === 0)}>{d.name}</button>)}
+        </div>
+        {DRUG_LIST.map((d, i) => <PriceBoard drug={d.key} limit={5} hidden={i !== 0} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2>Lowest starting price today</h2>
+      <div class="drug-cards">
+        {DRUG_LIST.map((d) => {
+          const c = cheapest(d.key, d.startDose);
+          return (
+            <a class="drug-card" href={d.path}>
+              <strong>{d.name}</strong>
+              <span class="muted small">{d.form}, {d.generic}</span>
+              <p class="from" style="margin:0.6rem 0 0">{c ? <>From <b>{gbp(c.prices[d.startDose])}</b> at {doseLabel(d.startDose)}</> : 'No verified price right now'}</p>
+            </a>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2>How we check prices</h2>
+      <ol class="steps">
+        {METHOD.map(([h, p]) => <li><h3>{h}</h3><p>{p}</p></li>)}
+      </ol>
+      <p style="margin-top:1.5rem"><a href="/uk/how-we-check-prices/">More about our method</a></p>
+    </div>
+  </section>
+
+  <Faq items={SHARED_FAQS} />
+  <BoardScript />
+</Base>

@@ -1,0 +1,642 @@
+[
+ {
+  "slug": "allerton",
+  "name": "Allerton",
+  "gphc": "1089104",
+  "gphcVerified": false,
+  "homepage": "",
+  "subscription": false
+ },
+ {
+  "slug": "asda",
+  "name": "Asda",
+  "gphc": "1091675",
+  "gphcVerified": false,
+  "homepage": "https://onlinedoctor.asda.com/",
+  "subscription": false
+ },
+ {
+  "slug": "ashcroft-pharmacy",
+  "name": "Ashcroft Pharmacy",
+  "gphc": "9012896",
+  "gphcVerified": false,
+  "homepage": "",
+  "subscription": false
+ },
+ {
+  "slug": "bolt-pharmacy",
+  "name": "Bolt Pharmacy",
+  "gphc": "9013085",
+  "gphcVerified": false,
+  "homepage": "https://www.boltpharmacy.co.uk/",
+  "subscription": false
+ },
+ {
+  "slug": "boots",
+  "name": "Boots",
+  "gphc": "1096181",
+  "gphcVerified": false,
+  "homepage": "https://onlinedoctor.boots.com/",
+  "subscription": false
+ },
+ {
+  "slug": "chemist4u",
+  "name": "Chemist4U",
+  "gphc": "9012464",
+  "gphcVerified": false,
+  "homepage": "https://www.chemist-4-u.com/",
+  "subscription": false
+ },
+ {
+  "slug": "click-2-pharmacy",
+  "name": "Click 2 Pharmacy",
+  "gphc": "1033781",
+  "gphcVerified": false,
+  "homepage": "https://click2pharmacy.co.uk/",
+  "subscription": false
+ },
+ {
+  "slug": "curate",
+  "name": "Curate",
+  "gphc": "9012920",
+  "gphcVerified": false,
+  "homepage": "https://curatehealth.co.uk/",
+  "subscription": false
+ },
+ {
+  "slug": "cured-pharmacy",
+  "name": "Cured Pharmacy",
+  "gphc": "9012511",
+  "gphcVerified": false,
+  "homepage": "https://curedpharmacy.com/",
+  "subscription": false
+ },
+ {
+  "slug": "curely",
+  "name": "Curely",
+  "gphc": "9012401",
+  "gphcVerified": false,
+  "homepage": "",
+  "subscription": false
+ },
+ {
+  "slug": "cuva-health",
+  "name": "Cuva Health",
+  "gphc": "9012581",
+  "gphcVerified": false,
+  "homepage": "",
+  "subscription": false
+ },
+ {
+  "slug": "doktorabc",
+  "name": "DoktorABC",
+  "gphc": "9012267",
+  "gphcVerified": false,
+  "homepage": "https://www.doktorabc.com/",
+  "subscription": false
+ },
+ {
+  "slug": "dotor",
+  "name": "DoToR",
+  "gphc": "9012775",
+  "gphcVerified": false,
+  "homepage": "",
+  "subscription": false
+ },
+ {
+  "slug": "dr-weightmans",
+  "name": "Dr Weightmans",
+  "gphc": "1092500",
+  "gphcVerified": false,
+  "homepage": "https://drweightmans.com/",
+  "subscription": false
+ },
+ {
+  "slug": "e-surgery",
+  "name": "e-Surgery",
+  "gphc": "9012167",
+  "gphcVerified": false,
+  "homepage": "",
+  "subscription": false
+ },
+ {
+  "slug": "envigore",
+  "name": "Envigore",
+  "gphc": "9012382",
+  "gphcVerified": false,
+  "homepage": "",
+  "subscription": false
+ },
+ {
+  "slug": "everydaymeds",
+  "name": "EverydayMeds",
+  "gphc": "9012878",
+  "gphcVerified": false,
+  "homepage": "https://everydaymeds.co.uk/",
+  "subscription": false
+ },
+ {
+  "slug": "farmeci",
+  "name": "Farmeci",
+  "gphc": "9011790",
+  "gphcVerified": false,
+  "homepage": "",
+  "subscription": false
+ },
+ {
+  "slug": "fylde-clinic",
+  "name": "Fylde Clinic",
+  "gphc": "9012835",
+  "gphcVerified": false,
+  "homepage": "",
+  "subscription": false
+ },
+ {
+  "slug": "genmeds",
+  "name": "Genmeds",
+  "gphc": "9013006",
+  "gphcVerified": false,
+  "homepage": "https://www.genmeds.co.uk/",
+  "subscription": false
+ },
+ {
+  "slug": "get-a-drip",
+  "name": "Get A Drip",
+  "gphc": "9012347",
+  "gphcVerified": false,
+  "homepage": "https://getadrip.shop/",
+  "subscription": false
+ },
+ {
+  "slug": "get-weightloss",
+  "name": "Get Weightloss",
+  "gphc": "9011648",
+  "gphcVerified": false,
+  "homepage": "https://getweightloss.co.uk/",
+  "subscription": false
+ },
+ {
+  "slug": "happen",
+  "name": "Happen",
+  "gphc": "9013068",
+  "gphcVerified": false,
+  "homepage": "",
+  "subscription": false
+ },
+ {
+  "slug": "happy-pharmacy",
+  "name": "Happy Pharmacy",
+  "gphc": "9012585",
+  "gphcVerified": false,
+  "homepage": "https://happypharmacy.co.uk/",
+  "subscription": false
+ },
+ {
+  "slug": "health-express",
+  "name": "Health Express",
+  "gphc": "",
+  "gphcVerified": false,
+  "homepage": "",
+  "subscription": false
+ },
+ {
+  "slug": "hey-slim",
+  "name": "Hey Slim",
+  "gphc": "9012739",
+  "gphcVerified": false,
+  "homepage": "https://www.heyslim.co.uk/",
+  "subscription": true
+ },
+ {
+  "slug": "iq-doctor",
+  "name": "IQ Doctor",
+  "gphc": "9010411",
+  "gphcVerified": false,
+  "homepage": "",
+  "subscription": false
+ },
+ {
+  "slug": "jood-life",
+  "name": "Jood Life",
+  "gphc": "9012990",
+  "gphcVerified": false,
+  "homepage": "https://joodlife.com/",
+  "subscription": true
+ },
+ {
+  "slug": "juniper",
+  "name": "Juniper",
+  "gphc": "9011842",
+  "gphcVerified": false,
+  "homepage": "",
+  "subscription": false
+ },
+ {
+  "slug": "lvae",
+  "name": "L'vae",
+  "gphc": "9013068",
+  "gphcVerified": false,
+  "homepage": "",
+  "subscription": false
+ },
+ {
+  "slug": "live-well-weight-loss",
+  "name": "Live Well Weight Loss",
+  "gphc": "9012516",
+  "gphcVerified": false,
+  "homepage": "https://livewellweightloss.co.uk/",
+  "subscription": false
+ },
+ {
+  "slug": "lloyds-pharmacy",
+  "name": "Lloyds Pharmacy",
+  "gphc": "9011437",
+  "gphcVerified": false,
+  "homepage": "https://onlinedoctor.lloydspharmacy.com/",
+  "subscription": false
+ },
+ {
+  "slug": "lotus-weight-loss",
+  "name": "Lotus Weight Loss",
+  "gphc": "9010938",
+  "gphcVerified": false,
+  "homepage": "https://www.lotusweightloss.co.uk/",
+  "subscription": false
+ },
+ {
+  "slug": "manchester-chemist",
+  "name": "Manchester Chemist",
+  "gphc": "9010683",
+  "gphcVerified": false,
+  "homepage": "https://manchesterchemist.com/",
+  "subscription": false
+ },
+ {
+  "slug": "medexpress",
+  "name": "MedExpress",
+  "gphc": "9012633",
+  "gphcVerified": false,
+  "homepage": "https://www.medexpress.co.uk/",
+  "subscription": false
+ },
+ {
+  "slug": "medhut",
+  "name": "MedHut",
+  "gphc": "9012752",
+  "gphcVerified": false,
+  "homepage": "",
+  "subscription": false
+ },
+ {
+  "slug": "medicine-marketplace",
+  "name": "Medicine Marketplace",
+  "gphc": "1116946",
+  "gphcVerified": false,
+  "homepage": "",
+  "subscription": false
+ },
+ {
+  "slug": "medicspot",
+  "name": "Medicspot",
+  "gphc": "9012559",
+  "gphcVerified": false,
+  "homepage": "",
+  "subscription": false
+ },
+ {
+  "slug": "medino",
+  "name": "Medino",
+  "gphc": "9011921",
+  "gphcVerified": false,
+  "homepage": "https://www.medino.com/",
+  "subscription": false
+ },
+ {
+  "slug": "msh-weight-loss",
+  "name": "MSH Weight Loss",
+  "gphc": "9012599",
+  "gphcVerified": false,
+  "homepage": "",
+  "subscription": false
+ },
+ {
+  "slug": "my-london-pharmacy",
+  "name": "My London Pharmacy",
+  "gphc": "9011790",
+  "gphcVerified": false,
+  "homepage": "",
+  "subscription": false
+ },
+ {
+  "slug": "new-health",
+  "name": "New Health",
+  "gphc": "9011199",
+  "gphcVerified": false,
+  "homepage": "",
+  "subscription": false
+ },
+ {
+  "slug": "next-script",
+  "name": "Next Script",
+  "gphc": "9012568",
+  "gphcVerified": false,
+  "homepage": "https://nextscript.co.uk/",
+  "subscription": false
+ },
+ {
+  "slug": "nulife-pharmacy",
+  "name": "Nulife Pharmacy",
+  "gphc": "9012931",
+  "gphcVerified": false,
+  "homepage": "",
+  "subscription": false
+ },
+ {
+  "slug": "numan",
+  "name": "Numan",
+  "gphc": "9011408",
+  "gphcVerified": false,
+  "homepage": "https://www.numan.com/",
+  "subscription": true
+ },
+ {
+  "slug": "onlinemeds",
+  "name": "OnlineMeds",
+  "gphc": "9012658",
+  "gphcVerified": false,
+  "homepage": "https://onlinemeds.co.uk/",
+  "subscription": false
+ },
+ {
+  "slug": "oushk",
+  "name": "Oushk",
+  "gphc": "9012610",
+  "gphcVerified": false,
+  "homepage": "",
+  "subscription": false
+ },
+ {
+  "slug": "oxford-online-pharmacy",
+  "name": "Oxford Online Pharmacy",
+  "gphc": "9012796",
+  "gphcVerified": false,
+  "homepage": "https://www.oxfordonlinepharmacy.co.uk/",
+  "subscription": false
+ },
+ {
+  "slug": "pharmacy-advance",
+  "name": "Pharmacy Advance",
+  "gphc": "9012423",
+  "gphcVerified": false,
+  "homepage": "https://www.pharmacyadvance.co.uk/",
+  "subscription": false
+ },
+ {
+  "slug": "pharmacy-express",
+  "name": "Pharmacy Express",
+  "gphc": "9012468",
+  "gphcVerified": false,
+  "homepage": "",
+  "subscription": false
+ },
+ {
+  "slug": "pharmacy2u",
+  "name": "Pharmacy2U",
+  "gphc": "9010146",
+  "gphcVerified": false,
+  "homepage": "",
+  "subscription": false
+ },
+ {
+  "slug": "pharmica",
+  "name": "Pharmica",
+  "gphc": "9012030",
+  "gphcVerified": false,
+  "homepage": "https://www.pharmica.co.uk/",
+  "subscription": false
+ },
+ {
+  "slug": "pharmulous",
+  "name": "Pharmulous",
+  "gphc": "9012252",
+  "gphcVerified": false,
+  "homepage": "",
+  "subscription": false
+ },
+ {
+  "slug": "pills2u",
+  "name": "Pills2U",
+  "gphc": "9012634",
+  "gphcVerified": false,
+  "homepage": "https://pills2u.co.uk/",
+  "subscription": false
+ },
+ {
+  "slug": "pillsorted",
+  "name": "PillSorted",
+  "gphc": "9011258",
+  "gphcVerified": false,
+  "homepage": "https://www.pillsorted.com/",
+  "subscription": false
+ },
+ {
+  "slug": "pilltime",
+  "name": "PillTime",
+  "gphc": "9011779",
+  "gphcVerified": false,
+  "homepage": "https://pilltime.co.uk/",
+  "subscription": false
+ },
+ {
+  "slug": "prescription-doctor",
+  "name": "Prescription Doctor",
+  "gphc": "1099351",
+  "gphcVerified": false,
+  "homepage": "https://www.prescriptiondoctor.com/",
+  "subscription": false
+ },
+ {
+  "slug": "quick-meds",
+  "name": "Quick Meds",
+  "gphc": "9012521",
+  "gphcVerified": false,
+  "homepage": "",
+  "subscription": false
+ },
+ {
+  "slug": "rightangled",
+  "name": "Rightangled",
+  "gphc": "9011933",
+  "gphcVerified": false,
+  "homepage": "https://rightangled.com/",
+  "subscription": false
+ },
+ {
+  "slug": "second-nature",
+  "name": "Second Nature",
+  "gphc": "9010938",
+  "gphcVerified": false,
+  "homepage": "",
+  "subscription": false
+ },
+ {
+  "slug": "simple-online-pharmacy",
+  "name": "Simple Online Pharmacy",
+  "gphc": "9011287",
+  "gphcVerified": false,
+  "homepage": "https://www.simpleonlinepharmacy.co.uk/",
+  "subscription": false
+ },
+ {
+  "slug": "simply-meds-online",
+  "name": "Simply Meds Online",
+  "gphc": "9010764",
+  "gphcVerified": false,
+  "homepage": "https://www.simplymedsonline.co.uk/",
+  "subscription": false
+ },
+ {
+  "slug": "skin-and-shape",
+  "name": "Skin & Shape",
+  "gphc": "9012790",
+  "gphcVerified": false,
+  "homepage": "",
+  "subscription": false
+ },
+ {
+  "slug": "slimming-direct",
+  "name": "Slimming Direct",
+  "gphc": "1031513",
+  "gphcVerified": false,
+  "homepage": "https://slimmingdirect.co.uk/",
+  "subscription": true
+ },
+ {
+  "slug": "superdrug",
+  "name": "Superdrug",
+  "gphc": "9010736",
+  "gphcVerified": false,
+  "homepage": "https://onlinedoctor.superdrug.com/",
+  "subscription": false
+ },
+ {
+  "slug": "swift-doctor",
+  "name": "Swift Doctor",
+  "gphc": "9012809",
+  "gphcVerified": false,
+  "homepage": "https://swift-doctor.com/",
+  "subscription": false
+ },
+ {
+  "slug": "swift-medi",
+  "name": "Swift Medi",
+  "gphc": "9012840",
+  "gphcVerified": false,
+  "homepage": "",
+  "subscription": false
+ },
+ {
+  "slug": "the-care-pharmacy",
+  "name": "The Care Pharmacy",
+  "gphc": "9010308",
+  "gphcVerified": false,
+  "homepage": "https://thecarepharmacy.com/",
+  "subscription": false
+ },
+ {
+  "slug": "the-family-chemist",
+  "name": "The Family Chemist",
+  "gphc": "9012915",
+  "gphcVerified": false,
+  "homepage": "https://thefamilychemist.co.uk/",
+  "subscription": false
+ },
+ {
+  "slug": "the-independent-pharmacy",
+  "name": "The Independent Pharmacy",
+  "gphc": "9012559",
+  "gphcVerified": false,
+  "homepage": "https://www.theindependentpharmacy.co.uk/",
+  "subscription": false
+ },
+ {
+  "slug": "the-weight-clinic",
+  "name": "The Weight Clinic",
+  "gphc": "1034996",
+  "gphcVerified": false,
+  "homepage": "https://www.theweightclinic.co.uk/",
+  "subscription": false
+ },
+ {
+  "slug": "totiva",
+  "name": "Totiva",
+  "gphc": "9012997",
+  "gphcVerified": false,
+  "homepage": "",
+  "subscription": false
+ },
+ {
+  "slug": "tribelle",
+  "name": "Tribelle",
+  "gphc": "9012688",
+  "gphcVerified": false,
+  "homepage": "",
+  "subscription": false
+ },
+ {
+  "slug": "trim",
+  "name": "Trim",
+  "gphc": "9012710",
+  "gphcVerified": false,
+  "homepage": "",
+  "subscription": false
+ },
+ {
+  "slug": "uk-meds",
+  "name": "UK Meds",
+  "gphc": "9011487",
+  "gphcVerified": false,
+  "homepage": "https://www.ukmeds.co.uk/",
+  "subscription": false
+ },
+ {
+  "slug": "voy",
+  "name": "Voy",
+  "gphc": "9012134",
+  "gphcVerified": false,
+  "homepage": "https://www.joinvoy.com/",
+  "subscription": true
+ },
+ {
+  "slug": "well-pharmacy",
+  "name": "Well Pharmacy",
+  "gphc": "9010492",
+  "gphcVerified": false,
+  "homepage": "https://well.co.uk/",
+  "subscription": false
+ },
+ {
+  "slug": "weprescribe",
+  "name": "WePrescribe",
+  "gphc": "9012132",
+  "gphcVerified": false,
+  "homepage": "https://weprescribe.co.uk/",
+  "subscription": false
+ },
+ {
+  "slug": "yourdose",
+  "name": "YourDose",
+  "gphc": "9013045",
+  "gphcVerified": false,
+  "homepage": "https://yourdosepharmacy.co.uk/",
+  "subscription": false
+ },
+ {
+  "slug": "yourpharmacy",
+  "name": "YourPharmacy",
+  "gphc": "9012029",
+  "gphcVerified": false,
+  "homepage": "https://yourpharmacy.uk/",
+  "subscription": false
+ }
+]

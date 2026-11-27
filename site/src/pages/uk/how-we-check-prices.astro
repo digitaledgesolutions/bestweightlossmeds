@@ -1,0 +1,35 @@
+---
+import Base from '../../layouts/Base.astro';
+import { METHOD } from '../../lib/content';
+import { STALE_HOURS, GENERATED_AT, ago } from '../../lib/data';
+---
+<Base title="How we check prices | Best Weight Loss Meds"
+  description="How Best Weight Loss Meds reads, checks and publishes UK prices for Mounjaro and Wegovy every day."
+  current="/uk/how-we-check-prices/">
+  <section class="hero">
+    <div class="wrap">
+      <h1>How we check prices</h1>
+      <p class="lede">We only publish a price we've read from the provider's own website in the last {STALE_HOURS} hours.{GENERATED_AT && <> The last check finished {ago(GENERATED_AT)}.</>}</p>
+    </div>
+  </section>
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <ol class="steps">{METHOD.map(([h, p]) => <li><h3>{h}</h3><p>{p}</p></li>)}</ol>
+    </div>
+  </section>
+  <section class="section">
+    <div class="wrap prose">
+      <h2>What we don't do</h2>
+      <ul>
+        <li>We don't take payment from providers, and our links aren't affiliate links.</li>
+        <li>We don't change the order. Lists are sorted by price for the dose you pick.</li>
+        <li>We don't guess. If a provider doesn't publish a price for a dose, that dose is left blank.</li>
+        <li>We don't give medical advice. Whether a medicine is right for you is a decision for a registered prescriber.</li>
+      </ul>
+      <h2>Prices that need a plan</h2>
+      <p>Some providers only offer their price as part of a subscription or membership. We tag these so you can see the commitment before you click through, and you can hide them from any list.</p>
+      <h2>Offers</h2>
+      <p>If a provider's page shows a discount, such as money off a first order, we show it next to their price along with when we saw it. Offers come off the site when they disappear from the provider's page.</p>
+    </div>
+  </section>
+</Base>

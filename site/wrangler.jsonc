@@ -1,0 +1,23 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "bestweightlossmeds",
+  "main": "worker/index.js",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    "run_worker_first": true,
+    "not_found_handling": "404-page",
+    "html_handling": "force-trailing-slash"
+  },
+  "routes": [
+    { "pattern": "bestweightlossmeds.com/*", "zone_name": "bestweightlossmeds.com" },
+    { "pattern": "www.bestweightlossmeds.com/*", "zone_name": "bestweightlossmeds.com" }
+  ],
+  // Deployed by Cloudflare Workers Builds on every push to main (root dir: site,
+  // build: npm ci && npx astro build, deploy: npx wrangler deploy).
+  // PUBLIC=false closes the site (preview cookie via ?preview=<PREVIEW_KEY> secret);
+  // INDEXABLE=false sends noindex everywhere and a blocking robots.txt.
+  "vars": { "PUBLIC": "true", "INDEXABLE": "true" },
+  "observability": { "enabled": true }
+}

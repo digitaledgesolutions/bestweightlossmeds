@@ -1,0 +1,85 @@
+---
+import Base from '../../../layouts/Base.astro';
+import sources from '../../../../../scraper/sources.json';
+import {
+  ALL_PROVIDERS, DRUGS, listingsForProvider, cheapest, ranked, gbp, doseLabel, ago,
+} from '../../../lib/data';
+
+// A page for every provider we track, whether or not today's check succeeded.
+export function getStaticPaths() {
+  const tracked = new Set((sources as any[]).map((s) => s.provider));
+  return ALL_PROVIDERS.filter((p) => tracked.has(p.slug)).map((p) => ({ params: { slug: p.slug }, props: { p } }));
+}
+const { p } = Astro.props;
+const listings = listingsForProvider(p.slug);
+// GPhC numbers came from hand-entered data; only show one that no other provider shares.
+const gphcCount = ALL_PROVIDERS.filter((x) => x.gphc && x.gphc === p.gphc).length;
+const gphc = p.gphc && gphcCount === 1 ? p.gphc : null;
+const offers = listings.filter((l) => l.offer);
+const latest = listings.map((l) => l.verifiedAt).sort().at(-1);
+const host = p.homepage ? new URL(p.homepage).hostname.replace(/^www\./, '') : '';
+const ext = `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M6 3h7v7M13 3 4 12"/></svg>`;
+---
+<Base
+  title={`${p.name} weight loss prices: Mounjaro and Wegovy by dose | Best Weight Loss Meds`}
+  description={`${p.name}'s current prices for ${listings.map((l) => DRUGS[l.drug].name).join(', ') || 'weight loss medicines'} at every dose, checked daily and compared with other UK providers.`}
+  current="/uk/providers/">
+  <div class="wrap">
+    <p class="crumbs"><a href="/uk/providers/">Providers</a> / {p.name}</p>
+  </div>
+  <section class="hero" style="padding-top:0.75rem">
+    <div class="wrap">
+      <h1>{p.name}</h1>
+      {listings.length > 0 ? (
+        <p class="lede">Current prices for {listings.map((l) => DRUGS[l.drug].name).join(', ').replace(/, ([^,]*)$/, ' and $1')}, last checked {ago(latest!)}.</p>
+      ) : (
+        <p class="lede">We couldn't confirm {p.name}'s prices in the last 48 hours, so none are shown. We'll try again tomorrow morning.</p>
+      )}
+      <dl class="facts">
+        {host && <div><dt>Website</dt><dd>{host}</dd></div>}
+        <div><dt>Pricing</dt><dd>{p.subscription ? 'Subscription or plan needed' : 'Pay per order'}</dd></div>
+        {gphc && <div><dt>GPhC registration</dt><dd><a href={`https://www.pharmacyregulation.org/registers/pharmacy/${gphc}`} rel="nofollow noopener" target="_blank">{gphc}</a></dd></div>}
+        {offers.length > 0 && <div><dt>Current offer</dt><dd>{offers[0].offer}</dd></div>}
+      </dl>
+      {p.homepage && <p style="margin-top:1.25rem"><a class="btn btn-solid" href={listings[0]?.url || p.homepage} rel="nofollow noopener noreferrer" target="_blank">Visit {p.name} <Fragment set:html={ext} /></a></p>}
+    </div>
+  </section>
+
+  {listings.map((l) => {
+    const d = DRUGS[l.drug];
+    return (
+      <section class="section">
+        <div class="wrap">
+          <h2>{d.name}</h2>
+          <p class="muted small">{d.form}. Checked <time datetime={l.verifiedAt}>{ago(l.verifiedAt)}</time>.{l.offer && <> Offer on the page: <strong>{l.offer}</strong>.</>}</p>
+          <table class="dtable" style="max-width:40rem">
+            <thead><tr><th scope="col">Dose</th><th scope="col">Price</th><th scope="col">Compared with others</th></tr></thead>
+            <tbody>
+              {d.doses.filter((x) => l.prices[x] != null).map((x) => {
+                const low = cheapest(l.drug, x);
+                const diff = low ? l.prices[x] - low.prices[x] : 0;
+                const n = ranked(l.drug, x).length;
+                return (
+                  <tr>
+                    <th scope="row" style="color:var(--ink);font-weight:700">{doseLabel(x)}</th>
+                    <td class="num">{gbp(l.prices[x])}{l.wasPrices[x] && <span class="rel" style="text-decoration:line-through;margin-left:0.4rem">{gbp(l.wasPrices[x])}</span>}</td>
+                    <td>{diff < 0.005
+                      ? <span class="rel good">Lowest of {n} providers</span>
+                      : <span class="rel">+{gbp(diff)} more than {low!.provider.name}</span>}</td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+          {l.firstYear != null && <p class="small" style="margin-top:1rem">First-year total on a common step-up plan: <strong>{gbp(l.firstYear, 0)}</strong>. <a href={d.path}>Compare with other providers</a></p>}
+        </div>
+      </section>
+    );
+  })}
+
+  <section class="section">
+    <div class="wrap">
+      <p class="notice measure"><strong>Before you buy:</strong> confirm the price, what's included and any subscription terms on {p.name}'s own site. A registered prescriber must approve treatment.</p>
+    </div>
+  </section>
+</Base>

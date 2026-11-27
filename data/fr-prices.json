@@ -1,0 +1,11 @@
+{
+ "source": "Base de données publique des médicaments (BDPM) et avis de prix au Journal officiel du 29 mai 2026",
+ "effective": "2026-06-15",
+ "verifiedAt": "2026-11-15T18:00:00Z",
+ "reimbursementRate": 0.65,
+ "drugs": {
+  "mounjaro": {"regulated": true, "prices": {"2.5mg": 176.10, "5mg": 237.68, "7.5mg": 335.95, "10mg": 335.95, "12.5mg": 433.80, "15mg": 433.80}},
+  "wegovy": {"regulated": true, "prices": {"0.25mg": 146.91, "0.5mg": 146.91, "1mg": 146.91, "1.7mg": 169.31, "2.4mg": 195.10}},
+  "wegovy-pill": {"regulated": false, "launched": "2026-11-02", "prices": {"1.5mg": 169, "4mg": 169, "9mg": 205, "25mg": 235}}
+ }
+}

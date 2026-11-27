@@ -1,0 +1,1293 @@
+{
+ "generatedAt": "2026-11-27T13:23:13Z",
+ "providers": {
+  "bolt-pharmacy": {
+   "mounjaro": {
+    "checkedAt": "2026-11-27T13:23:13Z",
+    "method": "positional",
+    "prices": {
+     "10mg": 289.0,
+     "12.5mg": 309.0,
+     "15mg": 319.0,
+     "2.5mg": 169.0,
+     "5mg": 199.0,
+     "7.5mg": 259.0
+    },
+    "url": "https://www.boltpharmacy.co.uk/mounjaro",
+    "verifiedAt": "2026-11-27T13:23:13Z"
+   },
+   "wegovy": {
+    "checkedAt": "2026-11-27T13:23:13Z",
+    "pending": {
+     "firstSeen": "2026-11-27T13:23:13Z",
+     "method": "positional",
+     "prices": {
+      "0.25mg": 119.0,
+      "0.5mg": 129.0,
+      "1.7mg": 179.0,
+      "1mg": 139.0,
+      "2.4mg": 199.0,
+      "7.2mg": 229.0
+     },
+     "reason": "low-confidence change"
+    },
+    "prices": {
+     "0.25mg": 119.0,
+     "0.5mg": 129.0,
+     "1.7mg": 179.0,
+     "1mg": 139.0,
+     "2.4mg": 199.0,
+     "7.2mg": 259.0
+    },
+    "url": "https://www.boltpharmacy.co.uk/wegovy",
+    "verifiedAt": "2026-09-25T11:42:00Z"
+   }
+  },
+  "boots": {
+   "mounjaro": {
+    "checkedAt": "2026-11-27T13:23:13Z",
+    "prices": {
+     "10mg": 299.0,
+     "12.5mg": 319.0,
+     "15mg": 339.0,
+     "2.5mg": 179.0,
+     "5mg": 199.0,
+     "7.5mg": 259.0
+    },
+    "url": "https://onlinedoctor.boots.com/treatments/mounjaro",
+    "verifiedAt": "2026-09-25T11:40:55Z"
+   }
+  },
+  "chemist4u": {
+   "wegovy-pill": {
+    "checkedAt": "2026-11-27T13:23:13Z",
+    "method": "text",
+    "prices": {
+     "1.5mg": 99.0,
+     "25mg": 199.0,
+     "4mg": 99.0,
+     "9mg": 119.0
+    },
+    "url": "https://www.chemist-4-u.com/wegovy-pills",
+    "verifiedAt": "2026-11-27T13:23:13Z"
+   }
+  },
+  "click-2-pharmacy": {
+   "mounjaro": {
+    "checkedAt": "2026-11-27T13:23:13Z",
+    "method": "jsonld",
+    "prices": {
+     "10mg": 249.99,
+     "12.5mg": 269.99,
+     "15mg": 288.99,
+     "2.5mg": 145.99,
+     "5mg": 173.99,
+     "7.5mg": 222.99
+    },
+    "url": "https://click2pharmacy.co.uk/product/mounjaro-weight-loss-injections/",
+    "verifiedAt": "2026-11-27T13:23:13Z"
+   },
+   "wegovy": {
+    "checkedAt": "2026-11-27T13:23:13Z",
+    "method": "woo",
+    "prices": {
+     "0.25mg": 109.0,
+     "0.5mg": 109.0,
+     "1.7mg": 168.99,
+     "1mg": 109.0,
+     "2.4mg": 198.99,
+     "7.2mg": 259.99
+    },
+    "url": "https://click2pharmacy.co.uk/product/wegovy/",
+    "verifiedAt": "2026-11-27T13:23:13Z"
+   }
+  },
+  "curate": {
+   "mounjaro": {
+    "checkedAt": "2026-11-27T13:23:13Z",
+    "pending": {
+     "firstSeen": "2026-11-27T13:23:13Z",
+     "method": "text",
+     "prices": {
+      "10mg": 235.0,
+      "12.5mg": 245.0,
+      "2.5mg": 135.0,
+      "5mg": 155.0,
+      "7.5mg": 205.0
+     },
+     "reason": "low-confidence change"
+    },
+    "prices": {
+     "10mg": 289.0,
+     "12.5mg": 309.0,
+     "15mg": 329.0,
+     "2.5mg": 189.0,
+     "5mg": 199.0,
+     "7.5mg": 259.0
+    },
+    "url": "https://curatehealth.co.uk/weight-loss/mounjaro",
+    "verifiedAt": "2026-09-25T11:39:47Z"
+   },
+   "wegovy": {
+    "checkedAt": "2026-11-27T13:23:13Z",
+    "pending": {
+     "firstSeen": "2026-11-27T13:23:13Z",
+     "method": "text",
+     "prices": {
+      "0.25mg": 95.0,
+      "0.5mg": 95.0,
+      "1.7mg": 145.0,
+      "1mg": 95.0,
+      "2.4mg": 195.0
+     },
+     "reason": "big move"
+    },
+    "prices": {
+     "0.25mg": 133.0,
+     "0.5mg": 153.0,
+     "1.7mg": 203.0,
+     "1mg": 160.0,
+     "2.4mg": 210.0,
+     "7.2mg": 215.0
+    },
+    "url": "https://curatehealth.co.uk/weight-loss/wegovy",
+    "verifiedAt": "2026-09-25T11:41:00Z"
+   }
+  },
+  "cured-pharmacy": {
+   "mounjaro": {
+    "checkedAt": "2026-11-27T13:23:13Z",
+    "prices": {
+     "10mg": 245.0,
+     "12.5mg": 270.0,
+     "15mg": 287.0,
+     "2.5mg": 145.0,
+     "5mg": 179.0,
+     "7.5mg": 220.0
+    },
+    "url": "https://curedpharmacy.com/products/mounjaro-weight-loss-injections-tirzepatide-kwikpen.json",
+    "verifiedAt": "2026-09-25T11:40:45Z"
+   }
+  },
+  "doktorabc": {
+   "wegovy": {
+    "checkedAt": "2026-11-27T13:23:13Z",
+    "method": "jsonld",
+    "prices": {
+     "0.25mg": 99.0,
+     "0.5mg": 116.25,
+     "1.7mg": 175.5,
+     "1mg": 139.5,
+     "2.4mg": 197.75
+    },
+    "url": "https://www.doktorabc.com/uk/treatments/wegovy",
+    "verifiedAt": "2026-11-27T13:23:13Z"
+   }
+  },
+  "dr-weightmans": {
+   "mounjaro": {
+    "checkedAt": "2026-11-27T13:23:13Z",
+    "method": "woo",
+    "prices": {
+     "10mg": 235.0,
+     "12.5mg": 255.0,
+     "15mg": 280.0,
+     "2.5mg": 145.0,
+     "7.5mg": 214.0
+    },
+    "url": "https://drweightmans.com/product/mounjaro-tirzepatide/",
+    "verifiedAt": "2026-11-27T13:23:13Z"
+   },
+   "wegovy": {
+    "checkedAt": "2026-11-27T13:23:13Z",
+    "method": "woo",
+    "prices": {
+     "0.25mg": 90.0,
+     "0.5mg": 100.0,
+     "1.7mg": 125.0,
+     "2.4mg": 150.0,
+     "7.2mg": 220.0
+    },
+    "url": "https://drweightmans.com/product/wegovy-semaglutide/",
+    "verifiedAt": "2026-11-27T13:23:13Z"
+   }
+  },
+  "everydaymeds": {
+   "mounjaro": {
+    "checkedAt": "2026-11-27T13:23:13Z",
+    "prices": {
+     "10mg": 290.99,
+     "12.5mg": 319.99,
+     "15mg": 329.99,
+     "2.5mg": 174.99,
+     "5mg": 218.99,
+     "7.5mg": 279.99
+    },
+    "url": "https://everydaymeds.co.uk/products/mounjaro-injection.json",
+    "verifiedAt": "2026-09-25T11:40:45Z"
+   },
+   "wegovy": {
+    "checkedAt": "2026-11-27T13:23:13Z",
+    "prices": {
+     "0.25mg": 139.99,
+     "0.5mg": 144.99,
+     "1.7mg": 194.99,
+     "1mg": 149.99,
+     "2.4mg": 249.99,
+     "7.2mg": 299.99
+    },
+    "url": "https://everydaymeds.co.uk/products/wegovy-injection.json",
+    "verifiedAt": "2026-09-25T11:41:51Z"
+   },
+   "wegovy-pill": {
+    "checkedAt": "2026-11-27T13:23:13Z",
+    "prices": {
+     "1.5mg": 139.99,
+     "25mg": 219.99,
+     "4mg": 144.99,
+     "9mg": 164.99
+    },
+    "url": "https://everydaymeds.co.uk/products/wegovy-pill.json",
+    "verifiedAt": "2026-09-25T11:42:18Z"
+   }
+  },
+  "genmeds": {
+   "mounjaro": {
+    "checkedAt": "2026-11-27T13:23:13Z",
+    "pending": {
+     "firstSeen": "2026-11-27T13:23:13Z",
+     "method": "text",
+     "prices": {
+      "10mg": 489.98,
+      "12.5mg": 539.98,
+      "15mg": 569.98,
+      "2.5mg": 319.98,
+      "5mg": 339.98,
+      "7.5mg": 409.98
+     },
+     "reason": "big move"
+    },
+    "prices": {
+     "10mg": 279.99,
+     "12.5mg": 299.99,
+     "15mg": 309.99,
+     "2.5mg": 179.99,
+     "5mg": 199.99,
+     "7.5mg": 249.99
+    },
+    "url": "https://www.genmeds.co.uk/treatments/weight-loss/mounjaro",
+    "verifiedAt": "2026-09-25T11:39:50Z"
+   },
+   "wegovy": {
+    "checkedAt": "2026-11-27T13:23:13Z",
+    "method": "text",
+    "prices": {
+     "0.25mg": 134.99,
+     "0.5mg": 159.99,
+     "1.7mg": 199.99,
+     "1mg": 169.99,
+     "2.4mg": 239.99,
+     "7.2mg": 259.99
+    },
+    "url": "https://genmeds.co.uk/treatments/weight-loss/wegovy",
+    "verifiedAt": "2026-11-27T13:23:13Z"
+   },
+   "wegovy-pill": {
+    "checkedAt": "2026-11-27T13:23:13Z",
+    "method": "text",
+    "prices": {
+     "1.5mg": 139.99,
+     "25mg": 229.99,
+     "4mg": 149.99,
+     "9mg": 169.99
+    },
+    "url": "https://genmeds.co.uk/treatments/weight-loss/wegovy-pill",
+    "verifiedAt": "2026-11-27T13:23:13Z"
+   }
+  },
+  "get-a-drip": {
+   "mounjaro": {
+    "checkedAt": "2026-11-27T13:23:13Z",
+    "prices": {
+     "10mg": 259.0,
+     "12.5mg": 279.0,
+     "15mg": 299.0,
+     "2.5mg": 159.0,
+     "5mg": 179.0,
+     "7.5mg": 229.0
+    },
+    "url": "https://getadrip.shop/products/mounjaro-1.json",
+    "verifiedAt": "2026-09-25T11:40:18Z"
+   },
+   "wegovy": {
+    "checkedAt": "2026-11-27T13:23:13Z",
+    "method": "shopify",
+    "prices": {
+     "0.25mg": 109.0,
+     "0.5mg": 119.0,
+     "1.7mg": 140.0,
+     "1mg": 129.0,
+     "2.4mg": 160.0,
+     "7.2mg": 229.0
+    },
+    "url": "https://getadrip.shop/products/wegovy-1.json",
+    "verifiedAt": "2026-11-27T13:23:13Z"
+   },
+   "wegovy-pill": {
+    "checkedAt": "2026-11-27T13:23:13Z",
+    "prices": {
+     "1.5mg": 114.49,
+     "25mg": 184.49,
+     "4mg": 124.99,
+     "9mg": 144.99
+    },
+    "url": "https://getadrip.shop/products/wegovy-pill.json",
+    "verifiedAt": "2026-09-25T11:42:12Z"
+   }
+  },
+  "get-weightloss": {
+   "mounjaro": {
+    "checkedAt": "2026-11-27T13:23:13Z",
+    "method": "text",
+    "prices": {
+     "10mg": 238.47,
+     "12.5mg": 247.98,
+     "15mg": 269.0,
+     "2.5mg": 133.99,
+     "7.5mg": 208.5
+    },
+    "url": "https://getweightloss.co.uk/medications/mounjaro",
+    "verifiedAt": "2026-11-27T13:23:13Z"
+   },
+   "wegovy": {
+    "checkedAt": "2026-11-27T13:23:13Z",
+    "method": "text",
+    "prices": {
+     "0.25mg": 88.75,
+     "0.5mg": 92.99,
+     "1.7mg": 149.0,
+     "2.4mg": 199.0
+    },
+    "url": "https://getweightloss.co.uk/medications/wegovy",
+    "verifiedAt": "2026-11-27T13:23:13Z"
+   }
+  },
+  "happy-pharmacy": {
+   "mounjaro": {
+    "checkedAt": "2026-11-27T13:23:13Z",
+    "prices": {
+     "10mg": 269.99,
+     "12.5mg": 289.99,
+     "15mg": 319.99,
+     "2.5mg": 149.99,
+     "5mg": 189.99,
+     "7.5mg": 249.99
+    },
+    "url": "https://happypharmacy.co.uk/products/mounjaro.json",
+    "verifiedAt": "2026-09-25T11:40:20Z"
+   },
+   "wegovy": {
+    "checkedAt": "2026-11-27T13:23:13Z",
+    "prices": {
+     "0.25mg": 99.99,
+     "0.5mg": 109.99,
+     "1.7mg": 164.99,
+     "1mg": 124.99,
+     "2.4mg": 209.99,
+     "7.2mg": 259.99
+    },
+    "url": "https://happypharmacy.co.uk/products/wegovy-weight-loss-injection.json",
+    "verifiedAt": "2026-09-25T11:41:27Z"
+   },
+   "wegovy-pill": {
+    "checkedAt": "2026-11-27T13:23:13Z",
+    "prices": {
+     "1.5mg": 109.99,
+     "25mg": 194.99,
+     "4mg": 119.99,
+     "9mg": 139.99
+    },
+    "url": "https://happypharmacy.co.uk/products/wegovy-pills.json",
+    "verifiedAt": "2026-09-25T11:42:11Z"
+   }
+  },
+  "hey-slim": {
+   "mounjaro": {
+    "checkedAt": "2026-11-27T13:23:13Z",
+    "method": "text",
+    "prices": {
+     "10mg": 279.0,
+     "12.5mg": 299.0,
+     "15mg": 309.0,
+     "2.5mg": 169.0,
+     "5mg": 189.0,
+     "7.5mg": 249.0
+    },
+    "url": "https://www.heyslim.co.uk/medications/mounjaro",
+    "verifiedAt": "2026-11-27T13:23:13Z"
+   },
+   "wegovy": {
+    "checkedAt": "2026-11-27T13:23:13Z",
+    "method": "text",
+    "prices": {
+     "0.25mg": 119.0,
+     "0.5mg": 119.0,
+     "1.7mg": 169.0,
+     "1mg": 119.0,
+     "2.4mg": 199.0,
+     "7.2mg": 249.0
+    },
+    "url": "https://heyslim.co.uk/medications/wegovy",
+    "verifiedAt": "2026-11-27T13:23:13Z"
+   }
+  },
+  "jood-life": {
+   "mounjaro": {
+    "checkedAt": "2026-11-27T13:23:13Z",
+    "prices": {
+     "10mg": 251.0,
+     "12.5mg": 268.0,
+     "15mg": 288.0,
+     "2.5mg": 160.0,
+     "5mg": 175.0,
+     "7.5mg": 227.0
+    },
+    "url": "https://joodlife.com/products/mounjaro",
+    "verifiedAt": "2026-09-25T11:39:54Z"
+   },
+   "wegovy": {
+    "checkedAt": "2026-11-27T13:23:13Z",
+    "prices": {
+     "0.25mg": 115.0,
+     "0.5mg": 115.0,
+     "1.7mg": 165.0,
+     "1mg": 115.0,
+     "2.4mg": 220.0
+    },
+    "url": "https://joodlife.com/products/wegovy",
+    "verifiedAt": "2026-09-25T11:41:06Z"
+   }
+  },
+  "live-well-weight-loss": {
+   "mounjaro": {
+    "checkedAt": "2026-11-27T13:23:13Z",
+    "prices": {
+     "10mg": 232.95,
+     "12.5mg": 252.95,
+     "15mg": 272.95,
+     "2.5mg": 127.95,
+     "5mg": 152.95,
+     "7.5mg": 208.95
+    },
+    "url": "https://livewellweightloss.co.uk/mounjaro-product-information/",
+    "verifiedAt": null
+   },
+   "wegovy": {
+    "checkedAt": "2026-11-27T13:23:13Z",
+    "prices": {
+     "0.25mg": 105.0,
+     "0.5mg": 109.0,
+     "1.7mg": 159.0,
+     "1mg": 109.0,
+     "2.4mg": 199.0
+    },
+    "url": "https://livewellweightloss.co.uk/product/wegovy/",
+    "verifiedAt": null
+   }
+  },
+  "lloyds-pharmacy": {
+   "wegovy": {
+    "checkedAt": "2026-11-27T13:23:13Z",
+    "prices": {
+     "0.25mg": 99.99,
+     "0.5mg": 119.99,
+     "1.7mg": 179.99,
+     "1mg": 149.99,
+     "2.4mg": 199.99,
+     "7.2mg": 249.99
+    },
+    "url": "https://onlinedoctor.lloydspharmacy.com/uk/weight-loss/wegovy",
+    "verifiedAt": "2026-09-25T11:41:57Z"
+   }
+  },
+  "lotus-weight-loss": {
+   "mounjaro": {
+    "checkedAt": "2026-11-27T13:23:13Z",
+    "prices": {
+     "10mg": 246.0,
+     "12.5mg": 268.0,
+     "15mg": 284.0,
+     "2.5mg": 154.0,
+     "5mg": 168.0,
+     "7.5mg": 221.0
+    },
+    "url": "https://www.lotusweightloss.co.uk/products/mounjaro.json",
+    "verifiedAt": "2026-09-25T11:40:19Z"
+   },
+   "wegovy": {
+    "checkedAt": "2026-11-27T13:23:13Z",
+    "prices": {
+     "0.25mg": 99.0,
+     "0.5mg": 120.0,
+     "1.7mg": 141.0,
+     "1mg": 120.0,
+     "2.4mg": 161.0,
+     "7.2mg": 221.0
+    },
+    "url": "https://lotusweightloss.co.uk/products/wegovy.json",
+    "verifiedAt": "2026-09-25T11:41:25Z"
+   }
+  },
+  "manchester-chemist": {
+   "mounjaro": {
+    "checkedAt": "2026-11-27T13:23:13Z",
+    "method": "embedded",
+    "prices": {
+     "10mg": 244.0,
+     "12.5mg": 259.0,
+     "15mg": 269.0,
+     "2.5mg": 139.0,
+     "5mg": 159.0,
+     "7.5mg": 219.0
+    },
+    "url": "https://manchesterchemist.com/weight-loss-manchester",
+    "verifiedAt": "2026-11-27T13:23:13Z"
+   }
+  },
+  "medexpress": {
+   "mounjaro": {
+    "checkedAt": "2026-11-27T13:23:13Z",
+    "pending": {
+     "firstSeen": "2026-11-27T13:23:13Z",
+     "method": "text",
+     "prices": {
+      "10mg": 279.99,
+      "12.5mg": 299.99,
+      "15mg": 309.99,
+      "2.5mg": 139.99,
+      "5mg": 194.99,
+      "7.5mg": 249.99
+     },
+     "reason": "low-confidence change"
+    },
+    "prices": {
+     "10mg": 279.99,
+     "12.5mg": 299.99,
+     "15mg": 309.99,
+     "2.5mg": 179.99,
+     "5mg": 189.99,
+     "7.5mg": 249.99
+    },
+    "url": "https://www.medexpress.co.uk/clinics/weight-loss/mounjaro",
+    "verifiedAt": "2026-09-25T11:40:57Z"
+   },
+   "wegovy": {
+    "checkedAt": "2026-11-27T13:23:13Z",
+    "pending": {
+     "firstSeen": "2026-11-27T13:23:13Z",
+     "method": "text",
+     "prices": {
+      "0.25mg": 59.99,
+      "0.5mg": 124.99,
+      "1.7mg": 184.99,
+      "2.4mg": 204.99,
+      "7.2mg": 249.99
+     },
+     "reason": "big move"
+    },
+    "prices": {
+     "0.25mg": 99.99,
+     "0.5mg": 119.99,
+     "1.7mg": 179.99,
+     "2.4mg": 199.99,
+     "7.2mg": 279.99
+    },
+    "url": "https://www.medexpress.co.uk/clinics/weight-loss/wegovy",
+    "verifiedAt": "2026-09-25T11:41:59Z"
+   }
+  },
+  "medino": {
+   "mounjaro": {
+    "checkedAt": "2026-11-27T13:23:13Z",
+    "method": "text",
+    "prices": {
+     "10mg": 299.99,
+     "12.5mg": 319.99,
+     "2.5mg": 169.99,
+     "5mg": 249.99,
+     "7.5mg": 269.99
+    },
+    "url": "https://www.medino.com/brand/mounjaro",
+    "verifiedAt": "2026-11-27T13:23:13Z"
+   },
+   "wegovy": {
+    "checkedAt": "2026-11-27T13:23:13Z",
+    "pending": {
+     "firstSeen": "2026-11-27T13:23:13Z",
+     "method": "text",
+     "prices": {
+      "0.25mg": 99.99,
+      "0.5mg": 99.99,
+      "1.7mg": 199.99,
+      "1mg": 119.99,
+      "2.4mg": 249.99
+     },
+     "reason": "low-confidence change"
+    },
+    "prices": {
+     "0.25mg": 99.99,
+     "0.5mg": 105.99,
+     "1.7mg": 199.99,
+     "1mg": 109.99,
+     "2.4mg": 249.99
+    },
+    "url": "https://medino.com/brand/wegovy",
+    "verifiedAt": "2026-09-25T11:41:11Z"
+   }
+  },
+  "next-script": {
+   "mounjaro": {
+    "checkedAt": "2026-11-27T13:23:13Z",
+    "prices": {
+     "10mg": 230.0,
+     "12.5mg": 246.0,
+     "15mg": 266.0,
+     "2.5mg": 131.0,
+     "5mg": 154.0,
+     "7.5mg": 204.99
+    },
+    "url": "https://nextscript.co.uk/shop/mounjaro-weight-loss/",
+    "verifiedAt": null
+   },
+   "wegovy": {
+    "checkedAt": "2026-11-27T13:23:13Z",
+    "prices": {
+     "0.25mg": 79.99,
+     "0.5mg": 79.99,
+     "1.7mg": 137.0,
+     "1mg": 79.99,
+     "2.4mg": 189.0
+    },
+    "url": "https://nextscript.co.uk/shop/wegovy/",
+    "verifiedAt": null
+   },
+   "wegovy-pill": {
+    "checkedAt": "2026-11-27T13:23:13Z",
+    "prices": {
+     "1.5mg": 94.97,
+     "25mg": 157.97,
+     "4mg": 97.97,
+     "9mg": 112.97
+    },
+    "url": "https://nextscript.co.uk/product/wegovy-pill/",
+    "verifiedAt": null
+   }
+  },
+  "numan": {
+   "mounjaro": {
+    "checkedAt": "2026-11-27T13:23:13Z",
+    "method": "text",
+    "prices": {
+     "10mg": 309.0,
+     "12.5mg": 329.0,
+     "15mg": 339.0,
+     "2.5mg": 199.0,
+     "5mg": 229.0,
+     "7.5mg": 279.0
+    },
+    "url": "https://www.numan.com/weight-loss/mounjaro",
+    "verifiedAt": "2026-11-27T13:23:13Z"
+   },
+   "wegovy": {
+    "checkedAt": "2026-11-27T13:23:13Z",
+    "pending": {
+     "firstSeen": "2026-11-27T13:23:13Z",
+     "method": "text",
+     "prices": {
+      "0.25mg": 119.0,
+      "0.5mg": 149.0,
+      "1.7mg": 199.0,
+      "1mg": 169.0,
+      "2.4mg": 219.0,
+      "7.2mg": 289.0
+     },
+     "reason": "low-confidence change"
+    },
+    "prices": {
+     "0.25mg": 149.0,
+     "0.5mg": 179.0,
+     "1.7mg": 219.0,
+     "1mg": 189.0,
+     "2.4mg": 249.0,
+     "7.2mg": 379.0
+    },
+    "url": "https://www.numan.com/weight-loss/wegovy",
+    "verifiedAt": "2026-09-25T11:42:01Z"
+   }
+  },
+  "onlinemeds": {
+   "mounjaro": {
+    "checkedAt": "2026-11-27T13:23:13Z",
+    "method": "woo",
+    "prices": {
+     "10mg": 254.95,
+     "12.5mg": 272.99,
+     "15mg": 299.99,
+     "2.5mg": 167.99,
+     "5mg": 177.49,
+     "7.5mg": 229.49
+    },
+    "url": "https://onlinemeds.co.uk/shop/mounjaro-kwikpen/",
+    "verifiedAt": "2026-11-27T13:23:13Z"
+   },
+   "wegovy": {
+    "checkedAt": "2026-11-27T13:23:13Z",
+    "method": "woo",
+    "prices": {
+     "0.25mg": 116.99,
+     "0.5mg": 116.99,
+     "1.7mg": 168.99,
+     "1mg": 116.99,
+     "2.4mg": 221.99,
+     "7.2mg": 226.99
+    },
+    "url": "https://onlinemeds.co.uk/shop/wegovy-flextouch/",
+    "verifiedAt": "2026-11-27T13:23:13Z"
+   },
+   "wegovy-pill": {
+    "checkedAt": "2026-11-27T13:23:13Z",
+    "method": "woo",
+    "prices": {
+     "1.5mg": 123.99,
+     "25mg": 189.99,
+     "4mg": 125.99,
+     "9mg": 140.99
+    },
+    "url": "https://onlinemeds.co.uk/product/wegovy-tablets/",
+    "verifiedAt": "2026-11-27T13:23:13Z"
+   }
+  },
+  "oxford-online-pharmacy": {
+   "mounjaro": {
+    "checkedAt": "2026-11-27T13:23:13Z",
+    "method": "jsonld",
+    "offer": {
+     "text": "10% Off Subscribe to our newsletter for 10% off your order",
+     "verifiedAt": "2026-11-27T13:23:13Z"
+    },
+    "prices": {
+     "10mg": 278.96,
+     "12.5mg": 288.96,
+     "15mg": 309.95,
+     "2.5mg": 143.96,
+     "5mg": 188.96,
+     "7.5mg": 248.96
+    },
+    "url": "https://www.oxfordonlinepharmacy.co.uk/weight-loss/mounjaro",
+    "verifiedAt": "2026-11-27T13:23:13Z"
+   },
+   "wegovy": {
+    "checkedAt": "2026-11-27T13:23:13Z",
+    "method": "jsonld",
+    "offer": {
+     "text": "10% Off Subscribe to our newsletter for 10% off your order",
+     "verifiedAt": "2026-11-27T13:23:13Z"
+    },
+    "prices": {
+     "0.25mg": 88.96,
+     "0.5mg": 108.96,
+     "1.7mg": 168.96,
+     "1mg": 138.96,
+     "2.4mg": 188.96,
+     "7.2mg": 249.98
+    },
+    "url": "https://www.oxfordonlinepharmacy.co.uk/weight-loss/wegovy",
+    "verifiedAt": "2026-11-27T13:23:13Z"
+   }
+  },
+  "pharmacy-advance": {
+   "mounjaro": {
+    "checkedAt": "2026-11-27T13:23:13Z",
+    "method": "woo",
+    "prices": {
+     "10mg": 244.99,
+     "12.5mg": 264.99,
+     "15mg": 284.99,
+     "2.5mg": 144.99,
+     "5mg": 164.99,
+     "7.5mg": 220.99
+    },
+    "url": "https://www.pharmacyadvance.co.uk/product/mounjaro/",
+    "verifiedAt": "2026-11-27T13:23:13Z"
+   },
+   "wegovy": {
+    "checkedAt": "2026-11-27T13:23:13Z",
+    "method": "woo",
+    "prices": {
+     "0.25mg": 105.99,
+     "0.5mg": 119.99,
+     "1.7mg": 184.99,
+     "1mg": 132.99,
+     "2.4mg": 219.99
+    },
+    "url": "https://pharmacyadvance.co.uk/product/wegovy/",
+    "verifiedAt": "2026-11-27T13:23:13Z"
+   }
+  },
+  "pharmica": {
+   "mounjaro": {
+    "checkedAt": "2026-11-27T13:23:13Z",
+    "method": "text",
+    "offer": {
+     "text": "5% OFF your first order? Join our newsletter and receive an exclus",
+     "verifiedAt": "2026-11-27T13:23:13Z"
+    },
+    "prices": {
+     "10mg": 284.99,
+     "12.5mg": 309.99,
+     "2.5mg": 159.99,
+     "5mg": 199.99,
+     "7.5mg": 259.99
+    },
+    "url": "https://www.pharmica.co.uk/weight-loss/mounjaro/",
+    "verifiedAt": "2026-11-27T13:23:13Z"
+   },
+   "wegovy": {
+    "checkedAt": "2026-11-27T13:23:13Z",
+    "method": "text",
+    "offer": {
+     "text": "5% OFF your first order? Join our newsletter and receive an exclus",
+     "verifiedAt": "2026-11-27T13:23:13Z"
+    },
+    "prices": {
+     "0.25mg": 119.99,
+     "0.5mg": 134.99,
+     "1.7mg": 169.99,
+     "1mg": 139.99,
+     "2.4mg": 199.99
+    },
+    "url": "https://pharmica.co.uk/weight-loss/wegovy/",
+    "verifiedAt": "2026-11-27T13:23:13Z"
+   }
+  },
+  "pills2u": {
+   "mounjaro": {
+    "checkedAt": "2026-11-27T13:23:13Z",
+    "prices": {
+     "10mg": 224.99,
+     "12.5mg": 245.99,
+     "15mg": 270.99,
+     "2.5mg": 126.99,
+     "5mg": 145.98,
+     "7.5mg": 199.98
+    },
+    "url": "https://pills2u.co.uk/shop/mounjaro-weight-loss/",
+    "verifiedAt": null
+   },
+   "wegovy": {
+    "checkedAt": "2026-11-27T13:23:13Z",
+    "prices": {
+     "0.25mg": 94.99,
+     "0.5mg": 94.99,
+     "1.7mg": 154.99,
+     "1mg": 94.99,
+     "2.4mg": 209.99
+    },
+    "url": "https://pills2u.co.uk/shop/wegovy/",
+    "verifiedAt": null
+   }
+  },
+  "pillsorted": {
+   "mounjaro": {
+    "checkedAt": "2026-11-27T13:23:13Z",
+    "pending": {
+     "firstSeen": "2026-11-27T13:23:13Z",
+     "method": "text",
+     "prices": {
+      "10mg": 259.0,
+      "12.5mg": 279.0,
+      "15mg": 289.0,
+      "2.5mg": 149.0,
+      "5mg": 179.0,
+      "7.5mg": 229.0
+     },
+     "reason": "low-confidence change"
+    },
+    "prices": {
+     "10mg": 259.0,
+     "12.5mg": 279.0,
+     "15mg": 289.0,
+     "2.5mg": 159.0,
+     "5mg": 179.0,
+     "7.5mg": 229.0
+    },
+    "url": "https://www.pillsorted.com/product/mounjaro-injectable-pen/",
+    "verifiedAt": "2026-09-22T11:24:25Z"
+   },
+   "wegovy": {
+    "checkedAt": "2026-11-27T13:23:13Z",
+    "method": "text",
+    "prices": {
+     "0.25mg": 91.0,
+     "0.5mg": 98.0,
+     "1.7mg": 155.0,
+     "1mg": 108.0,
+     "2.4mg": 185.0,
+     "7.2mg": 226.0
+    },
+    "url": "https://pillsorted.com/product/wegovy-injectable-pen/",
+    "verifiedAt": "2026-11-27T13:23:13Z"
+   }
+  },
+  "pilltime": {
+   "wegovy": {
+    "checkedAt": "2026-11-27T13:23:13Z",
+    "method": "jsonld",
+    "offer": {
+     "text": "£25 off Wegovy with code BFPTW25 Wegovy® (Semaglutide) WEIGHT LOSS",
+     "verifiedAt": "2026-11-27T13:23:13Z"
+    },
+    "prices": {
+     "0.25mg": 79.99,
+     "0.5mg": 95.0,
+     "1.7mg": 138.0,
+     "2.4mg": 169.99,
+     "7.2mg": 184.0
+    },
+    "url": "https://pilltime.co.uk/wegovy-semaglutide",
+    "verifiedAt": "2026-11-27T13:23:13Z"
+   }
+  },
+  "prescription-doctor": {
+   "mounjaro": {
+    "checkedAt": "2026-11-27T13:23:13Z",
+    "method": "text",
+    "prices": {
+     "10mg": 279.99,
+     "12.5mg": 289.99,
+     "15mg": 298.99,
+     "2.5mg": 169.99,
+     "5mg": 199.99,
+     "7.5mg": 249.99
+    },
+    "url": "https://www.prescriptiondoctor.com/weight-loss/mounjaro",
+    "verifiedAt": "2026-11-27T13:23:13Z"
+   }
+  },
+  "rightangled": {
+   "mounjaro": {
+    "checkedAt": "2026-11-27T13:23:13Z",
+    "prices": {
+     "10mg": 279.99,
+     "12.5mg": 289.99,
+     "15mg": 309.99,
+     "2.5mg": 164.99,
+     "5mg": 179.99,
+     "7.5mg": 239.99
+    },
+    "url": "https://rightangled.com/products/mounjaro",
+    "verifiedAt": null
+   }
+  },
+  "simply-meds-online": {
+   "mounjaro": {
+    "checkedAt": "2026-11-27T13:23:13Z",
+    "pending": {
+     "firstSeen": "2026-11-27T13:23:13Z",
+     "method": "text",
+     "prices": {
+      "10mg": 279.99,
+      "12.5mg": 299.99,
+      "2.5mg": 149.99,
+      "5mg": 189.99,
+      "7.5mg": 249.99
+     },
+     "reason": "low-confidence change"
+    },
+    "prices": {
+     "10mg": 279.99,
+     "12.5mg": 299.99,
+     "2.5mg": 179.99,
+     "5mg": 189.99,
+     "7.5mg": 249.99
+    },
+    "url": "https://www.simplymedsonline.co.uk/weight-loss/mounjaro-kwikpen-weight-loss.html",
+    "verifiedAt": "2026-09-25T11:40:47Z"
+   }
+  },
+  "slimming-direct": {
+   "mounjaro": {
+    "checkedAt": "2026-11-27T13:23:13Z",
+    "prices": {
+     "10mg": 240.0,
+     "12.5mg": 255.0,
+     "15mg": 295.0,
+     "2.5mg": 125.0,
+     "5mg": 155.0,
+     "7.5mg": 215.0
+    },
+    "url": "https://slimmingdirect.co.uk/product/mounjaro-weight-loss-injection/",
+    "verifiedAt": null
+   },
+   "wegovy": {
+    "checkedAt": "2026-11-27T13:23:13Z",
+    "prices": {
+     "0.25mg": 90.0,
+     "0.5mg": 100.0,
+     "1.7mg": 150.0,
+     "1mg": 105.0,
+     "2.4mg": 205.0
+    },
+    "url": "https://slimmingdirect.co.uk/product/wegovy-weight-loss-injection/",
+    "verifiedAt": null
+   }
+  },
+  "swift-doctor": {
+   "mounjaro": {
+    "checkedAt": "2026-11-27T13:23:13Z",
+    "prices": {
+     "10mg": 249.0,
+     "12.5mg": 265.0,
+     "15mg": 289.0,
+     "2.5mg": 149.0,
+     "5mg": 169.0,
+     "7.5mg": 225.0
+    },
+    "url": "https://swift-doctor.com/products/mounjaro-1.json",
+    "verifiedAt": "2026-09-25T11:40:19Z"
+   },
+   "wegovy": {
+    "checkedAt": "2026-11-27T13:23:13Z",
+    "prices": {
+     "0.25mg": 99.0,
+     "0.5mg": 99.0,
+     "1.7mg": 130.0,
+     "1mg": 99.0,
+     "2.4mg": 150.0,
+     "7.2mg": 230.0
+    },
+    "url": "https://swift-doctor.com/products/wegovy.json",
+    "verifiedAt": "2026-09-25T11:41:26Z"
+   }
+  },
+  "the-care-pharmacy": {
+   "mounjaro": {
+    "checkedAt": "2026-11-27T13:23:13Z",
+    "method": "woo",
+    "prices": {
+     "10mg": 259.99,
+     "12.5mg": 279.99,
+     "15mg": 299.99,
+     "2.5mg": 149.99,
+     "5mg": 184.99,
+     "7.5mg": 234.99
+    },
+    "url": "https://thecarepharmacy.com/shop/mounjaro-weight-loss-injection/",
+    "verifiedAt": "2026-11-27T13:23:13Z"
+   },
+   "wegovy": {
+    "checkedAt": "2026-11-27T13:23:13Z",
+    "method": "woo",
+    "prices": {
+     "0.25mg": 99.99,
+     "0.5mg": 129.99,
+     "1.7mg": 179.99,
+     "1mg": 129.99,
+     "2.4mg": 229.99,
+     "7.2mg": 249.99
+    },
+    "url": "https://thecarepharmacy.com/shop/wegovy-weight-loss-injections/",
+    "verifiedAt": "2026-11-27T13:23:13Z",
+    "wasPrices": {
+     "7.2mg": 279.99
+    }
+   }
+  },
+  "the-family-chemist": {
+   "wegovy-pill": {
+    "checkedAt": "2026-11-27T13:23:13Z",
+    "prices": {
+     "1.5mg": 119.0,
+     "4mg": 139.99,
+     "9mg": 169.99
+    },
+    "url": "https://thefamilychemist.co.uk/wegovy-tablets",
+    "verifiedAt": "2026-09-25T11:42:09Z"
+   }
+  },
+  "the-independent-pharmacy": {
+   "wegovy-pill": {
+    "checkedAt": "2026-11-27T13:23:13Z",
+    "method": "jsonld",
+    "offer": {
+     "text": "Get £30 off your first Weight Loss order with code WGP30",
+     "verifiedAt": "2026-11-27T13:23:13Z"
+    },
+    "prices": {
+     "1.5mg": 128.99,
+     "25mg": 229.99,
+     "4mg": 139.99,
+     "9mg": 159.99
+    },
+    "url": "https://www.theindependentpharmacy.co.uk/weight-loss/wegovy-pill",
+    "verifiedAt": "2026-11-27T13:23:13Z"
+   }
+  },
+  "the-weight-clinic": {
+   "mounjaro": {
+    "checkedAt": "2026-11-27T13:23:13Z",
+    "method": "text",
+    "prices": {
+     "10mg": 260.0,
+     "12.5mg": 275.0,
+     "15mg": 295.0,
+     "2.5mg": 160.0,
+     "5mg": 185.0,
+     "7.5mg": 240.0
+    },
+    "url": "https://www.theweightclinic.co.uk/mounjaro",
+    "verifiedAt": "2026-11-27T13:23:13Z"
+   },
+   "wegovy": {
+    "checkedAt": "2026-11-27T13:23:13Z",
+    "method": "text",
+    "prices": {
+     "0.25mg": 115.0,
+     "0.5mg": 125.0,
+     "1.7mg": 175.0,
+     "1mg": 135.0,
+     "2.4mg": 230.0
+    },
+    "url": "https://theweightclinic.co.uk/wegovy",
+    "verifiedAt": "2026-11-27T13:23:13Z"
+   }
+  },
+  "uk-meds": {
+   "wegovy": {
+    "checkedAt": "2026-11-27T13:23:13Z",
+    "method": "text",
+    "prices": {
+     "0.25mg": 117.99,
+     "0.5mg": 124.99,
+     "1.7mg": 179.98,
+     "2.4mg": 219.99
+    },
+    "url": "https://www.ukmeds.co.uk/wegovy",
+    "verifiedAt": "2026-11-27T13:23:13Z"
+   },
+   "wegovy-pill": {
+    "checkedAt": "2026-11-27T13:23:13Z",
+    "method": "text",
+    "prices": {
+     "1.5mg": 99.99,
+     "25mg": 184.99,
+     "4mg": 104.99,
+     "9mg": 123.99
+    },
+    "url": "https://www.ukmeds.co.uk/wegovy-oral-tablet",
+    "verifiedAt": "2026-11-27T13:23:13Z"
+   }
+  },
+  "well-pharmacy": {
+   "mounjaro": {
+    "checkedAt": "2026-11-27T13:23:13Z",
+    "method": "text",
+    "offer": {
+     "text": "£20 off weight management service for new customers",
+     "verifiedAt": "2026-11-27T13:23:13Z"
+    },
+    "prices": {
+     "10mg": 289.0,
+     "12.5mg": 309.0,
+     "15mg": 319.0,
+     "2.5mg": 149.0,
+     "5mg": 189.0,
+     "7.5mg": 249.0
+    },
+    "url": "https://well.co.uk/weight-management/mounjaro/",
+    "verifiedAt": "2026-11-27T13:23:13Z"
+   }
+  },
+  "weprescribe": {
+   "mounjaro": {
+    "checkedAt": "2026-11-27T13:23:13Z",
+    "prices": {
+     "10mg": 264.99,
+     "12.5mg": 289.99,
+     "15mg": 309.99,
+     "2.5mg": 164.99,
+     "5mg": 189.99,
+     "7.5mg": 244.99
+    },
+    "url": "https://weprescribe.co.uk/wp-json/wc/store/v1/products?type=variation&parent=48702",
+    "verifiedAt": "2026-09-25T11:40:41Z"
+   },
+   "wegovy": {
+    "checkedAt": "2026-11-27T13:23:13Z",
+    "method": "wcapi",
+    "prices": {
+     "0.25mg": 114.99,
+     "0.5mg": 119.99,
+     "1.7mg": 174.99,
+     "1mg": 139.99,
+     "2.4mg": 239.99,
+     "7.2mg": 244.99
+    },
+    "url": "https://weprescribe.co.uk/wp-json/wc/store/v1/products?type=variation&parent=48785",
+    "verifiedAt": "2026-11-27T13:23:13Z"
+   }
+  },
+  "yourdose": {
+   "mounjaro": {
+    "checkedAt": "2026-11-27T13:23:13Z",
+    "prices": {
+     "10mg": 225.5,
+     "12.5mg": 242.5,
+     "15mg": 263.0,
+     "2.5mg": 133.0,
+     "5mg": 147.5,
+     "7.5mg": 198.99
+    },
+    "url": "https://yourdosepharmacy.co.uk/wp-json/wc/store/v1/products?type=variation&parent=3346",
+    "verifiedAt": null
+   },
+   "wegovy": {
+    "checkedAt": "2026-11-27T13:23:13Z",
+    "prices": {
+     "0.25mg": 99.0,
+     "0.5mg": 109.0,
+     "1.7mg": 159.0,
+     "1mg": 118.0,
+     "2.4mg": 205.0
+    },
+    "url": "https://yourdosepharmacy.co.uk/wp-json/wc/store/v1/products?type=variation&parent=3355",
+    "verifiedAt": null
+   }
+  },
+  "yourpharmacy": {
+   "mounjaro": {
+    "prices": {
+     "10mg": 275.0,
+     "12.5mg": 289.0,
+     "15mg": 298.0,
+     "2.5mg": 168.0,
+     "5mg": 189.0,
+     "7.5mg": 254.0
+    },
+    "url": "https://yourpharmacy.uk/wp-json/wc/store/v1/products?type=variation&parent=10483",
+    "verifiedAt": null
+   },
+   "wegovy": {
+    "prices": {
+     "0.25mg": 129.0,
+     "0.5mg": 138.0,
+     "1.7mg": 179.0,
+     "1mg": 149.0,
+     "2.4mg": 215.0
+    },
+    "url": "https://yourpharmacy.uk/wp-json/wc/store/v1/products?type=variation&parent=10683",
+    "verifiedAt": null
+   }
+  }
+ }
+}

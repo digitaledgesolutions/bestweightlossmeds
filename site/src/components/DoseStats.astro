@@ -1,0 +1,50 @@
+---
+// Lowest, typical and highest price at each dose, plus the most you could save by switching.
+import { DRUGS, doseStats, lowestSeries, gbp, doseLabel, type DrugKey } from '../lib/data';
+interface Props { drug: DrugKey }
+const { drug } = Astro.props;
+const d = DRUGS[drug];
+const stats = doseStats(drug).filter((s) => s.n > 0);
+const maxSave = stats.reduce((m, s) => Math.max(m, (s.high ?? 0) - (s.low ?? 0)), 0);
+const names = (ps: { name: string }[]) => ps.length > 2 ? `${ps[0].name} and ${ps.length - 1} others` : ps.map((p) => p.name).join(' and ');
+// Trend of the lowest starting-dose price. Only drawn once there are a few days of history.
+const series = lowestSeries(drug, d.startDose, 90);
+let spark = '';
+if (series.length >= 3) {
+  const W = 320, H = 64, vs = series.map((p) => p.v), lo = Math.min(...vs), hi = Math.max(...vs), span = hi - lo || 1;
+  const pts = series.map((p, i) => `${(i / (series.length - 1)) * W},${H - 6 - ((p.v - lo) / span) * (H - 12)}`);
+  spark = `<svg viewBox="0 0 ${W} ${H}" class="spark" role="img" aria-label="Lowest ${doseLabel(d.startDose)} price over the last ${series.length} checks, from ${gbp(vs[0])} to ${gbp(vs.at(-1)!)}"><polyline fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" points="${pts.join(' ')}"/></svg>`;
+}
+---
+{stats.length > 0 && (
+  <section class="section" id="by-dose">
+    <div class="wrap">
+      <h2>{d.name} price by dose today</h2>
+      {maxSave > 0 && <p class="lede" style="font-size:var(--t-m)">The same dose can cost up to <strong>{gbp(maxSave)}</strong> more depending on where you buy it.</p>}
+      <div class="mx-wrap">
+        <table class="dtable stats">
+          <thead><tr><th scope="col">Dose</th><th scope="col">Lowest</th><th scope="col">Typical</th><th scope="col">Highest</th><th scope="col">Providers</th></tr></thead>
+          <tbody>
+            {stats.map((s) => (
+              <tr>
+                <th scope="row" style="color:var(--ink);font-weight:700">{doseLabel(s.dose)}</th>
+                <td class="num">{gbp(s.low!)} <span class="rel">{names(s.lowBy)}</span></td>
+                <td class="num">{gbp(s.median!)}</td>
+                <td class="num">{gbp(s.high!)}</td>
+                <td>{s.n}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="small muted" style="margin-top:0.75rem">Typical is the middle (median) price of every provider with a confirmed price for that dose today.</p>
+      {spark && (
+        <div class="trend">
+          <h3>Lowest {doseLabel(d.startDose)} price, recent checks</h3>
+          <Fragment set:html={spark} />
+          <p class="small muted">{gbp(series[0].v)} on {new Date(series[0].t).toLocaleDateString('en-GB', { day: 'numeric', month: 'short' })} → {gbp(series.at(-1)!.v)} now</p>
+        </div>
+      )}
+    </div>
+  </section>
+)}

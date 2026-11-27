@@ -1,0 +1,27 @@
+---
+import Base from '../../../layouts/Base.astro';
+import sources from '../../../../../scraper/sources.json';
+import { ALL_PROVIDERS, DRUGS, listingsForProvider, type DrugKey } from '../../../lib/data';
+const tracked = new Set((sources as any[]).map((s) => s.provider));
+const list = ALL_PROVIDERS.filter((p) => tracked.has(p.slug))
+  .map((p) => ({ p, drugs: listingsForProvider(p.slug).map((l) => DRUGS[l.drug as DrugKey].name) }))
+  .sort((a, b) => a.p.name.localeCompare(b.p.name));
+const live = list.filter((x) => x.drugs.length);
+---
+<Base title="UK weight loss medicine providers A to Z | Best Weight Loss Meds"
+  description="Every UK provider whose Mounjaro and Wegovy prices we check daily, with links to their current prices by dose."
+  current="/uk/providers/">
+  <section class="hero">
+    <div class="wrap">
+      <h1>Providers</h1>
+      <p class="lede">{list.length} UK providers we check every day. {live.length} have prices confirmed in the last 48 hours.</p>
+    </div>
+  </section>
+  <div class="wrap">
+    <ul class="az">
+      {list.map(({ p, drugs }) => (
+        <li><a href={`/uk/providers/${p.slug}/`}>{p.name}</a><span>{drugs.length ? drugs.join(', ') : 'No confirmed prices today'}</span></li>
+      ))}
+    </ul>
+  </div>
+</Base>

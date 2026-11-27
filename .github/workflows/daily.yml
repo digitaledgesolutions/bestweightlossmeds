@@ -1,0 +1,60 @@
+name: Daily prices
+# Runs free: this repo is public, so GitHub Actions minutes are unlimited.
+# The commit it pushes is what publishes the site: Cloudflare Workers Builds watches
+# this repo and rebuilds + deploys site/ on every push to main. No API token anywhere.
+on:
+  schedule:
+    - cron: '7 6 * * *'   # 06:07 UTC daily, the estate automation window
+  workflow_dispatch: {}
+  pull_request:
+    paths: ['scraper/**', 'site/**', '.github/workflows/daily.yml']
+permissions:
+  contents: write
+  issues: write
+concurrency:
+  group: daily-prices
+  cancel-in-progress: false
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      LIVE: ${{ github.event_name != 'pull_request' }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with: { python-version: '3.12' }
+
+      - name: Test extractors
+        run: python3 -m unittest scraper/test_refresh.py
+
+      - name: Check prices
+        env:
+          SCRAPERAPI_KEY: ${{ secrets.SCRAPERAPI_KEY }}
+        run: python3 scraper/refresh.py
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: site/package-lock.json
+      - name: Build site (catches a broken build before it reaches Cloudflare)
+        working-directory: site
+        run: npm ci && npx astro build
+
+      - name: Save prices (this push triggers the Cloudflare deploy)
+        if: env.LIVE == 'true'
+        run: |
+          git config user.name "bwm-prices-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add data/
+          git diff --staged --quiet || git commit -m "chore: daily prices $(date -u +%F)"
+          git push
+
+      - name: Alert on problems
+        if: always() && env.LIVE == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          JOB_STATUS: ${{ job.status }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: python3 scraper/alert.py

@@ -1,0 +1,65 @@
+---
+// Every provider x every dose in one table, cheapest in each column marked.
+// Server-rendered; a small script lets you sort by any column. Scrolls sideways on phones.
+import { DRUGS, listingsFor, ranked, gbp, doseLabel, type DrugKey } from '../lib/data';
+interface Props { drug: DrugKey }
+const { drug } = Astro.props;
+const d = DRUGS[drug];
+const rows = listingsFor(drug).sort((a, b) =>
+  (a.prices[d.startDose] ?? 1e9) - (b.prices[d.startDose] ?? 1e9) || a.provider.name.localeCompare(b.provider.name));
+const lows = Object.fromEntries(d.doses.map((x) => [x, ranked(drug, x)[0]?.prices[x]]));
+const lowYear = Math.min(...rows.map((l) => l.firstYear ?? Infinity));
+---
+<section class="section" id="all-doses">
+  <div class="wrap">
+    <h2>Every dose, every provider</h2>
+    <p class="muted measure">{rows.length} providers. The lowest price at each dose is highlighted. Tap a column heading to sort by it. A dash means the provider doesn't publish that dose.</p>
+    <div class="mx-wrap" tabindex="0" role="region" aria-label={`${d.name} prices at every dose`}>
+      <table class="mx" data-mx>
+        <thead>
+          <tr>
+            <th scope="col" class="mx-name"><button type="button" data-sort="name">Provider</button></th>
+            {d.doses.map((x) => <th scope="col"><button type="button" data-sort={x} aria-sort={x === d.startDose ? 'ascending' : undefined}>{doseLabel(x)}</button></th>)}
+            <th scope="col"><button type="button" data-sort="year">First year</button></th>
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((l) => (
+            <tr data-name={l.provider.name} data-year={l.firstYear ?? ''} {...Object.fromEntries(d.doses.map((x) => [`data-v-${x.replace('.', '_')}`, l.prices[x] ?? '']))}>
+              <th scope="row" class="mx-name">
+                <a href={`/uk/providers/${l.provider.slug}/`}>{l.provider.name}</a>
+                {l.provider.subscription && <span class="chip chip-sub" title="Price needs an ongoing plan">Sub</span>}
+              </th>
+              {d.doses.map((x) => {
+                const v = l.prices[x];
+                return <td class:list={['num', { 'mx-low': v != null && v === lows[x] }]}>{v != null ? gbp(v) : <span class="muted">–</span>}</td>;
+              })}
+              <td class:list={['num', { 'mx-low': l.firstYear === lowYear }]}>{l.firstYear != null ? gbp(l.firstYear, 0) : <span class="muted">–</span>}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <p class="small muted" style="margin-top:0.75rem">Prices are per {drug === 'wegovy-pill' ? 'pack of 30 tablets' : 'pen (four weekly doses)'}, as published by each provider. Consultation and delivery fees vary, so check the total at checkout. <a href={`${d.path}prices.csv`}>Download these prices (CSV)</a></p>
+  </div>
+</section>
+<script>
+  document.querySelectorAll<HTMLTableElement>('[data-mx]').forEach((t) => {
+    const body = t.tBodies[0];
+    t.querySelector('thead')!.addEventListener('click', (e) => {
+      const b = (e.target as HTMLElement).closest<HTMLButtonElement>('[data-sort]');
+      if (!b) return;
+      const key = b.dataset.sort!;
+      const dir = b.getAttribute('aria-sort') === 'ascending' ? -1 : 1;
+      t.querySelectorAll('[data-sort]').forEach((x) => x.removeAttribute('aria-sort'));
+      b.setAttribute('aria-sort', dir === 1 ? 'ascending' : 'descending');
+      const val = (r: HTMLElement) => key === 'name' ? r.dataset.name! : key === 'year' ? r.dataset.year : r.dataset['v-' + key.replace('.', '_')];
+      [...body.rows].sort((a, b2) => {
+        const x = val(a), y = val(b2);
+        if (key === 'name') return dir * x!.localeCompare(y!);
+        if (!x) return 1; if (!y) return -1;
+        return dir * (Number(x) - Number(y));
+      }).forEach((r) => body.appendChild(r));
+    });
+  });
+</script>
