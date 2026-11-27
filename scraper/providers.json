@@ -252,8 +252,8 @@
   "name": "Juniper",
   "gphc": "9011842",
   "gphcVerified": false,
-  "homepage": "",
-  "subscription": false
+  "homepage": "https://www.myjuniper.co.uk/",
+  "subscription": true
  },
  {
   "slug": "live-well-weight-loss",
@@ -324,8 +324,8 @@
   "name": "Medicspot",
   "gphc": "9012559",
   "gphcVerified": false,
-  "homepage": "",
-  "subscription": false
+  "homepage": "https://www.medicspot.co.uk/",
+  "subscription": true
  },
  {
   "slug": "medino",
@@ -428,7 +428,7 @@
   "name": "Pharmacy2U",
   "gphc": "9010146",
   "gphcVerified": false,
-  "homepage": "",
+  "homepage": "https://www.pharmacy2u.co.uk/",
   "subscription": false
  },
  {

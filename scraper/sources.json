@@ -315,12 +315,6 @@
   "method": "html"
  },
  {
-  "provider": "the-independent-pharmacy",
-  "drug": "wegovy-pill",
-  "url": "https://www.theindependentpharmacy.co.uk/weight-loss/wegovy-pill",
-  "method": "html"
- },
- {
   "provider": "happy-pharmacy",
   "drug": "wegovy-pill",
   "url": "https://happypharmacy.co.uk/products/wegovy-pills.json",
@@ -707,5 +701,84 @@
   "url": "https://www.chemistclick.co.uk/weight-loss/oral-wegovy-tablets",
   "method": "jsonld",
   "offer": false
+ },
+ {
+  "provider": "chemist4u",
+  "drug": "mounjaro",
+  "url": "https://www.chemist-4-u.com/mounjaro-injections",
+  "method": "html",
+  "marker": "Weekly cost Monthly cost",
+  "priceIndex": 1
+ },
+ {
+  "provider": "the-independent-pharmacy",
+  "drug": "mounjaro",
+  "url": "https://www.theindependentpharmacy.co.uk/weight-loss/mounjaro-injections",
+  "method": "jsonld"
+ },
+ {
+  "provider": "the-independent-pharmacy",
+  "drug": "wegovy",
+  "url": "https://www.theindependentpharmacy.co.uk/weight-loss/wegovy-injections",
+  "method": "jsonld"
+ },
+ {
+  "provider": "the-independent-pharmacy",
+  "drug": "wegovy-pill",
+  "url": "https://www.theindependentpharmacy.co.uk/weight-loss/wegovy-pill",
+  "method": "jsonld"
+ },
+ {
+  "provider": "juniper",
+  "drug": "mounjaro",
+  "url": "https://www.myjuniper.co.uk/gip-injections",
+  "method": "jsmap"
+ },
+ {
+  "provider": "juniper",
+  "drug": "wegovy",
+  "url": "https://www.myjuniper.co.uk/glp-medication",
+  "method": "jsmap"
+ },
+ {
+  "provider": "juniper",
+  "drug": "wegovy-pill",
+  "url": "https://www.myjuniper.co.uk/oral-pill",
+  "method": "html",
+  "marker": "following prices",
+  "priceBefore": true
+ },
+ {
+  "provider": "medicspot",
+  "drug": "mounjaro",
+  "url": "https://www.medicspot.co.uk/weight-loss/injections/mounjaro-uk",
+  "method": "fields",
+  "labelKeys": [
+   "variant_name",
+   "variant_qualifier"
+  ],
+  "priceKey": "variant_promo_message"
+ },
+ {
+  "provider": "medicspot",
+  "drug": "wegovy",
+  "url": "https://www.medicspot.co.uk/weight-loss/injections/wegovy-injections-uk",
+  "method": "fields",
+  "labelKeys": [
+   "variant_name",
+   "variant_qualifier"
+  ],
+  "priceKey": "variant_promo_message"
+ },
+ {
+  "provider": "medicspot",
+  "drug": "wegovy-pill",
+  "url": "https://www.medicspot.co.uk/weight-loss/pills-tablets/wegovy-tablets-uk",
+  "method": "fields",
+  "labelKeys": [
+   "variant_name",
+   "variant_qualifier"
+  ],
+  "priceKey": "variant_promo_message"
  }
 ]

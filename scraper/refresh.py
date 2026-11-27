@@ -272,7 +272,36 @@ def ex_embedded(body, doses):
     return assign(pairs, doses)
 
 
-def ex_text(body, doses, marker=""):
+def ex_fields(body, doses, label_keys, price_key):
+    """Embedded JSON (Next.js etc.) with site-specific keys. label_keys are joined to
+    make the dose label (e.g. variant_name + variant_qualifier = "2.5 mg"); price_key
+    may hold a number or a sentence such as "then £199 every 4 weeks on this dose"."""
+    blobs = [m.group(1) for m in re.finditer(
+        r'<script[^>]*(?:id="__NEXT_DATA__"|type="application/json")[^>]*>(.*?)</script>', body, re.S)]
+    pairs, seen = [], set()
+    for b in blobs:
+        try:
+            data = json.loads(b)
+        except Exception:
+            continue
+        for n in walk(data):
+            if price_key not in n or not all(k in n for k in label_keys):
+                continue
+            label = " ".join(str(n[k]) for k in label_keys)
+            raw = str(n[price_key])
+            pm = PRICE_RE.search(raw)
+            pr = to_price(pm.group(1)) if pm else to_price(raw)
+            if (label, pr) not in seen:
+                seen.add((label, pr))
+                pairs.append((label, pr, None))
+    return assign(pairs, doses)
+
+
+def ex_text(body, doses, marker="", price_index=0, before=False):
+    """price_index: which £ figure after each dose label to take (0 = first). Use 1 on
+    tables laid out "dose | weekly | monthly" where the monthly price is second.
+    before: the price sits in front of its label ("£154 for 1.5mg"), so take the last £
+    figure between the previous dose label and this one."""
     t = strip_html(body)
     if marker:
         ix = t.lower().find(marker.lower())
@@ -281,12 +310,21 @@ def ex_text(body, doses, marker=""):
     out = {}
     for d in doses:
         for m in dose_re(d).finditer(t):
-            end = m.end() + 200
-            for o in doses:
-                om = dose_re(o).search(t, m.end())
-                if om:
-                    end = min(end, om.start())
-            pm = PRICE_RE.search(t, m.end(), end)
+            if before:
+                start = max(0, m.start() - 200)
+                for o in doses:
+                    for om in dose_re(o).finditer(t, start, m.start()):
+                        start = max(start, om.end())
+                found = list(PRICE_RE.finditer(t, start, m.start()))
+                pm = found[-1] if found else None
+            else:
+                end = m.end() + 200
+                for o in doses:
+                    om = dose_re(o).search(t, m.end())
+                    if om:
+                        end = min(end, om.start())
+                found = list(PRICE_RE.finditer(t, m.end(), end))
+                pm = found[price_index] if len(found) > price_index else None
             if pm:
                 v = to_price(pm.group(1))
                 if v and FLOOR <= v <= CEILING:
@@ -313,6 +351,21 @@ def ex_pattern(body, doses, pattern, marker="", end=""):
     return assign(pairs, doses)
 
 
+def ex_jsmap(body, doses):
+    """Inline script that fills placeholders, e.g. { id: "base-price-m-d-1", price: "£199" },
+    with the dose label taken from the element carrying that id: <span id="...">..</span> (2.5mg)."""
+    pairs = []
+    for m in re.finditer(r'\{\s*id:\s*["\']([^"\']+)["\']\s*,\s*price:\s*["\']£?\s*([0-9][0-9,.]*)["\']\s*\}', body):
+        el = re.search(r'id="' + re.escape(m.group(1)) + r'"[^>]*>([\s\S]{0,300})', body)
+        if not el:
+            continue
+        label = strip_html(el.group(1))[:40]
+        hit = re.search(r"\d+(?:\.\d+)?\s*mg", label, re.I)   # first dose label after the element
+        if hit:
+            pairs.append((hit.group(0), to_price(m.group(2)), None))
+    return assign(pairs, doses)
+
+
 def ex_positional(body, doses, price_marker=""):
     t = strip_html(body)
     order = sorted((m.start(), d) for d in doses for m in [dose_re(d).search(t)] if m)
@@ -324,7 +377,7 @@ def ex_positional(body, doses, price_marker=""):
 
 STRUCTURED = [("jsonld", ex_jsonld), ("shopify_inline", ex_shopify_inline),
               ("woo", ex_woo), ("embedded", ex_embedded)]
-FIXED = {"shopify": ex_shopify, "wcapi": ex_wcapi, "woo": ex_woo, "jsonld": ex_jsonld,
+FIXED = {"jsmap": ex_jsmap, "shopify": ex_shopify, "wcapi": ex_wcapi, "woo": ex_woo, "jsonld": ex_jsonld,
          "shopify_inline": ex_shopify_inline, "embedded": ex_embedded,
          "jsonld_list": lambda b, d: ex_jsonld(b, d, prefer_list=True)}
 LOW_CONFIDENCE = {"text", "positional"}
@@ -342,6 +395,9 @@ def extract(src, body, doses):
             log(f"    {method} parse error: {e}")
         if method in ("shopify", "wcapi"):
             return {}, {}, method
+    if method == "fields":
+        p, w = ex_fields(body, doses, src.get("labelKeys", []), src.get("priceKey", ""))
+        return p, w, "fields"
     if method == "pattern":
         p, w = ex_pattern(body, doses, src["pattern"], src.get("marker", ""), src.get("end", ""))
         return p, w, "pattern"
@@ -355,7 +411,8 @@ def extract(src, body, doses):
             continue
         if len(p) >= 2:
             return p, w, name
-    p, w = ex_text(body, doses, src.get("marker", ""))
+    p, w = ex_text(body, doses, src.get("marker", ""), int(src.get("priceIndex", 0)),
+                   bool(src.get("priceBefore")))
     return p, w, "text"
 
 
