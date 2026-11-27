@@ -418,12 +418,6 @@
   "method": "jsonld"
  },
  {
-  "provider": "lloyds-pharmacy",
-  "drug": "wegovy",
-  "url": "https://onlinedoctor.lloydspharmacy.com/uk/weight-loss/wegovy",
-  "method": "shopify_inline"
- },
- {
   "provider": "boots",
   "drug": "mounjaro",
   "url": "https://onlinedoctor.boots.com/treatments/mounjaro",
@@ -780,5 +774,29 @@
    "variant_qualifier"
   ],
   "priceKey": "variant_promo_message"
+ },
+ {
+  "provider": "lloyds-pharmacy",
+  "drug": "mounjaro",
+  "url": "https://onlinedoctor.lloydspharmacy.com/products/mounjaro-tirzepatide-weight-loss-injection",
+  "method": "pattern",
+  "pattern": "(?P<dose>\\d+(?:\\.\\d+)?mg) / 1 pen £(?P<price>[\\d,.]+)",
+  "offer": false
+ },
+ {
+  "provider": "lloyds-pharmacy",
+  "drug": "wegovy",
+  "url": "https://onlinedoctor.lloydspharmacy.com/products/wegovy-semaglutide-weight-loss-injection",
+  "method": "pattern",
+  "pattern": "(?P<dose>\\d+(?:\\.\\d+)?mg) / 1 pen £(?P<price>[\\d,.]+)",
+  "offer": false
+ },
+ {
+  "provider": "lloyds-pharmacy",
+  "drug": "wegovy-pill",
+  "url": "https://onlinedoctor.lloydspharmacy.com/products/wegovy-tablets",
+  "method": "pattern",
+  "pattern": "(?P<dose>\\d+(?:\\.\\d+)?mg) / 1 pack £(?P<price>[\\d,.]+)",
+  "offer": false
  }
 ]
