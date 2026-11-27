@@ -46,6 +46,28 @@ const providers: Provider[] = (providersRaw as any[]).map((p) => ({
 }));
 export const PROVIDERS = new Map(providers.map((p) => [p.slug, p]));
 
+// Offers are rewritten into one neutral form that only ever describes the consultation
+// service, never a medicine (POMs can't be advertised to the public in the UK).
+// Anything that isn't a clear first-time money-off for new patients is dropped:
+// newsletter sign-ups, subscription discounts, product promos, freebies.
+const DRUG_WORDS = /mounjaro|wegovy|tirzepatide|semaglutide|ozempic|saxenda|zepbound|orlistat|alli|mysimba|inject|pen\b|pill|tablet|jab|glp/i;
+export function cleanOffer(raw: string | null | undefined): string | null {
+  if (!raw) return null;
+  const t = raw.replace(/\s+/g, ' ');
+  if (/newsletter|subscribe|subscription|recurring|every order|refer|app\b|trial/i.test(t)) return null;
+  if (!/first|new (customer|patient)s?/i.test(t)) return null;
+  const pounds = t.match(/£\s?(\d{1,3})(?![\d.])/);
+  const pct = t.match(/(\d{1,2})\s?%/);
+  let amount = pounds ? `£${pounds[1]}` : pct ? `${pct[1]}%` : null;
+  if (!amount) return null;
+  if (/\bup to\s*[£\d]/i.test(t)) amount = `Up to ${amount}`;
+  const n = t.match(/first\s+(\d)\s+consultations/i);
+  const scope = n ? `your first ${n[1]} consultations` : 'your first consultation';
+  const code = t.match(/code:?\s+([A-Z0-9]{4,15})\b/);
+  const codeOk = code && !DRUG_WORDS.test(code[1]);
+  return `${amount} off ${scope}` + (codeOk ? ` (code ${code![1]})` : '');
+}
+
 function hoursSince(iso: string | undefined | null) {
   if (!iso) return Infinity;
   return (NOW.getTime() - new Date(iso).getTime()) / 36e5;
@@ -71,8 +93,8 @@ for (const [slug, byDrug] of Object.entries((pricesRaw as any).providers || {}))
     if (age > STALE_HOURS) continue;
     const offerAge = hoursSince(rec.offer?.verifiedAt);
     allListings.push({
-      provider, drug: drug as DrugKey, prices: rec.prices, wasPrices: rec.wasPrices || {},
-      offer: offerAge <= STALE_HOURS ? rec.offer.text : null, url: rec.url || provider.homepage,
+      provider, drug: drug as DrugKey, prices: rec.prices, wasPrices: {},
+      offer: offerAge <= STALE_HOURS ? cleanOffer(rec.offer.text) : null, url: rec.url || provider.homepage,
       verifiedAt: rec.verifiedAt, ageHours: age, firstYear: firstYearCost(drug as DrugKey, rec.prices),
     });
   }
