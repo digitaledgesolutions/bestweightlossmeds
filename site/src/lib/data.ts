@@ -39,7 +39,16 @@ export interface Listing {
   provider: Provider; drug: DrugKey; prices: Record<string, number>;
   wasPrices: Record<string, number>; offer: string | null; url: string;
   verifiedAt: string; ageHours: number; firstYear: number | null;
+  /** How the price was read: 'data' = the shop's own product data (JSON-LD, Shopify/WooCommerce feed), 'page' = the price as printed on the page. */
+  sourceType: 'data' | 'page';
 }
+
+// Extractor methods that read the shop's structured product data rather than the visible text.
+const DATA_METHODS = new Set(['jsonld', 'jsonld_list', 'shopify', 'shopify_inline', 'woo', 'wcapi', 'embedded', 'fields', 'jsmap']);
+export const SOURCE_LABEL: Record<Listing['sourceType'], string> = {
+  data: "the provider's product data",
+  page: "the price shown on the provider's page",
+};
 
 const providers: Provider[] = (providersRaw as any[]).map((p) => ({
   slug: p.slug, name: p.name, homepage: p.homepage || '', gphc: p.gphc || '', subscription: !!p.subscription,
@@ -96,6 +105,7 @@ for (const [slug, byDrug] of Object.entries((pricesRaw as any).providers || {}))
       provider, drug: drug as DrugKey, prices: rec.prices, wasPrices: {},
       offer: offerAge <= STALE_HOURS ? cleanOffer(rec.offer.text) : null, url: rec.url || provider.homepage,
       verifiedAt: rec.verifiedAt, ageHours: age, firstYear: firstYearCost(drug as DrugKey, rec.prices),
+      sourceType: DATA_METHODS.has(rec.method) ? 'data' : 'page',
     });
   }
 }
@@ -215,4 +225,17 @@ export function doseStats(drug: DrugKey) {
 export const gmt = (iso: string) => new Date(iso).toLocaleString('en-GB', {
   timeZone: 'Europe/London', day: 'numeric', month: 'long', hour: '2-digit', minute: '2-digit', hour12: false,
 });
+/** Short absolute check time in UK time, e.g. "27 Nov, 06:12". Absolute so a page built in the
+ * morning never says "under an hour ago" in the evening. */
+export const checkedAt = (iso: string) => new Date(iso).toLocaleString('en-GB', {
+  timeZone: 'Europe/London', day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit', hour12: false,
+});
+export const hostOf = (url: string) => { try { return new URL(url).hostname.replace(/^www\./, ''); } catch { return ''; } };
+/** Newest check time among the given listings (for sitemap lastmod and page dateModified). */
+export const latestCheck = (ls: Listing[]) => ls.map((l) => l.verifiedAt).sort().at(-1) || null;
+/** Tracked provider pages vs. pages with a price confirmed inside the freshness window. */
+export function coverage() {
+  const tracked = Object.values((pricesRaw as any).providers || {}).reduce((n: number, byDrug: any) => n + Object.keys(byDrug).length, 0);
+  return { tracked, fresh: allListings.length };
+}
 export const priceCount = () => allListings.reduce((n, l) => n + Object.keys(l.prices).length, 0);

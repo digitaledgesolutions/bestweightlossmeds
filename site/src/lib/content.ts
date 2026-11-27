@@ -4,7 +4,7 @@ import type { DrugKey } from './data';
 export const SHARED_FAQS: [string, string][] = [
   ['Do I need a prescription?', 'Yes. Mounjaro and Wegovy are prescription-only in the UK. Every provider listed supplies them only after a consultation with a registered prescriber, who decides whether the medicine is suitable for you.'],
   ['Is the price shown the full cost?', "It's the price the provider publishes for that dose. Some include the consultation and delivery and some don't, so check the total at the provider's checkout before you pay."],
-  ['How often are prices checked?', "Every day. We read each provider's own price page automatically and show how long ago that was. If we haven't confirmed a price in the last 48 hours, we take it off the page rather than show an old number."],
+  ['How often are prices checked?', "Every day. We read each provider's own price page automatically, and every price shows when we checked it and links to that page. If we haven't confirmed a price in the last 48 hours, we take it off the page rather than show an old number."],
   ['What does the Subscription tag mean?', "That provider only sells at that price as part of an ongoing plan or membership, so you're agreeing to recurring payments. Tick “Hide subscription-only” to leave them out."],
   ["Why don't you show discounts?", "UK rules don't allow special offers on prescription-only medicines to be promoted to the public, so we show each provider's standard published price only. Any discount is the provider's to explain during your consultation."],
   ['Do providers pay to be listed?', "No. Nobody pays to appear here, we don't earn commission and links aren't affiliate links."],

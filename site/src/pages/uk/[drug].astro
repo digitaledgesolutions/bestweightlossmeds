@@ -5,7 +5,7 @@ import BoardScript from '../../components/BoardScript.astro';
 import Faq from '../../components/Faq.astro';
 import DoseMatrix from '../../components/DoseMatrix.astro';
 import DoseStats from '../../components/DoseStats.astro';
-import { DRUGS, DRUG_LIST, listingsFor, doseStats, gbp, doseLabel, gmt, GENERATED_AT, type DrugKey } from '../../lib/data';
+import { DRUGS, DRUG_LIST, listingsFor, doseStats, gbp, doseLabel, gmt, latestCheck, STALE_HOURS, GENERATED_AT, type DrugKey } from '../../lib/data';
 import { SHARED_FAQS, DRUG_FAQS } from '../../lib/content';
 
 export function getStaticPaths() {
@@ -26,7 +26,9 @@ const jsonld = {
     {
       '@type': 'Dataset', name: `${d.name} prices in the UK by dose`,
       description: `Published ${d.name} (${d.generic}) prices from ${ls.length} UK online pharmacies and clinics at every dose, read from each provider's own website daily.`,
-      url: site + d.path, dateModified: GENERATED_AT || undefined, isAccessibleForFree: true, license: 'https://creativecommons.org/licenses/by/4.0/',
+      url: site + d.path, dateModified: latestCheck(ls) || GENERATED_AT || undefined,
+      measurementTechnique: `Automated daily read of each provider's own product page or product data; a price is published only if confirmed in the last ${STALE_HOURS} hours. Source URL and check time are given per price in the downloads.`,
+      isBasedOn: ls.map((l) => l.url), isAccessibleForFree: true, license: 'https://creativecommons.org/licenses/by/4.0/',
       creator: { '@type': 'Organization', name: 'Best Weight Loss Meds', url: site },
       spatialCoverage: 'United Kingdom', variableMeasured: 'Price in GBP per pen or pack, by dose',
       distribution: [

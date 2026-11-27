@@ -1,7 +1,8 @@
 ---
 import Base from '../../layouts/Base.astro';
 import { METHOD } from '../../lib/content';
-import { STALE_HOURS, GENERATED_AT, ago } from '../../lib/data';
+import { STALE_HOURS, GENERATED_AT, gmt, coverage } from '../../lib/data';
+const cov = coverage();
 ---
 <Base title="How we check prices | Best Weight Loss Meds"
   description="How Best Weight Loss Meds reads, checks and publishes UK prices for Mounjaro and Wegovy every day."
@@ -9,7 +10,7 @@ import { STALE_HOURS, GENERATED_AT, ago } from '../../lib/data';
   <section class="hero">
     <div class="wrap">
       <h1>How we check prices</h1>
-      <p class="lede">We only publish a price we've read from the provider's own website in the last {STALE_HOURS} hours.{GENERATED_AT && <> The last check finished {ago(GENERATED_AT)}.</>}</p>
+      <p class="lede">We only publish a price we've read from the provider's own website in the last {STALE_HOURS} hours.{GENERATED_AT && <> The last check finished <time datetime={GENERATED_AT}>{gmt(GENERATED_AT)}</time> (UK time).</>}</p>
     </div>
   </section>
   <section class="section" style="padding-top:0">
@@ -26,6 +27,11 @@ import { STALE_HOURS, GENERATED_AT, ago } from '../../lib/data';
         <li>We don't guess. If a provider doesn't publish a price for a dose, that dose is left blank.</li>
         <li>We don't give medical advice. Whether a medicine is right for you is a decision for a registered prescriber.</li>
       </ul>
+      <h2>Where each price comes from</h2>
+      <p>Every price on the site shows the time we last confirmed it and links to the exact page we read it from, so you can check it yourself in one click. Right now {cov.fresh} of the {cov.tracked} provider pages we track have a price confirmed in the last {STALE_HOURS} hours; the rest are off the site until the next clean read.</p>
+      <p>The same prices, check times and source links are free to reuse as <a href="/uk/prices.json">JSON</a> or as a CSV per medicine (<a href="/uk/mounjaro/prices.csv">Mounjaro</a>, <a href="/uk/wegovy/prices.csv">Wegovy</a>, <a href="/uk/wegovy-pill/prices.csv">Wegovy pill</a>).</p>
+      <h2>Corrections</h2>
+      <p>If a price we published turns out to be wrong, we fix it and list it on our <a href="/uk/corrections/">corrections page</a>. Entries are never removed.</p>
       <h2>Prices that need a plan</h2>
       <p>Some providers only offer their price as part of a subscription or membership. We tag these so you can see the commitment before you click through, and you can hide them from any list.</p>
       <h2>Discounts</h2>
