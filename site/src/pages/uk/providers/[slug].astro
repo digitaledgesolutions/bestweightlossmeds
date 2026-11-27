@@ -50,7 +50,7 @@ const ext = `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-w
       <section class="section">
         <div class="wrap">
           <h2>{d.name}</h2>
-          <p class="muted small">{d.form}. Checked <time datetime={l.verifiedAt}>{checkedAt(l.verifiedAt)}</time>, read from <a href={l.url} rel="nofollow noopener noreferrer" target="_blank">{SOURCE_LABEL[l.sourceType]}</a>.</p>
+          <p class="muted small">{d.form}. Checked <time datetime={l.verifiedAt}>{checkedAt(l.verifiedAt)}</time>, read from {SOURCE_LABEL[l.sourceType]}.</p>
           <table class="dtable" style="max-width:40rem">
             <thead><tr><th scope="col">Dose</th><th scope="col">Price</th><th scope="col">Range across providers</th></tr></thead>
             <tbody>

@@ -43,7 +43,7 @@ const ext = `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-w
             
             <span class="name"><a href={`/uk/providers/${l.provider.slug}/`}>{l.provider.name}</a></span>
             <span class="meta">
-              <span class="src" title={`Read from ${SOURCE_LABEL[l.sourceType]}`}>Price checked <time datetime={l.verifiedAt}>{checkedAt(l.verifiedAt)}</time> on <a href={l.url} rel="nofollow noopener noreferrer" target="_blank">{hostOf(l.url)}</a></span>
+              <span class="src" title={`Read from ${SOURCE_LABEL[l.sourceType]}`}>Price checked <time datetime={l.verifiedAt}>{checkedAt(l.verifiedAt)}</time> on {hostOf(l.url)}</span>
               {l.provider.subscription && <span class="chip chip-sub" title="This price needs an ongoing plan or membership">Subscription</span>}
             </span>
             <span class="price">
