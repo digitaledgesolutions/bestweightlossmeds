@@ -41,7 +41,7 @@ const lowYear = Math.min(...rows.map((l) => l.firstYear ?? Infinity));
         </tbody>
       </table>
     </div>
-    <p class="small muted" style="margin-top:0.75rem">Prices are per {drug === 'wegovy-pill' ? 'pack of 30 tablets' : 'pen (four weekly doses)'}, as published by each provider. *12 months on a common step-up plan; your prescriber decides your doses. Consultation and delivery fees vary, so confirm the total with the provider. <a href={`${d.path}prices.csv`}>Download these prices (CSV)</a></p>
+    <p class="small muted" style="margin-top:0.75rem">Prices are per {drug === 'wegovy-pill' ? 'pack of 30 tablets' : 'pen (four weekly doses)'}, as published by each provider. *12 months on a common step-up plan; your prescriber decides your doses. Consultation and delivery fees vary, so confirm the total with the provider.</p>
   </div>
 </section>
 <script>

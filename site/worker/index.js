@@ -31,6 +31,11 @@ const AI_AGENTS = [
   ['OAI-SearchBot', /OAI-SearchBot/i, 'search'], ['Claude-SearchBot', /Claude-SearchBot/i, 'search'],
   ['PerplexityBot', /PerplexityBot/i, 'search'], ['Bingbot', /bingbot/i, 'search'], ['Googlebot', /Googlebot/i, 'search'],
 ];
+// Bulk crawlers that copy pages for AI training or SEO databases. They get a 403.
+// AI assistants fetching a page for a person (ChatGPT-User, Claude-User, Perplexity) and
+// search engines are not on this list.
+const BLOCKED_BOTS = /GPTBot|ClaudeBot|anthropic-ai|CCBot|Bytespider|Google-Extended|Applebot-Extended|meta-externalagent|FacebookBot|cohere-ai|cohere-training|Diffbot|omgili|ImagesiftBot|Timpibot|AI2Bot|PanguBot|img2dataset|AhrefsBot|SemrushBot|MJ12bot|DotBot|DataForSeoBot|BLEXBot|serpstatbot|PetalBot|Scrapy|python-requests|aiohttp|Go-http-client|HeadlessChrome/i;
+
 const SECURITY = {
   'X-Content-Type-Options': 'nosniff',
   'Referrer-Policy': 'strict-origin-when-cross-origin',
@@ -84,6 +89,10 @@ export default {
       }
       const cookie = req.headers.get('Cookie') || '';
       if (!cookie.split(/;\s*/).includes(`${COOKIE}=${token}`)) return closed(env);
+    }
+
+    if (BLOCKED_BOTS.test(req.headers.get('User-Agent') || '') && url.pathname !== '/robots.txt') {
+      return withHeaders(new Response('Automated copying of this site is not allowed.\n', { status: 403, headers: { 'Content-Type': 'text/plain', 'Cache-Control': 'no-store' } }), env);
     }
 
     // Old ?dose=5mg links on a medicine page -> that dose's own page.

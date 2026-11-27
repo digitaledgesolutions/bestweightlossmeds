@@ -26,14 +26,9 @@ const jsonld = {
       '@type': 'Dataset', name: `${d.name} prices in the UK by dose`,
       description: `Published ${d.name} (${d.generic}) prices from ${ls.length} UK online pharmacies and clinics at every dose, read from each provider's own website daily.`,
       url: site + d.path, dateModified: latestCheck(ls) || GENERATED_AT || undefined,
-      measurementTechnique: `Automated daily read of each provider's own product page or product data; a price is published only if confirmed in the last ${STALE_HOURS} hours. Source URL and check time are given per price in the downloads.`,
-      isBasedOn: ls.map((l) => l.url), isAccessibleForFree: true, license: 'https://creativecommons.org/licenses/by/4.0/',
+      measurementTechnique: `Automated daily read of each provider's own product page or product data; a price is published only if confirmed in the last ${STALE_HOURS} hours.`,
       creator: { '@type': 'Organization', name: 'Best Weight Loss Meds', url: site },
       spatialCoverage: 'United Kingdom', variableMeasured: 'Price in GBP per pen or pack, by dose',
-      distribution: [
-        { '@type': 'DataDownload', encodingFormat: 'text/csv', contentUrl: `${site}${d.path}prices.csv` },
-        { '@type': 'DataDownload', encodingFormat: 'application/json', contentUrl: `${site}/uk/prices.json` },
-      ],
     },
   ],
 };
