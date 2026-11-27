@@ -1,5 +1,5 @@
 {
- "startedAt": "2026-11-27T13:23:13Z",
+ "startedAt": "2026-11-27T13:30:26Z",
  "results": [
   {
    "provider": "click-2-pharmacy",
@@ -24,7 +24,7 @@
    "via": "direct",
    "method": "text",
    "dropped": "15mg",
-   "status": "held",
+   "status": "updated",
    "prices": {
     "2.5mg": 135.0,
     "5mg": 155.0,
@@ -39,7 +39,7 @@
    "url": "https://www.genmeds.co.uk/treatments/weight-loss/mounjaro",
    "via": "direct",
    "method": "text",
-   "status": "held",
+   "status": "updated",
    "prices": {
     "2.5mg": 319.98,
     "5mg": 339.98,
@@ -85,16 +85,16 @@
    "drug": "mounjaro",
    "url": "https://joodlife.com/products/mounjaro",
    "via": "direct",
-   "status": "fetch-failed",
-   "error": "http 308; proxy: no proxy key"
-  },
-  {
-   "provider": "live-well-weight-loss",
-   "drug": "mounjaro",
-   "url": "https://livewellweightloss.co.uk/mounjaro-product-information/",
-   "via": "direct",
-   "status": "fetch-failed",
-   "error": "RemoteDisconnected; proxy: no proxy key"
+   "method": "text",
+   "status": "updated",
+   "prices": {
+    "2.5mg": 160.0,
+    "5mg": 175.0,
+    "7.5mg": 227.0,
+    "10mg": 251.0,
+    "12.5mg": 268.0,
+    "15mg": 288.0
+   }
   },
   {
    "provider": "manchester-chemist",
@@ -132,16 +132,8 @@
    "drug": "mounjaro",
    "url": "https://www.pharmica.co.uk/weight-loss/mounjaro/",
    "via": "direct",
-   "method": "text",
-   "dropped": "15mg",
-   "status": "updated",
-   "prices": {
-    "2.5mg": 159.99,
-    "5mg": 199.99,
-    "7.5mg": 259.99,
-    "10mg": 284.99,
-    "12.5mg": 309.99
-   }
+   "status": "fetch-failed",
+   "error": "http 202; proxy: no proxy key"
   },
   {
    "provider": "pillsorted",
@@ -149,7 +141,7 @@
    "url": "https://www.pillsorted.com/product/mounjaro-injectable-pen/",
    "via": "direct",
    "method": "text",
-   "status": "held",
+   "status": "updated",
    "prices": {
     "2.5mg": 149.0,
     "5mg": 179.0,
@@ -164,16 +156,8 @@
    "drug": "mounjaro",
    "url": "https://thecarepharmacy.com/shop/mounjaro-weight-loss-injection/",
    "via": "direct",
-   "method": "woo",
-   "status": "updated",
-   "prices": {
-    "2.5mg": 149.99,
-    "5mg": 184.99,
-    "7.5mg": 234.99,
-    "10mg": 259.99,
-    "12.5mg": 279.99,
-    "15mg": 299.99
-   }
+   "status": "fetch-failed",
+   "error": "http 403; proxy: no proxy key"
   },
   {
    "provider": "the-weight-clinic",
@@ -212,64 +196,72 @@
    "drug": "mounjaro",
    "url": "https://getadrip.shop/products/mounjaro-1.json",
    "via": "direct",
-   "status": "fetch-failed",
-   "error": "http 429; proxy: no proxy key"
+   "method": "shopify",
+   "status": "updated",
+   "prices": {
+    "2.5mg": 159.0,
+    "5mg": 179.0,
+    "7.5mg": 229.0,
+    "10mg": 259.0,
+    "12.5mg": 279.0,
+    "15mg": 299.0
+   }
   },
   {
    "provider": "lotus-weight-loss",
    "drug": "mounjaro",
    "url": "https://www.lotusweightloss.co.uk/products/mounjaro.json",
    "via": "direct",
-   "status": "fetch-failed",
-   "error": "http 429; proxy: no proxy key"
+   "method": "shopify",
+   "status": "updated",
+   "prices": {
+    "2.5mg": 154.0,
+    "5mg": 168.0,
+    "7.5mg": 221.0,
+    "10mg": 246.0,
+    "12.5mg": 268.0,
+    "15mg": 284.0
+   }
   },
   {
    "provider": "swift-doctor",
    "drug": "mounjaro",
    "url": "https://swift-doctor.com/products/mounjaro-1.json",
    "via": "direct",
-   "status": "fetch-failed",
-   "error": "http 429; proxy: no proxy key"
+   "method": "shopify",
+   "status": "updated",
+   "prices": {
+    "2.5mg": 149.0,
+    "5mg": 169.0,
+    "7.5mg": 225.0,
+    "10mg": 249.0,
+    "12.5mg": 265.0,
+    "15mg": 289.0
+   }
   },
   {
    "provider": "happy-pharmacy",
    "drug": "mounjaro",
    "url": "https://happypharmacy.co.uk/products/mounjaro.json",
    "via": "direct",
-   "status": "fetch-failed",
-   "error": "http 429; proxy: no proxy key"
-  },
-  {
-   "provider": "pills2u",
-   "drug": "mounjaro",
-   "url": "https://pills2u.co.uk/shop/mounjaro-weight-loss/",
-   "via": "direct",
-   "status": "fetch-failed",
-   "error": "RemoteDisconnected; proxy: no proxy key"
-  },
-  {
-   "provider": "next-script",
-   "drug": "mounjaro",
-   "url": "https://nextscript.co.uk/shop/mounjaro-weight-loss/",
-   "via": "direct",
-   "status": "fetch-failed",
-   "error": "RemoteDisconnected; proxy: no proxy key"
+   "method": "shopify",
+   "status": "updated",
+   "prices": {
+    "2.5mg": 149.99,
+    "5mg": 189.99,
+    "7.5mg": 249.99,
+    "10mg": 269.99,
+    "12.5mg": 289.99,
+    "15mg": 319.99
+   }
   },
   {
    "provider": "onlinemeds",
    "drug": "mounjaro",
    "url": "https://onlinemeds.co.uk/shop/mounjaro-kwikpen/",
    "via": "direct",
-   "method": "woo",
-   "status": "updated",
-   "prices": {
-    "2.5mg": 167.99,
-    "5mg": 177.49,
-    "7.5mg": 229.49,
-    "10mg": 254.95,
-    "12.5mg": 272.99,
-    "15mg": 299.99
-   }
+   "status": "fetch-failed",
+   "error": "http 403; proxy: no proxy key"
   },
   {
    "provider": "pharmacy-advance",
@@ -286,14 +278,6 @@
     "12.5mg": 264.99,
     "15mg": 284.99
    }
-  },
-  {
-   "provider": "slimming-direct",
-   "drug": "mounjaro",
-   "url": "https://slimmingdirect.co.uk/product/mounjaro-weight-loss-injection/",
-   "via": "direct",
-   "status": "fetch-failed",
-   "error": "RemoteDisconnected; proxy: no proxy key"
   },
   {
    "provider": "dr-weightmans",
@@ -325,14 +309,6 @@
    }
   },
   {
-   "provider": "yourdose",
-   "drug": "mounjaro",
-   "url": "https://yourdosepharmacy.co.uk/wp-json/wc/store/v1/products?type=variation&parent=3346",
-   "via": "direct",
-   "status": "fetch-failed",
-   "error": "RemoteDisconnected; proxy: no proxy key"
-  },
-  {
    "provider": "click-2-pharmacy",
    "drug": "wegovy",
    "url": "https://click2pharmacy.co.uk/product/wegovy/",
@@ -355,7 +331,7 @@
    "via": "direct",
    "method": "text",
    "dropped": "7.2mg",
-   "status": "held",
+   "status": "updated",
    "prices": {
     "0.25mg": 95.0,
     "0.5mg": 95.0,
@@ -415,16 +391,15 @@
    "drug": "wegovy",
    "url": "https://joodlife.com/products/wegovy",
    "via": "direct",
-   "status": "fetch-failed",
-   "error": "http 308; proxy: no proxy key"
-  },
-  {
-   "provider": "live-well-weight-loss",
-   "drug": "wegovy",
-   "url": "https://livewellweightloss.co.uk/product/wegovy/",
-   "via": "direct",
-   "status": "fetch-failed",
-   "error": "RemoteDisconnected; proxy: no proxy key"
+   "method": "text",
+   "status": "updated",
+   "prices": {
+    "0.25mg": 115.0,
+    "0.5mg": 115.0,
+    "1mg": 115.0,
+    "1.7mg": 165.0,
+    "2.4mg": 220.0
+   }
   },
   {
    "provider": "medino",
@@ -432,7 +407,7 @@
    "url": "https://medino.com/brand/wegovy",
    "via": "direct",
    "method": "text",
-   "status": "held",
+   "status": "updated",
    "prices": {
     "0.25mg": 99.99,
     "0.5mg": 99.99,
@@ -446,16 +421,8 @@
    "drug": "wegovy",
    "url": "https://pharmica.co.uk/weight-loss/wegovy/",
    "via": "direct",
-   "method": "text",
-   "dropped": "7.2mg",
-   "status": "updated",
-   "prices": {
-    "0.25mg": 119.99,
-    "0.5mg": 134.99,
-    "1mg": 139.99,
-    "1.7mg": 169.99,
-    "2.4mg": 199.99
-   }
+   "status": "fetch-failed",
+   "error": "http 202; proxy: no proxy key"
   },
   {
    "provider": "pillsorted",
@@ -478,16 +445,8 @@
    "drug": "wegovy",
    "url": "https://thecarepharmacy.com/shop/wegovy-weight-loss-injections/",
    "via": "direct",
-   "method": "woo",
-   "status": "updated",
-   "prices": {
-    "7.2mg": 249.99,
-    "1.7mg": 179.99,
-    "1mg": 129.99,
-    "0.5mg": 129.99,
-    "0.25mg": 99.99,
-    "2.4mg": 229.99
-   }
+   "status": "fetch-failed",
+   "error": "http 403; proxy: no proxy key"
   },
   {
    "provider": "the-weight-clinic",
@@ -526,56 +485,56 @@
    "drug": "wegovy",
    "url": "https://lotusweightloss.co.uk/products/wegovy.json",
    "via": "direct",
-   "status": "fetch-failed",
-   "error": "http 429; proxy: no proxy key"
+   "method": "shopify",
+   "status": "updated",
+   "prices": {
+    "0.25mg": 94.0,
+    "0.5mg": 116.5,
+    "1mg": 120.0,
+    "1.7mg": 141.0,
+    "2.4mg": 161.0,
+    "7.2mg": 196.0
+   }
   },
   {
    "provider": "swift-doctor",
    "drug": "wegovy",
    "url": "https://swift-doctor.com/products/wegovy.json",
    "via": "direct",
-   "status": "fetch-failed",
-   "error": "http 429; proxy: no proxy key"
+   "method": "shopify",
+   "status": "updated",
+   "prices": {
+    "0.25mg": 99.0,
+    "0.5mg": 99.0,
+    "1mg": 99.0,
+    "1.7mg": 130.0,
+    "2.4mg": 150.0,
+    "7.2mg": 230.0
+   }
   },
   {
    "provider": "happy-pharmacy",
    "drug": "wegovy",
    "url": "https://happypharmacy.co.uk/products/wegovy-weight-loss-injection.json",
    "via": "direct",
-   "status": "fetch-failed",
-   "error": "http 429; proxy: no proxy key"
-  },
-  {
-   "provider": "pills2u",
-   "drug": "wegovy",
-   "url": "https://pills2u.co.uk/shop/wegovy/",
-   "via": "direct",
-   "status": "fetch-failed",
-   "error": "RemoteDisconnected; proxy: no proxy key"
-  },
-  {
-   "provider": "next-script",
-   "drug": "wegovy",
-   "url": "https://nextscript.co.uk/shop/wegovy/",
-   "via": "direct",
-   "status": "fetch-failed",
-   "error": "RemoteDisconnected; proxy: no proxy key"
+   "method": "shopify",
+   "status": "updated",
+   "prices": {
+    "0.25mg": 99.99,
+    "0.5mg": 109.99,
+    "1mg": 124.99,
+    "1.7mg": 164.99,
+    "2.4mg": 209.99,
+    "7.2mg": 259.99
+   }
   },
   {
    "provider": "onlinemeds",
    "drug": "wegovy",
    "url": "https://onlinemeds.co.uk/shop/wegovy-flextouch/",
    "via": "direct",
-   "method": "woo",
-   "status": "updated",
-   "prices": {
-    "0.25mg": 116.99,
-    "0.5mg": 116.99,
-    "1mg": 116.99,
-    "1.7mg": 168.99,
-    "2.4mg": 221.99,
-    "7.2mg": 226.99
-   }
+   "status": "fetch-failed",
+   "error": "http 403; proxy: no proxy key"
   },
   {
    "provider": "pharmacy-advance",
@@ -591,14 +550,6 @@
     "1.7mg": 184.99,
     "2.4mg": 219.99
    }
-  },
-  {
-   "provider": "slimming-direct",
-   "drug": "wegovy",
-   "url": "https://slimmingdirect.co.uk/product/wegovy-weight-loss-injection/",
-   "via": "direct",
-   "status": "fetch-failed",
-   "error": "RemoteDisconnected; proxy: no proxy key"
   },
   {
    "provider": "dr-weightmans",
@@ -632,14 +583,6 @@
    }
   },
   {
-   "provider": "yourdose",
-   "drug": "wegovy",
-   "url": "https://yourdosepharmacy.co.uk/wp-json/wc/store/v1/products?type=variation&parent=3355",
-   "via": "direct",
-   "status": "fetch-failed",
-   "error": "RemoteDisconnected; proxy: no proxy key"
-  },
-  {
    "provider": "genmeds",
    "drug": "wegovy-pill",
    "url": "https://genmeds.co.uk/treatments/weight-loss/wegovy-pill",
@@ -658,8 +601,14 @@
    "drug": "wegovy-pill",
    "url": "https://thefamilychemist.co.uk/wegovy-tablets",
    "via": "direct",
-   "status": "fetch-failed",
-   "error": "URLError; proxy: no proxy key"
+   "method": "text",
+   "dropped": "25mg",
+   "status": "held",
+   "prices": {
+    "1.5mg": 105.0,
+    "4mg": 129.99,
+    "9mg": 149.99
+   }
   },
   {
    "provider": "the-independent-pharmacy",
@@ -680,54 +629,68 @@
    "drug": "wegovy-pill",
    "url": "https://happypharmacy.co.uk/products/wegovy-pills.json",
    "via": "direct",
-   "status": "fetch-failed",
-   "error": "http 429; proxy: no proxy key"
+   "method": "shopify",
+   "status": "updated",
+   "prices": {
+    "1.5mg": 109.99,
+    "4mg": 119.99,
+    "9mg": 139.99,
+    "25mg": 194.99
+   }
   },
   {
    "provider": "get-a-drip",
    "drug": "wegovy-pill",
    "url": "https://getadrip.shop/products/wegovy-pill.json",
    "via": "direct",
-   "status": "fetch-failed",
-   "error": "http 429; proxy: no proxy key"
-  },
-  {
-   "provider": "next-script",
-   "drug": "wegovy-pill",
-   "url": "https://nextscript.co.uk/product/wegovy-pill/",
-   "via": "direct",
-   "status": "fetch-failed",
-   "error": "RemoteDisconnected; proxy: no proxy key"
+   "method": "shopify",
+   "status": "updated",
+   "prices": {
+    "1.5mg": 114.49,
+    "4mg": 124.99,
+    "9mg": 144.99,
+    "25mg": 184.49
+   }
   },
   {
    "provider": "onlinemeds",
    "drug": "wegovy-pill",
    "url": "https://onlinemeds.co.uk/product/wegovy-tablets/",
    "via": "direct",
-   "method": "woo",
-   "status": "updated",
-   "prices": {
-    "1.5mg": 123.99,
-    "4mg": 125.99,
-    "9mg": 140.99,
-    "25mg": 189.99
-   }
+   "status": "fetch-failed",
+   "error": "http 403; proxy: no proxy key"
   },
   {
    "provider": "everydaymeds",
    "drug": "mounjaro",
    "url": "https://everydaymeds.co.uk/products/mounjaro-injection.json",
    "via": "direct",
-   "status": "fetch-failed",
-   "error": "http 429; proxy: no proxy key"
+   "method": "shopify",
+   "status": "updated",
+   "prices": {
+    "2.5mg": 169.99,
+    "5mg": 189.99,
+    "7.5mg": 244.99,
+    "10mg": 274.99,
+    "12.5mg": 289.99,
+    "15mg": 299.99
+   }
   },
   {
    "provider": "cured-pharmacy",
    "drug": "mounjaro",
    "url": "https://curedpharmacy.com/products/mounjaro-weight-loss-injections-tirzepatide-kwikpen.json",
    "via": "direct",
-   "status": "fetch-failed",
-   "error": "http 429; proxy: no proxy key"
+   "method": "shopify",
+   "status": "updated",
+   "prices": {
+    "2.5mg": 144.99,
+    "5mg": 179.0,
+    "7.5mg": 220.0,
+    "10mg": 245.0,
+    "12.5mg": 270.0,
+    "15mg": 287.0
+   }
   },
   {
    "provider": "simply-meds-online",
@@ -736,7 +699,7 @@
    "via": "direct",
    "method": "text",
    "dropped": "15mg",
-   "status": "held",
+   "status": "updated",
    "prices": {
     "2.5mg": 149.99,
     "5mg": 189.99,
@@ -766,8 +729,16 @@
    "drug": "wegovy",
    "url": "https://everydaymeds.co.uk/products/wegovy-injection.json",
    "via": "direct",
-   "status": "fetch-failed",
-   "error": "http 429; proxy: no proxy key"
+   "method": "shopify",
+   "status": "updated",
+   "prices": {
+    "0.25mg": 139.99,
+    "0.5mg": 144.99,
+    "1mg": 149.99,
+    "1.7mg": 194.99,
+    "2.4mg": 249.99,
+    "7.2mg": 299.99
+   }
   },
   {
    "provider": "uk-meds",
@@ -803,8 +774,14 @@
    "drug": "wegovy-pill",
    "url": "https://everydaymeds.co.uk/products/wegovy-pill.json",
    "via": "direct",
-   "status": "fetch-failed",
-   "error": "http 429; proxy: no proxy key"
+   "method": "shopify",
+   "status": "updated",
+   "prices": {
+    "1.5mg": 139.99,
+    "4mg": 144.99,
+    "9mg": 164.99,
+    "25mg": 219.99
+   }
   },
   {
    "provider": "uk-meds",
@@ -825,40 +802,32 @@
    "drug": "mounjaro",
    "url": "https://www.oxfordonlinepharmacy.co.uk/weight-loss/mounjaro",
    "via": "direct",
-   "method": "jsonld",
-   "status": "updated",
-   "prices": {
-    "15mg": 309.95,
-    "12.5mg": 288.96,
-    "10mg": 278.96,
-    "7.5mg": 248.96,
-    "5mg": 188.96,
-    "2.5mg": 143.96
-   }
+   "status": "fetch-failed",
+   "error": "http 403; proxy: no proxy key"
   },
   {
    "provider": "rightangled",
    "drug": "mounjaro",
    "url": "https://rightangled.com/products/mounjaro",
    "via": "direct",
-   "status": "fetch-failed",
-   "error": "http 429; proxy: no proxy key"
+   "method": "shopify_inline",
+   "status": "updated",
+   "prices": {
+    "2.5mg": 164.99,
+    "5mg": 179.99,
+    "7.5mg": 239.99,
+    "10mg": 279.99,
+    "12.5mg": 289.99,
+    "15mg": 309.99
+   }
   },
   {
    "provider": "oxford-online-pharmacy",
    "drug": "wegovy",
    "url": "https://www.oxfordonlinepharmacy.co.uk/weight-loss/wegovy",
    "via": "direct",
-   "method": "jsonld",
-   "status": "updated",
-   "prices": {
-    "7.2mg": 249.98,
-    "2.4mg": 188.96,
-    "1.7mg": 168.96,
-    "1mg": 138.96,
-    "0.5mg": 108.96,
-    "0.25mg": 88.96
-   }
+   "status": "fetch-failed",
+   "error": "http 403; proxy: no proxy key"
   },
   {
    "provider": "doktorabc",
@@ -880,8 +849,16 @@
    "drug": "wegovy",
    "url": "https://onlinedoctor.lloydspharmacy.com/uk/weight-loss/wegovy",
    "via": "direct",
-   "status": "fetch-failed",
-   "error": "http 429; proxy: no proxy key"
+   "method": "shopify_inline",
+   "status": "updated",
+   "prices": {
+    "0.25mg": 99.99,
+    "0.5mg": 119.99,
+    "1mg": 149.99,
+    "1.7mg": 179.99,
+    "2.4mg": 199.99,
+    "7.2mg": 249.99
+   }
   },
   {
    "provider": "boots",
@@ -897,7 +874,7 @@
    "url": "https://www.medexpress.co.uk/clinics/weight-loss/mounjaro",
    "via": "direct",
    "method": "text",
-   "status": "held",
+   "status": "updated",
    "prices": {
     "2.5mg": 139.99,
     "5mg": 194.99,
@@ -913,7 +890,7 @@
    "url": "https://www.medexpress.co.uk/clinics/weight-loss/wegovy",
    "via": "direct",
    "method": "text",
-   "status": "held",
+   "status": "updated",
    "prices": {
     "0.25mg": 59.99,
     "0.5mg": 124.99,
@@ -958,7 +935,7 @@
    "url": "https://www.boltpharmacy.co.uk/wegovy",
    "via": "direct",
    "method": "positional",
-   "status": "held",
+   "status": "updated",
    "prices": {
     "0.25mg": 119.0,
     "0.5mg": 129.0,
@@ -974,7 +951,7 @@
    "url": "https://www.numan.com/weight-loss/wegovy",
    "via": "direct",
    "method": "text",
-   "status": "held",
+   "status": "updated",
    "prices": {
     "0.25mg": 119.0,
     "0.5mg": 149.0,
@@ -985,92 +962,142 @@
    }
   },
   {
-   "provider": "voy",
-   "drug": "mounjaro",
-   "url": "https://www.joinvoy.com/weight-loss/medications/mounjaro",
-   "via": "direct",
-   "status": "fetch-failed",
-   "error": "http 429; proxy: no proxy key"
-  },
-  {
-   "provider": "voy",
-   "drug": "wegovy",
-   "url": "https://www.joinvoy.com/weight-loss/medications/wegovy",
-   "via": "direct",
-   "status": "fetch-failed",
-   "error": "http 429; proxy: no proxy key"
-  },
-  {
    "provider": "superdrug",
    "drug": "mounjaro",
    "url": "https://onlinedoctor.superdrug.com/mounjaro.html",
    "via": "direct",
-   "status": "fetch-failed",
-   "error": "http 403"
+   "method": "text",
+   "status": "updated",
+   "prices": {
+    "2.5mg": 179.0,
+    "5mg": 199.0,
+    "7.5mg": 259.0,
+    "10mg": 299.0,
+    "12.5mg": 319.0,
+    "15mg": 339.0
+   }
   },
   {
    "provider": "superdrug",
    "drug": "wegovy",
    "url": "https://onlinedoctor.superdrug.com/wegovy.html",
    "via": "direct",
-   "status": "fetch-failed",
-   "error": "http 403"
+   "method": "text",
+   "dropped": "7.2mg",
+   "status": "updated",
+   "prices": {
+    "0.25mg": 89.0,
+    "0.5mg": 119.0,
+    "1mg": 166.0,
+    "1.7mg": 192.0,
+    "2.4mg": 205.0
+   }
   },
   {
    "provider": "superdrug",
    "drug": "wegovy-pill",
    "url": "https://onlinedoctor.superdrug.com/wegovy-pill.html",
    "via": "direct",
-   "status": "fetch-failed",
-   "error": "http 403"
+   "method": "text",
+   "status": "updated",
+   "prices": {
+    "1.5mg": 99.0,
+    "4mg": 119.0,
+    "9mg": 149.0,
+    "25mg": 229.0
+   }
   },
   {
    "provider": "asda",
    "drug": "mounjaro",
    "url": "https://onlinedoctor.asda.com/uk/mounjaro.html",
    "via": "direct",
-   "status": "fetch-failed",
-   "error": "http 403"
+   "method": "text",
+   "status": "updated",
+   "prices": {
+    "2.5mg": 135.47,
+    "5mg": 188.97,
+    "7.5mg": 248.97,
+    "10mg": 278.97,
+    "12.5mg": 287.47,
+    "15mg": 298.97
+   }
   },
   {
    "provider": "asda",
    "drug": "wegovy",
    "url": "https://onlinedoctor.asda.com/uk/wegovy.html",
    "via": "direct",
-   "status": "fetch-failed",
-   "error": "http 403"
+   "method": "text",
+   "status": "updated",
+   "prices": {
+    "0.25mg": 79.47,
+    "0.5mg": 118.97,
+    "1mg": 148.97,
+    "1.7mg": 178.97,
+    "2.4mg": 198.97,
+    "7.2mg": 248.97
+   }
   },
   {
    "provider": "asda",
    "drug": "wegovy-pill",
    "url": "https://onlinedoctor.asda.com/uk/wegovy-pill.html",
    "via": "direct",
-   "status": "fetch-failed",
-   "error": "http 403"
+   "method": "text",
+   "status": "updated",
+   "prices": {
+    "1.5mg": 98.97,
+    "4mg": 123.97,
+    "9mg": 148.97,
+    "25mg": 198.97
+   }
   },
   {
    "provider": "simple-online-pharmacy",
    "drug": "mounjaro",
    "url": "https://www.simpleonlinepharmacy.co.uk/weight-loss/mounjaro/",
    "via": "direct",
-   "status": "fetch-failed",
-   "error": "http 403"
+   "method": "jsonld",
+   "status": "updated",
+   "prices": {
+    "2.5mg": 129.0,
+    "5mg": 179.99,
+    "7.5mg": 233.99,
+    "10mg": 251.99,
+    "12.5mg": 269.99,
+    "15mg": 287.99
+   }
   },
   {
    "provider": "simple-online-pharmacy",
    "drug": "wegovy",
    "url": "https://www.simpleonlinepharmacy.co.uk/weight-loss/wegovy/",
    "via": "direct",
-   "status": "fetch-failed",
-   "error": "http 403"
+   "method": "text",
+   "dropped": "1mg",
+   "status": "updated",
+   "prices": {
+    "0.25mg": 69.0,
+    "0.5mg": 119.0,
+    "1.7mg": 152.0,
+    "2.4mg": 170.0,
+    "7.2mg": 238.5
+   }
   },
   {
    "provider": "simple-online-pharmacy",
    "drug": "wegovy-pill",
    "url": "https://www.simpleonlinepharmacy.co.uk/weight-loss/wegovy-pill/",
    "via": "direct",
-   "status": "fetch-failed",
-   "error": "http 403"
+   "method": "jsonld",
+   "status": "updated",
+   "prices": {
+    "1.5mg": 69.0,
+    "4mg": 125.0,
+    "9mg": 152.0,
+    "25mg": 197.0
+   }
   },
   {
    "provider": "numan",
@@ -1087,20 +1114,6 @@
     "12.5mg": 329.0,
     "15mg": 339.0
    }
-  }
- ],
- "finishedAt": "2026-11-27T13:27:37Z",
- "total": 90,
- "ok": 48,
- "hitRate": 0.533,
- "failures": [
-  {
-   "provider": "jood-life",
-   "drug": "mounjaro",
-   "url": "https://joodlife.com/products/mounjaro",
-   "via": "direct",
-   "status": "fetch-failed",
-   "error": "http 308; proxy: no proxy key"
   },
   {
    "provider": "live-well-weight-loss",
@@ -1109,38 +1122,6 @@
    "via": "direct",
    "status": "fetch-failed",
    "error": "RemoteDisconnected; proxy: no proxy key"
-  },
-  {
-   "provider": "get-a-drip",
-   "drug": "mounjaro",
-   "url": "https://getadrip.shop/products/mounjaro-1.json",
-   "via": "direct",
-   "status": "fetch-failed",
-   "error": "http 429; proxy: no proxy key"
-  },
-  {
-   "provider": "lotus-weight-loss",
-   "drug": "mounjaro",
-   "url": "https://www.lotusweightloss.co.uk/products/mounjaro.json",
-   "via": "direct",
-   "status": "fetch-failed",
-   "error": "http 429; proxy: no proxy key"
-  },
-  {
-   "provider": "swift-doctor",
-   "drug": "mounjaro",
-   "url": "https://swift-doctor.com/products/mounjaro-1.json",
-   "via": "direct",
-   "status": "fetch-failed",
-   "error": "http 429; proxy: no proxy key"
-  },
-  {
-   "provider": "happy-pharmacy",
-   "drug": "mounjaro",
-   "url": "https://happypharmacy.co.uk/products/mounjaro.json",
-   "via": "direct",
-   "status": "fetch-failed",
-   "error": "http 429; proxy: no proxy key"
   },
   {
    "provider": "pills2u",
@@ -1167,20 +1148,6 @@
    "error": "RemoteDisconnected; proxy: no proxy key"
   },
   {
-   "provider": "weprescribe",
-   "drug": "mounjaro",
-   "url": "https://weprescribe.co.uk/wp-json/wc/store/v1/products?type=variation&parent=48702",
-   "via": "direct",
-   "method": "wcapi",
-   "status": "bad-ladder",
-   "prices": {
-    "7.5mg": 349.99,
-    "10mg": 389.99,
-    "12.5mg": 289.99,
-    "15mg": 309.99
-   }
-  },
-  {
    "provider": "yourdose",
    "drug": "mounjaro",
    "url": "https://yourdosepharmacy.co.uk/wp-json/wc/store/v1/products?type=variation&parent=3346",
@@ -1189,44 +1156,12 @@
    "error": "RemoteDisconnected; proxy: no proxy key"
   },
   {
-   "provider": "jood-life",
-   "drug": "wegovy",
-   "url": "https://joodlife.com/products/wegovy",
-   "via": "direct",
-   "status": "fetch-failed",
-   "error": "http 308; proxy: no proxy key"
-  },
-  {
    "provider": "live-well-weight-loss",
    "drug": "wegovy",
    "url": "https://livewellweightloss.co.uk/product/wegovy/",
    "via": "direct",
    "status": "fetch-failed",
    "error": "RemoteDisconnected; proxy: no proxy key"
-  },
-  {
-   "provider": "lotus-weight-loss",
-   "drug": "wegovy",
-   "url": "https://lotusweightloss.co.uk/products/wegovy.json",
-   "via": "direct",
-   "status": "fetch-failed",
-   "error": "http 429; proxy: no proxy key"
-  },
-  {
-   "provider": "swift-doctor",
-   "drug": "wegovy",
-   "url": "https://swift-doctor.com/products/wegovy.json",
-   "via": "direct",
-   "status": "fetch-failed",
-   "error": "http 429; proxy: no proxy key"
-  },
-  {
-   "provider": "happy-pharmacy",
-   "drug": "wegovy",
-   "url": "https://happypharmacy.co.uk/products/wegovy-weight-loss-injection.json",
-   "via": "direct",
-   "status": "fetch-failed",
-   "error": "http 429; proxy: no proxy key"
   },
   {
    "provider": "pills2u",
@@ -1261,92 +1196,12 @@
    "error": "RemoteDisconnected; proxy: no proxy key"
   },
   {
-   "provider": "the-family-chemist",
-   "drug": "wegovy-pill",
-   "url": "https://thefamilychemist.co.uk/wegovy-tablets",
-   "via": "direct",
-   "status": "fetch-failed",
-   "error": "URLError; proxy: no proxy key"
-  },
-  {
-   "provider": "happy-pharmacy",
-   "drug": "wegovy-pill",
-   "url": "https://happypharmacy.co.uk/products/wegovy-pills.json",
-   "via": "direct",
-   "status": "fetch-failed",
-   "error": "http 429; proxy: no proxy key"
-  },
-  {
-   "provider": "get-a-drip",
-   "drug": "wegovy-pill",
-   "url": "https://getadrip.shop/products/wegovy-pill.json",
-   "via": "direct",
-   "status": "fetch-failed",
-   "error": "http 429; proxy: no proxy key"
-  },
-  {
    "provider": "next-script",
    "drug": "wegovy-pill",
    "url": "https://nextscript.co.uk/product/wegovy-pill/",
    "via": "direct",
    "status": "fetch-failed",
    "error": "RemoteDisconnected; proxy: no proxy key"
-  },
-  {
-   "provider": "everydaymeds",
-   "drug": "mounjaro",
-   "url": "https://everydaymeds.co.uk/products/mounjaro-injection.json",
-   "via": "direct",
-   "status": "fetch-failed",
-   "error": "http 429; proxy: no proxy key"
-  },
-  {
-   "provider": "cured-pharmacy",
-   "drug": "mounjaro",
-   "url": "https://curedpharmacy.com/products/mounjaro-weight-loss-injections-tirzepatide-kwikpen.json",
-   "via": "direct",
-   "status": "fetch-failed",
-   "error": "http 429; proxy: no proxy key"
-  },
-  {
-   "provider": "everydaymeds",
-   "drug": "wegovy",
-   "url": "https://everydaymeds.co.uk/products/wegovy-injection.json",
-   "via": "direct",
-   "status": "fetch-failed",
-   "error": "http 429; proxy: no proxy key"
-  },
-  {
-   "provider": "everydaymeds",
-   "drug": "wegovy-pill",
-   "url": "https://everydaymeds.co.uk/products/wegovy-pill.json",
-   "via": "direct",
-   "status": "fetch-failed",
-   "error": "http 429; proxy: no proxy key"
-  },
-  {
-   "provider": "rightangled",
-   "drug": "mounjaro",
-   "url": "https://rightangled.com/products/mounjaro",
-   "via": "direct",
-   "status": "fetch-failed",
-   "error": "http 429; proxy: no proxy key"
-  },
-  {
-   "provider": "lloyds-pharmacy",
-   "drug": "wegovy",
-   "url": "https://onlinedoctor.lloydspharmacy.com/uk/weight-loss/wegovy",
-   "via": "direct",
-   "status": "fetch-failed",
-   "error": "http 429; proxy: no proxy key"
-  },
-  {
-   "provider": "boots",
-   "drug": "mounjaro",
-   "url": "https://onlinedoctor.boots.com/treatments/mounjaro",
-   "via": "direct",
-   "method": "text",
-   "status": "no-prices"
   },
   {
    "provider": "voy",
@@ -1363,237 +1218,225 @@
    "via": "direct",
    "status": "fetch-failed",
    "error": "http 429; proxy: no proxy key"
-  },
-  {
-   "provider": "superdrug",
-   "drug": "mounjaro",
-   "url": "https://onlinedoctor.superdrug.com/mounjaro.html",
-   "via": "direct",
-   "status": "fetch-failed",
-   "error": "http 403"
-  },
-  {
-   "provider": "superdrug",
-   "drug": "wegovy",
-   "url": "https://onlinedoctor.superdrug.com/wegovy.html",
-   "via": "direct",
-   "status": "fetch-failed",
-   "error": "http 403"
-  },
-  {
-   "provider": "superdrug",
-   "drug": "wegovy-pill",
-   "url": "https://onlinedoctor.superdrug.com/wegovy-pill.html",
-   "via": "direct",
-   "status": "fetch-failed",
-   "error": "http 403"
-  },
-  {
-   "provider": "asda",
-   "drug": "mounjaro",
-   "url": "https://onlinedoctor.asda.com/uk/mounjaro.html",
-   "via": "direct",
-   "status": "fetch-failed",
-   "error": "http 403"
-  },
-  {
-   "provider": "asda",
-   "drug": "wegovy",
-   "url": "https://onlinedoctor.asda.com/uk/wegovy.html",
-   "via": "direct",
-   "status": "fetch-failed",
-   "error": "http 403"
-  },
-  {
-   "provider": "asda",
-   "drug": "wegovy-pill",
-   "url": "https://onlinedoctor.asda.com/uk/wegovy-pill.html",
-   "via": "direct",
-   "status": "fetch-failed",
-   "error": "http 403"
-  },
-  {
-   "provider": "simple-online-pharmacy",
-   "drug": "mounjaro",
-   "url": "https://www.simpleonlinepharmacy.co.uk/weight-loss/mounjaro/",
-   "via": "direct",
-   "status": "fetch-failed",
-   "error": "http 403"
-  },
-  {
-   "provider": "simple-online-pharmacy",
-   "drug": "wegovy",
-   "url": "https://www.simpleonlinepharmacy.co.uk/weight-loss/wegovy/",
-   "via": "direct",
-   "status": "fetch-failed",
-   "error": "http 403"
-  },
-  {
-   "provider": "simple-online-pharmacy",
-   "drug": "wegovy-pill",
-   "url": "https://www.simpleonlinepharmacy.co.uk/weight-loss/wegovy-pill/",
-   "via": "direct",
-   "status": "fetch-failed",
-   "error": "http 403"
   }
  ],
- "held": [
+ "finishedAt": "2026-11-27T13:37:21Z",
+ "total": 90,
+ "ok": 66,
+ "hitRate": 0.733,
+ "failures": [
   {
-   "provider": "curate",
+   "provider": "pharmica",
    "drug": "mounjaro",
-   "url": "https://curatehealth.co.uk/weight-loss/mounjaro",
+   "url": "https://www.pharmica.co.uk/weight-loss/mounjaro/",
    "via": "direct",
-   "method": "text",
-   "dropped": "15mg",
-   "status": "held",
-   "prices": {
-    "2.5mg": 135.0,
-    "5mg": 155.0,
-    "7.5mg": 205.0,
-    "10mg": 235.0,
-    "12.5mg": 245.0
-   }
+   "status": "fetch-failed",
+   "error": "http 202; proxy: no proxy key"
   },
   {
-   "provider": "genmeds",
+   "provider": "the-care-pharmacy",
    "drug": "mounjaro",
-   "url": "https://www.genmeds.co.uk/treatments/weight-loss/mounjaro",
+   "url": "https://thecarepharmacy.com/shop/mounjaro-weight-loss-injection/",
    "via": "direct",
-   "method": "text",
-   "status": "held",
-   "prices": {
-    "2.5mg": 319.98,
-    "5mg": 339.98,
-    "7.5mg": 409.98,
-    "10mg": 489.98,
-    "12.5mg": 539.98,
-    "15mg": 569.98
-   }
+   "status": "fetch-failed",
+   "error": "http 403; proxy: no proxy key"
   },
   {
-   "provider": "pillsorted",
+   "provider": "onlinemeds",
    "drug": "mounjaro",
-   "url": "https://www.pillsorted.com/product/mounjaro-injectable-pen/",
+   "url": "https://onlinemeds.co.uk/shop/mounjaro-kwikpen/",
    "via": "direct",
-   "method": "text",
-   "status": "held",
-   "prices": {
-    "2.5mg": 149.0,
-    "5mg": 179.0,
-    "7.5mg": 229.0,
-    "10mg": 259.0,
-    "12.5mg": 279.0,
-    "15mg": 289.0
-   }
+   "status": "fetch-failed",
+   "error": "http 403; proxy: no proxy key"
   },
   {
-   "provider": "curate",
-   "drug": "wegovy",
-   "url": "https://curatehealth.co.uk/weight-loss/wegovy",
-   "via": "direct",
-   "method": "text",
-   "dropped": "7.2mg",
-   "status": "held",
-   "prices": {
-    "0.25mg": 95.0,
-    "0.5mg": 95.0,
-    "1mg": 95.0,
-    "1.7mg": 145.0,
-    "2.4mg": 195.0
-   }
-  },
-  {
-   "provider": "medino",
-   "drug": "wegovy",
-   "url": "https://medino.com/brand/wegovy",
-   "via": "direct",
-   "method": "text",
-   "status": "held",
-   "prices": {
-    "0.25mg": 99.99,
-    "0.5mg": 99.99,
-    "1mg": 119.99,
-    "1.7mg": 199.99,
-    "2.4mg": 249.99
-   }
-  },
-  {
-   "provider": "simply-meds-online",
+   "provider": "weprescribe",
    "drug": "mounjaro",
-   "url": "https://www.simplymedsonline.co.uk/weight-loss/mounjaro-kwikpen-weight-loss.html",
+   "url": "https://weprescribe.co.uk/wp-json/wc/store/v1/products?type=variation&parent=48702",
    "via": "direct",
-   "method": "text",
-   "dropped": "15mg",
-   "status": "held",
+   "method": "wcapi",
+   "status": "bad-ladder",
    "prices": {
-    "2.5mg": 149.99,
-    "5mg": 189.99,
-    "7.5mg": 249.99,
-    "10mg": 279.99,
-    "12.5mg": 299.99
-   }
-  },
-  {
-   "provider": "medexpress",
-   "drug": "mounjaro",
-   "url": "https://www.medexpress.co.uk/clinics/weight-loss/mounjaro",
-   "via": "direct",
-   "method": "text",
-   "status": "held",
-   "prices": {
-    "2.5mg": 139.99,
-    "5mg": 194.99,
-    "7.5mg": 249.99,
-    "10mg": 279.99,
-    "12.5mg": 299.99,
+    "7.5mg": 349.99,
+    "10mg": 389.99,
+    "12.5mg": 289.99,
     "15mg": 309.99
    }
   },
   {
-   "provider": "medexpress",
+   "provider": "pharmica",
    "drug": "wegovy",
-   "url": "https://www.medexpress.co.uk/clinics/weight-loss/wegovy",
+   "url": "https://pharmica.co.uk/weight-loss/wegovy/",
    "via": "direct",
-   "method": "text",
-   "status": "held",
-   "prices": {
-    "0.25mg": 59.99,
-    "0.5mg": 124.99,
-    "1.7mg": 184.99,
-    "2.4mg": 204.99,
-    "7.2mg": 249.99
-   }
+   "status": "fetch-failed",
+   "error": "http 202; proxy: no proxy key"
   },
   {
-   "provider": "bolt-pharmacy",
+   "provider": "the-care-pharmacy",
    "drug": "wegovy",
-   "url": "https://www.boltpharmacy.co.uk/wegovy",
+   "url": "https://thecarepharmacy.com/shop/wegovy-weight-loss-injections/",
    "via": "direct",
-   "method": "positional",
-   "status": "held",
-   "prices": {
-    "0.25mg": 119.0,
-    "0.5mg": 129.0,
-    "1mg": 139.0,
-    "1.7mg": 179.0,
-    "2.4mg": 199.0,
-    "7.2mg": 229.0
-   }
+   "status": "fetch-failed",
+   "error": "http 403; proxy: no proxy key"
   },
   {
-   "provider": "numan",
+   "provider": "onlinemeds",
    "drug": "wegovy",
-   "url": "https://www.numan.com/weight-loss/wegovy",
+   "url": "https://onlinemeds.co.uk/shop/wegovy-flextouch/",
+   "via": "direct",
+   "status": "fetch-failed",
+   "error": "http 403; proxy: no proxy key"
+  },
+  {
+   "provider": "onlinemeds",
+   "drug": "wegovy-pill",
+   "url": "https://onlinemeds.co.uk/product/wegovy-tablets/",
+   "via": "direct",
+   "status": "fetch-failed",
+   "error": "http 403; proxy: no proxy key"
+  },
+  {
+   "provider": "oxford-online-pharmacy",
+   "drug": "mounjaro",
+   "url": "https://www.oxfordonlinepharmacy.co.uk/weight-loss/mounjaro",
+   "via": "direct",
+   "status": "fetch-failed",
+   "error": "http 403; proxy: no proxy key"
+  },
+  {
+   "provider": "oxford-online-pharmacy",
+   "drug": "wegovy",
+   "url": "https://www.oxfordonlinepharmacy.co.uk/weight-loss/wegovy",
+   "via": "direct",
+   "status": "fetch-failed",
+   "error": "http 403; proxy: no proxy key"
+  },
+  {
+   "provider": "boots",
+   "drug": "mounjaro",
+   "url": "https://onlinedoctor.boots.com/treatments/mounjaro",
    "via": "direct",
    "method": "text",
+   "status": "no-prices"
+  },
+  {
+   "provider": "live-well-weight-loss",
+   "drug": "mounjaro",
+   "url": "https://livewellweightloss.co.uk/mounjaro-product-information/",
+   "via": "direct",
+   "status": "fetch-failed",
+   "error": "RemoteDisconnected; proxy: no proxy key"
+  },
+  {
+   "provider": "pills2u",
+   "drug": "mounjaro",
+   "url": "https://pills2u.co.uk/shop/mounjaro-weight-loss/",
+   "via": "direct",
+   "status": "fetch-failed",
+   "error": "RemoteDisconnected; proxy: no proxy key"
+  },
+  {
+   "provider": "next-script",
+   "drug": "mounjaro",
+   "url": "https://nextscript.co.uk/shop/mounjaro-weight-loss/",
+   "via": "direct",
+   "status": "fetch-failed",
+   "error": "RemoteDisconnected; proxy: no proxy key"
+  },
+  {
+   "provider": "slimming-direct",
+   "drug": "mounjaro",
+   "url": "https://slimmingdirect.co.uk/product/mounjaro-weight-loss-injection/",
+   "via": "direct",
+   "status": "fetch-failed",
+   "error": "RemoteDisconnected; proxy: no proxy key"
+  },
+  {
+   "provider": "yourdose",
+   "drug": "mounjaro",
+   "url": "https://yourdosepharmacy.co.uk/wp-json/wc/store/v1/products?type=variation&parent=3346",
+   "via": "direct",
+   "status": "fetch-failed",
+   "error": "RemoteDisconnected; proxy: no proxy key"
+  },
+  {
+   "provider": "live-well-weight-loss",
+   "drug": "wegovy",
+   "url": "https://livewellweightloss.co.uk/product/wegovy/",
+   "via": "direct",
+   "status": "fetch-failed",
+   "error": "RemoteDisconnected; proxy: no proxy key"
+  },
+  {
+   "provider": "pills2u",
+   "drug": "wegovy",
+   "url": "https://pills2u.co.uk/shop/wegovy/",
+   "via": "direct",
+   "status": "fetch-failed",
+   "error": "RemoteDisconnected; proxy: no proxy key"
+  },
+  {
+   "provider": "next-script",
+   "drug": "wegovy",
+   "url": "https://nextscript.co.uk/shop/wegovy/",
+   "via": "direct",
+   "status": "fetch-failed",
+   "error": "RemoteDisconnected; proxy: no proxy key"
+  },
+  {
+   "provider": "slimming-direct",
+   "drug": "wegovy",
+   "url": "https://slimmingdirect.co.uk/product/wegovy-weight-loss-injection/",
+   "via": "direct",
+   "status": "fetch-failed",
+   "error": "RemoteDisconnected; proxy: no proxy key"
+  },
+  {
+   "provider": "yourdose",
+   "drug": "wegovy",
+   "url": "https://yourdosepharmacy.co.uk/wp-json/wc/store/v1/products?type=variation&parent=3355",
+   "via": "direct",
+   "status": "fetch-failed",
+   "error": "RemoteDisconnected; proxy: no proxy key"
+  },
+  {
+   "provider": "next-script",
+   "drug": "wegovy-pill",
+   "url": "https://nextscript.co.uk/product/wegovy-pill/",
+   "via": "direct",
+   "status": "fetch-failed",
+   "error": "RemoteDisconnected; proxy: no proxy key"
+  },
+  {
+   "provider": "voy",
+   "drug": "mounjaro",
+   "url": "https://www.joinvoy.com/weight-loss/medications/mounjaro",
+   "via": "direct",
+   "status": "fetch-failed",
+   "error": "http 429; proxy: no proxy key"
+  },
+  {
+   "provider": "voy",
+   "drug": "wegovy",
+   "url": "https://www.joinvoy.com/weight-loss/medications/wegovy",
+   "via": "direct",
+   "status": "fetch-failed",
+   "error": "http 429; proxy: no proxy key"
+  }
+ ],
+ "held": [
+  {
+   "provider": "the-family-chemist",
+   "drug": "wegovy-pill",
+   "url": "https://thefamilychemist.co.uk/wegovy-tablets",
+   "via": "direct",
+   "method": "text",
+   "dropped": "25mg",
    "status": "held",
    "prices": {
-    "0.25mg": 119.0,
-    "0.5mg": 149.0,
-    "1mg": 169.0,
-    "1.7mg": 199.0,
-    "2.4mg": 219.0,
-    "7.2mg": 289.0
+    "1.5mg": 105.0,
+    "4mg": 129.99,
+    "9mg": 149.99
    }
   }
  ]
