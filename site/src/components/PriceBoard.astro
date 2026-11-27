@@ -7,7 +7,7 @@ interface Props { drug: DrugKey; limit?: number; hidden?: boolean; showDoses?: b
 const { drug, limit = 0, hidden = false, showDoses = true } = Astro.props;
 const d = DRUGS[drug];
 const dose = d.startDose;
-const first = ranked(drug, dose);
+const first = ranked(drug, dose).sort((a, b) => a.provider.name.localeCompare(b.provider.name));
 const rest = listingsFor(drug).filter((l) => l.prices[dose] == null)
   .sort((a, b) => a.provider.name.localeCompare(b.provider.name));
 const rows = [...first, ...rest];
@@ -15,14 +15,18 @@ const best = first[0]?.prices[dose];
 const ext = `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M6 3h7v7M13 3 4 12"/></svg>`;
 ---
 <section class="board" data-board={drug} data-limit={limit} hidden={hidden} aria-label={`${d.name} prices`}>
+  <p class="notice small" style="margin:0 0 0.75rem"><strong>Prescription-only.</strong> Supplied only after a consultation with a UK-registered prescriber, who may decide it isn't suitable for you. Choose a provider on more than price.</p>
   {showDoses && (
     <div class="doses" role="group" aria-label={`${d.name} dose`}>
       {d.doses.map((x) => <button class="dose" type="button" data-dose={x} aria-pressed={String(x === dose)}>{doseLabel(x)}</button>)}
     </div>
   )}
   <div class="board-meta">
-    <span data-count><strong>{first.length}</strong> providers with a verified {doseLabel(dose)} price</span>
-    <span class="filters"><label><input type="checkbox" data-nosub /> Hide subscription-only</label></span>
+    <span data-count><strong>{first.length}</strong> providers publish a {doseLabel(dose)} price</span>
+    <span class="filters">
+      <label>Sort <select data-sort><option value="name">Provider A to Z</option><option value="price">Price, low to high</option></select></label>
+      <label><input type="checkbox" data-nosub /> Hide subscription-only</label>
+    </span>
   </div>
   {rows.length === 0 ? (
     <div class="empty">
@@ -35,26 +39,20 @@ const ext = `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-w
         const p = l.prices[dose];
         const isBest = p != null && p === best;
         return (
-          <li class:list={['prow', { 'is-best': isBest }]} data-row data-p={JSON.stringify(l.prices)} data-w={JSON.stringify(l.wasPrices)} data-sub={l.provider.subscription ? '1' : '0'} hidden={p == null || (limit > 0 && i >= limit)}>
-            <span class="rank" data-rank>{i + 1}</span>
+          <li class="prow" data-row data-p={JSON.stringify(l.prices)} data-w={JSON.stringify(l.wasPrices)} data-sub={l.provider.subscription ? '1' : '0'} hidden={p == null || (limit > 0 && i >= limit)}>
+            
             <span class="name"><a href={`/uk/providers/${l.provider.slug}/`}>{l.provider.name}</a></span>
             <span class="meta">
-              <span>Checked <time datetime={l.verifiedAt} data-ago>{ago(l.verifiedAt)}</time></span>
+              <span>Price checked <time datetime={l.verifiedAt} data-ago>{ago(l.verifiedAt)}</time></span>
               {l.provider.subscription && <span class="chip chip-sub" title="This price needs an ongoing plan or membership">Subscription</span>}
-              {l.offer && <span class="chip chip-offer">{l.offer}</span>}
-              {(() => { const c = recentChange(l, dose); return c && (
-                <span class:list={['chip', c.diff < 0 ? 'chip-down' : 'chip-up']} data-change data-cdose={dose} title={`Was ${gbp(c.from)} before ${c.onLabel}`}>
-                  {c.diff < 0 ? '↓' : '↑'} {gbp(Math.abs(c.diff))} since {c.onLabel}
-                </span>); })()}
             </span>
             <span class="price">
               <span class="amount" data-amount>{p != null ? gbp(p) : ''}</span>
               <span class="was" data-was hidden={!l.wasPrices[dose]}>{l.wasPrices[dose] ? gbp(l.wasPrices[dose]) : ''}</span>
-              <span class="best-note" data-bestnote hidden={!isBest}>Lowest price</span>
               <span class="per">{drug === 'wegovy-pill' ? 'per 30 days' : 'per pen, 4 weeks'}</span>
             </span>
             <span class="act">
-              <a class="btn" href={l.url} rel="nofollow noopener noreferrer" target="_blank">Visit site <Fragment set:html={ext} /></a>
+              <a class="btn" href={l.url} rel="nofollow noopener noreferrer" target="_blank">Visit provider <Fragment set:html={ext} /></a>
               <details class="ladder">
                 <summary>All doses</summary>
                 <dl class="ladder-grid">

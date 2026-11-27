@@ -1,0 +1,28 @@
+---
+import Base from '../../layouts/Base.astro';
+import { DRUG_LIST, listingsFor, doseStats, gbp } from '../../lib/data';
+---
+<Base title="Published price lists by medicine | Best Weight Loss Meds"
+  description="Factual price lists for prescription weight-management medicines, as published by UK online pharmacies and clinics, checked daily."
+  current="/uk/price-lists/">
+  <section class="hero">
+    <div class="wrap">
+      <h1>Published price lists</h1>
+      <p class="lede">Prices as published by each provider, by dose. These medicines are prescription-only: a registered prescriber decides whether one is suitable for you, and which.</p>
+      <div class="drug-cards" style="margin-top:1.5rem">
+        {DRUG_LIST.map((d) => {
+          const n = listingsFor(d.key).length;
+          const all = doseStats(d.key).filter((s) => s.n);
+          const lo = Math.min(...all.map((s) => s.low!)), hi = Math.max(...all.map((s) => s.high!));
+          return (
+            <a class="drug-card" href={d.path}>
+              <strong>{d.name}</strong>
+              <span class="muted small">{d.generic}, {d.form.toLowerCase()}</span>
+              <p class="from" style="margin:0.6rem 0 0">{n} providers{all.length ? `, ${gbp(lo)} to ${gbp(hi)} depending on dose` : ''}</p>
+            </a>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+</Base>

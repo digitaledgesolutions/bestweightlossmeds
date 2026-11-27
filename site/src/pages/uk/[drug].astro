@@ -14,7 +14,7 @@ export function getStaticPaths() {
 const drug = Astro.params.drug as DrugKey;
 const d = DRUGS[drug];
 const ls = listingsFor(drug);
-const years = ls.filter((l) => l.firstYear != null).sort((a, b) => a.firstYear! - b.firstYear!);
+const years = ls.filter((l) => l.firstYear != null).sort((a, b) => a.provider.name.localeCompare(b.provider.name));
 const faqs = [...DRUG_FAQS[drug], ...SHARED_FAQS];
 const stats = doseStats(drug).filter((s) => s.n > 0);
 const site = 'https://bestweightlossmeds.com';
@@ -38,20 +38,14 @@ const jsonld = {
 };
 ---
 <Base
-  title={`${d.name} prices UK: every dose compared | Best Weight Loss Meds`}
-  description={`Compare ${d.name} (${d.generic}) prices from UK providers at every dose from ${doseLabel(d.doses[0])} to ${doseLabel(d.doses.at(-1)!)}. Checked every day.`}
+  title={`${d.name} (${d.generic}) published prices by dose, UK | Best Weight Loss Meds`}
+  description={`Factual list of ${d.name} (${d.generic}) prices published by ${ls.length} UK providers at each dose, checked daily. Prescription-only: supplied after a consultation.`}
   current={d.path} jsonld={jsonld}>
   <section class="hero">
     <div class="wrap">
       <h1>{d.name} prices UK</h1>
-      <p class="lede">{d.form} ({d.generic}) from {ls.length} UK providers, {monthYear}. Pick your dose to see who's cheapest today.</p>
-      {GENERATED_AT && <p class="freshbar"><span><span class="dot" aria-hidden="true"></span>Prices checked <strong>{gmt(GENERATED_AT)}</strong></span><span>Next check tomorrow morning</span><a href="#all-doses">See every dose side by side</a></p>}
-      {stats.length > 0 && (
-        <ul class="quick">
-          {[stats[0], stats.at(-1)!].map((s) => <li><span class="muted small">Cheapest {doseLabel(s.dose)}</span><strong>{gbp(s.low!)}</strong><span class="small">{s.lowBy[0].name}{s.lowBy.length > 1 ? ` +${s.lowBy.length - 1}` : ''}</span></li>)}
-          <li><span class="muted small">Typical {doseLabel(stats[0].dose)}</span><strong>{gbp(stats[0].median!)}</strong><span class="small">median of {stats[0].n}</span></li>
-        </ul>
-      )}
+      <p class="lede">{d.form} ({d.generic}) from {ls.length} UK providers, {monthYear}. Published prices by dose. A prescriber decides whether this medicine, and which dose, is suitable for you.</p>
+      {GENERATED_AT && <p class="freshbar"><span><span class="dot" aria-hidden="true"></span>Prices checked <strong>{gmt(GENERATED_AT)}</strong></span><span>Next check tomorrow morning</span><a href="#all-doses">Every dose side by side</a></p>}
       <PriceBoard drug={drug} />
     </div>
   </section>
@@ -62,15 +56,15 @@ const jsonld = {
   {years.length > 0 && (
     <section class="section">
       <div class="wrap">
-        <h2>Cheapest over the first year</h2>
-        <p class="muted measure">The starting dose is the cheapest. What you'll really spend depends on the doses you step up to. These totals assume a common step-up plan; the questions below explain it.</p>
+        <h2>Cost over 12 months</h2>
+        <p class="muted measure">What you spend depends on the doses your prescriber steps you up to. These totals assume a common step-up plan, explained in the questions below. For information only.</p>
         <table class="dtable" style="max-width:36rem">
-          <thead><tr><th scope="col">Provider</th><th scope="col">First-year total</th></tr></thead>
+          <thead><tr><th scope="col">Provider</th><th scope="col">12-month total</th></tr></thead>
           <tbody>
-            {years.slice(0, 8).map((l, i) => (
+            {years.map((l) => (
               <tr>
                 <td><a href={`/uk/providers/${l.provider.slug}/`}>{l.provider.name}</a></td>
-                <td class="num">{gbp(l.firstYear!, 0)} {i > 0 && <span class="rel">+{gbp(l.firstYear! - years[0].firstYear!, 0)}</span>}</td>
+                <td class="num">{gbp(l.firstYear!, 0)}</td>
               </tr>
             ))}
           </tbody>

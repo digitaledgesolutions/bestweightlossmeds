@@ -3,9 +3,7 @@ import '../styles/global.css';
 interface Props { title: string; description: string; current?: string; jsonld?: object }
 const { title, description, current = '', jsonld } = Astro.props;
 const nav = [
-  { href: '/uk/mounjaro/', label: 'Mounjaro' },
-  { href: '/uk/wegovy/', label: 'Wegovy' },
-  { href: '/uk/wegovy-pill/', label: 'Wegovy pill' },
+  { href: '/uk/price-lists/', label: 'Price lists' },
   { href: '/uk/providers/', label: 'Providers' },
   { href: '/uk/how-we-check-prices/', label: 'How we check' },
 ];
@@ -50,8 +48,10 @@ const canonical = new URL(Astro.url.pathname, Astro.site).href;
         <a href="/uk/how-we-check-prices/">How we check prices</a>
         <a href="/uk/providers/">All providers</a>
         <a href="/uk/privacy/">Privacy</a>
+        <a href="https://www.pharmacyregulation.org/registers/pharmacy" rel="noopener" target="_blank">GPhC register</a>
+        <a href="https://yellowcard.mhra.gov.uk/" rel="noopener" target="_blank">Report a side effect (Yellow Card)</a>
       </nav>
-      <p class="measure">Independent UK price comparison. We don't sell medicines, give medical advice or take payment from any provider. Mounjaro and Wegovy are prescription-only: a registered prescriber decides whether they're right for you. Always confirm the final price on the provider's own site.</p>
+      <p class="measure">Independent UK price comparison. We don't sell medicines, give medical advice, earn commission or take payment from any provider. Prescription-only medicines are supplied only after a consultation: a registered prescriber decides whether treatment is right for you. Always confirm the final price on the provider's own site.</p>
     </div>
   </footer>
 </body>

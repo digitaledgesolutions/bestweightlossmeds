@@ -5,22 +5,21 @@ import { DRUGS, listingsFor, ranked, gbp, doseLabel, type DrugKey } from '../lib
 interface Props { drug: DrugKey }
 const { drug } = Astro.props;
 const d = DRUGS[drug];
-const rows = listingsFor(drug).sort((a, b) =>
-  (a.prices[d.startDose] ?? 1e9) - (b.prices[d.startDose] ?? 1e9) || a.provider.name.localeCompare(b.provider.name));
+const rows = listingsFor(drug).sort((a, b) => a.provider.name.localeCompare(b.provider.name));
 const lows = Object.fromEntries(d.doses.map((x) => [x, ranked(drug, x)[0]?.prices[x]]));
 const lowYear = Math.min(...rows.map((l) => l.firstYear ?? Infinity));
 ---
 <section class="section" id="all-doses">
   <div class="wrap">
     <h2>Every dose, every provider</h2>
-    <p class="muted measure">{rows.length} providers. The lowest price at each dose is highlighted. Tap a column heading to sort by it. A dash means the provider doesn't publish that dose.</p>
+    <p class="muted measure">{rows.length} providers, listed A to Z. Tap a column heading to sort. A dash means the provider doesn't publish a price for that dose.</p>
     <div class="mx-wrap" tabindex="0" role="region" aria-label={`${d.name} prices at every dose`}>
       <table class="mx" data-mx>
         <thead>
           <tr>
-            <th scope="col" class="mx-name"><button type="button" data-sort="name">Provider</button></th>
-            {d.doses.map((x) => <th scope="col"><button type="button" data-sort={x} aria-sort={x === d.startDose ? 'ascending' : undefined}>{doseLabel(x)}</button></th>)}
-            <th scope="col"><button type="button" data-sort="year">First year</button></th>
+            <th scope="col" class="mx-name"><button type="button" data-sort="name" aria-sort="ascending">Provider</button></th>
+            {d.doses.map((x) => <th scope="col"><button type="button" data-sort={x}>{doseLabel(x)}</button></th>)}
+            <th scope="col"><button type="button" data-sort="year">12 months*</button></th>
           </tr>
         </thead>
         <tbody>
@@ -32,15 +31,15 @@ const lowYear = Math.min(...rows.map((l) => l.firstYear ?? Infinity));
               </th>
               {d.doses.map((x) => {
                 const v = l.prices[x];
-                return <td class:list={['num', { 'mx-low': v != null && v === lows[x] }]}>{v != null ? gbp(v) : <span class="muted">–</span>}</td>;
+                return <td class="num">{v != null ? gbp(v) : <span class="muted">–</span>}</td>;
               })}
-              <td class:list={['num', { 'mx-low': l.firstYear === lowYear }]}>{l.firstYear != null ? gbp(l.firstYear, 0) : <span class="muted">–</span>}</td>
+              <td class="num">{l.firstYear != null ? gbp(l.firstYear, 0) : <span class="muted">–</span>}</td>
             </tr>
           ))}
         </tbody>
       </table>
     </div>
-    <p class="small muted" style="margin-top:0.75rem">Prices are per {drug === 'wegovy-pill' ? 'pack of 30 tablets' : 'pen (four weekly doses)'}, as published by each provider. Consultation and delivery fees vary, so check the total at checkout. <a href={`${d.path}prices.csv`}>Download these prices (CSV)</a></p>
+    <p class="small muted" style="margin-top:0.75rem">Prices are per {drug === 'wegovy-pill' ? 'pack of 30 tablets' : 'pen (four weekly doses)'}, as published by each provider. *12 months on a common step-up plan; your prescriber decides your doses. Consultation and delivery fees vary, so confirm the total with the provider. <a href={`${d.path}prices.csv`}>Download these prices (CSV)</a></p>
   </div>
 </section>
 <script>

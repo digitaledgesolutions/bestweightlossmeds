@@ -1,44 +1,43 @@
 ---
+// Homepage. MHRA Blue Guide (Appendix 6): no prescription-only medicine is named on the
+// homepage, and no price appears here. Medicine price lists live on inner pages only.
 import Base from '../../layouts/Base.astro';
-import PriceBoard from '../../components/PriceBoard.astro';
-import BoardScript from '../../components/BoardScript.astro';
 import Faq from '../../components/Faq.astro';
-import { DRUG_LIST, cheapest, liveProviders, priceCount, gmt, GENERATED_AT, gbp, doseLabel } from '../../lib/data';
-import { SHARED_FAQS, METHOD } from '../../lib/content';
+import { liveProviders, priceCount, gmt, GENERATED_AT } from '../../lib/data';
+import { HOME_FAQS, METHOD } from '../../lib/content';
 const count = liveProviders().length;
 ---
 <Base
-  title="Mounjaro and Wegovy prices in the UK, compared by dose | Best Weight Loss Meds"
-  description="Compare UK prices for Mounjaro, Wegovy and the Wegovy pill at every dose. Prices are read from each provider's own site every day."
+  title="Compare UK online weight-management services | Best Weight Loss Meds"
+  description="Independent, factual information on UK online weight-management providers: published price lists checked daily, GPhC registration and what to check before a consultation."
   current="/uk/">
   <section class="hero">
     <div class="wrap">
-      <h1>What will your dose cost?</h1>
-      <p class="lede">Prices for every dose of Mounjaro, Wegovy and the Wegovy pill from {count} UK providers, checked every morning.</p>
-      {GENERATED_AT && <p class="freshbar"><span><span class="dot" aria-hidden="true"></span>Checked <strong>{gmt(GENERATED_AT)}</strong></span><span><strong>{priceCount()}</strong> verified prices</span><span>No paid placements</span></p>}
-      <div class="picker">
-        <div class="seg" role="group" aria-label="Medicine" data-drugswitch>
-          {DRUG_LIST.map((d, i) => <button type="button" data-drug={d.key} aria-pressed={String(i === 0)}>{d.name}</button>)}
-        </div>
-        {DRUG_LIST.map((d, i) => <PriceBoard drug={d.key} limit={5} hidden={i !== 0} />)}
-      </div>
+      <h1>Compare UK online weight-management services</h1>
+      <p class="lede">Independent, factual information on {count} UK online pharmacies and clinics. We read each provider's published prices every morning, and we never take payment from them.</p>
+      {GENERATED_AT && <p class="freshbar"><span><span class="dot" aria-hidden="true"></span>Last checked <strong>{gmt(GENERATED_AT)}</strong></span><span><strong>{priceCount()}</strong> published prices</span><span>No commissions, no paid placements</span></p>}
+      <p style="margin-top:1.5rem;display:flex;gap:0.75rem;flex-wrap:wrap">
+        <a class="btn btn-solid" href="/uk/price-lists/">See published price lists</a>
+        <a class="btn" href="/uk/providers/">Browse providers A to Z</a>
+      </p>
     </div>
   </section>
 
   <section class="section">
-    <div class="wrap">
-      <h2>Lowest starting price today</h2>
-      <div class="drug-cards">
-        {DRUG_LIST.map((d) => {
-          const c = cheapest(d.key, d.startDose);
-          return (
-            <a class="drug-card" href={d.path}>
-              <strong>{d.name}</strong>
-              <span class="muted small">{d.form}, {d.generic}</span>
-              <p class="from" style="margin:0.6rem 0 0">{c ? <>From <b>{gbp(c.prices[d.startDose])}</b> at {doseLabel(d.startDose)}</> : 'No verified price right now'}</p>
-            </a>
-          );
-        })}
+    <div class="wrap cols">
+      <div>
+        <h2>Treatment starts with a consultation</h2>
+        <p class="muted">Weight-management medicines are prescription-only in the UK. Every provider listed here supplies them only after an online consultation with a UK-registered prescriber, who decides whether treatment is suitable for you. They may decide it isn't.</p>
+        <p class="muted">Choose a provider on more than price: check its GPhC registration, the aftercare it offers and the terms of any plan before you start.</p>
+      </div>
+      <div>
+        <h2>Before your consultation</h2>
+        <ul class="muted">
+          <li>Check the pharmacy on the <a href="https://www.pharmacyregulation.org/registers/pharmacy" rel="noopener" target="_blank">GPhC register</a>.</li>
+          <li>Ask what's included: consultation, delivery, ongoing reviews.</li>
+          <li>Read any plan terms: some providers bill every four weeks.</li>
+          <li>Report side effects through the <a href="https://yellowcard.mhra.gov.uk/" rel="noopener" target="_blank">MHRA Yellow Card</a> scheme.</li>
+        </ul>
       </div>
     </div>
   </section>
@@ -53,6 +52,5 @@ const count = liveProviders().length;
     </div>
   </section>
 
-  <Faq items={SHARED_FAQS} />
-  <BoardScript />
+  <Faq items={HOME_FAQS} />
 </Base>

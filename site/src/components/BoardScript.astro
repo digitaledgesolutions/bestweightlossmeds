@@ -12,8 +12,10 @@
     if (!list) return;
     const rows = [...list.querySelectorAll<HTMLElement>('[data-row]')];
     const price = (r: HTMLElement) => JSON.parse(r.dataset.p || '{}')[dose];
+    const byPrice = board.querySelector<HTMLSelectElement>('[data-sort]')?.value === 'price';
+    const name = (r: HTMLElement) => r.querySelector('.name')!.textContent!.trim();
     const shown = rows.filter((r) => price(r) != null && !(noSub && r.dataset.sub === '1'))
-      .sort((a, b) => price(a) - price(b));
+      .sort((a, b) => byPrice ? price(a) - price(b) || name(a).localeCompare(name(b)) : name(a).localeCompare(name(b)));
     const best = shown.length ? price(shown[0]) : null;
     rows.forEach((r) => (r.hidden = true));
     shown.forEach((r, i) => {
@@ -22,16 +24,12 @@
       r.querySelector('[data-amount]')!.textContent = gbp(p);
       const w = r.querySelector<HTMLElement>('[data-was]')!;
       w.hidden = !was; w.textContent = was ? gbp(was) : '';
-      r.querySelector('[data-rank]')!.textContent = String(i + 1);
-      r.querySelectorAll<HTMLElement>('[data-change]').forEach((c) => (c.hidden = c.dataset.cdose !== dose));
-      r.classList.toggle('is-best', p === best);
-      r.querySelector<HTMLElement>('[data-bestnote]')!.hidden = p !== best;
       r.hidden = limit > 0 && i >= limit;
       list.appendChild(r);
     });
     rows.filter((r) => !shown.includes(r)).forEach((r) => list.appendChild(r));
     const count = board.querySelector('[data-count]');
-    if (count) count.innerHTML = `<strong>${shown.length}</strong> providers with a verified ${label(dose)} price`;
+    if (count) count.innerHTML = `<strong>${shown.length}</strong> providers publish a ${label(dose)} price`;
   }
 
   document.querySelectorAll<HTMLElement>('[data-board]').forEach((board) => {
@@ -44,6 +42,7 @@
       history.replaceState(null, '', u);
     });
     board.querySelector('[data-nosub]')?.addEventListener('change', () => render(board));
+    board.querySelector('[data-sort]')?.addEventListener('change', () => render(board));
     const want = new URL(location.href).searchParams.get('dose');
     const btn = want && board.querySelector<HTMLElement>(`.dose[data-dose="${CSS.escape(want)}"]`);
     if (btn) btn.click();

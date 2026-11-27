@@ -252,3 +252,6 @@ p { margin: 0 0 1em; text-wrap: pretty; }
   .quick span { white-space: normal; }
   .mx .mx-name { white-space: normal; min-width: 8.5rem; max-width: 9.5rem; }
 }
+.filters select { font: inherit; font-size: var(--t-s); padding: 0.35rem 0.5rem; border: 1px solid var(--line); border-radius: 8px; background: var(--paper); color: var(--ink); min-height: 40px; }
+.prow { grid-template-columns: 0 1fr auto; }
+@media (min-width: 48rem) { .prow { grid-template-columns: 0 minmax(0, 1.4fr) minmax(0, 1fr) auto; } }

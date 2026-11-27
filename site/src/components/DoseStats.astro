@@ -19,8 +19,8 @@ if (series.length >= 3) {
 {stats.length > 0 && (
   <section class="section" id="by-dose">
     <div class="wrap">
-      <h2>{d.name} price by dose today</h2>
-      {maxSave > 0 && <p class="lede" style="font-size:var(--t-m)">The same dose can cost up to <strong>{gbp(maxSave)}</strong> more depending on where you buy it.</p>}
+      <h2>Price range by dose</h2>
+      <p class="muted measure">Published prices for each dose across all providers today. For information only: price is one factor, and the prescriber decides what's suitable.</p>
       <div class="mx-wrap">
         <table class="dtable stats">
           <thead><tr><th scope="col">Dose</th><th scope="col">Lowest</th><th scope="col">Typical</th><th scope="col">Highest</th><th scope="col">Providers</th></tr></thead>
@@ -28,7 +28,7 @@ if (series.length >= 3) {
             {stats.map((s) => (
               <tr>
                 <th scope="row" style="color:var(--ink);font-weight:700">{doseLabel(s.dose)}</th>
-                <td class="num">{gbp(s.low!)} <span class="rel">{names(s.lowBy)}</span></td>
+                <td class="num">{gbp(s.low!)}</td>
                 <td class="num">{gbp(s.median!)}</td>
                 <td class="num">{gbp(s.high!)}</td>
                 <td>{s.n}</td>
@@ -40,7 +40,7 @@ if (series.length >= 3) {
       <p class="small muted" style="margin-top:0.75rem">Typical is the middle (median) price of every provider with a confirmed price for that dose today.</p>
       {spark && (
         <div class="trend">
-          <h3>Lowest {doseLabel(d.startDose)} price, recent checks</h3>
+          <h3>Lowest published {doseLabel(d.startDose)} price, recent checks</h3>
           <Fragment set:html={spark} />
           <p class="small muted">{gbp(series[0].v)} on {new Date(series[0].t).toLocaleDateString('en-GB', { day: 'numeric', month: 'short' })} → {gbp(series.at(-1)!.v)} now</p>
         </div>
