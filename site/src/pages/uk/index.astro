@@ -12,14 +12,23 @@ const count = liveProviders().length;
   description="Independent, factual information on UK online weight-management providers: published price lists checked daily, GPhC registration and what to check before a consultation."
   current="/uk/">
   <section class="hero">
-    <div class="wrap">
-      <h1>Compare UK online weight-management services</h1>
-      <p class="lede">Independent, factual information on {count} UK online pharmacies and clinics. We read each provider's published prices every morning, and we never take payment from them.</p>
-      {GENERATED_AT && <p class="freshbar"><span><span class="dot" aria-hidden="true"></span>Last checked <strong>{gmt(GENERATED_AT)}</strong></span><span><strong>{priceCount()}</strong> published prices</span><span>No commissions, no paid placements</span></p>}
-      <p style="margin-top:1.5rem;display:flex;gap:0.75rem;flex-wrap:wrap">
-        <a class="btn btn-solid" href="/uk/price-lists/">See published price lists</a>
-        <a class="btn" href="/uk/providers/">Browse providers A to Z</a>
-      </p>
+    <div class="wrap hero-grid">
+      <div>
+        <h1>Compare UK online weight-management services</h1>
+        <p class="lede">Independent, factual information on {count} UK online pharmacies and clinics. We read each provider's published prices every morning, and we never take payment from them.</p>
+        <p style="margin-top:1.25rem;display:flex;gap:0.75rem;flex-wrap:wrap">
+          <a class="btn btn-solid" href="/uk/price-lists/">See published price lists</a>
+          <a class="btn" href="/uk/providers/">Browse providers A to Z</a>
+        </p>
+      </div>
+      {GENERATED_AT && (
+        <dl class="facts">
+          <div><dt>Last checked</dt><dd><time datetime={GENERATED_AT}>{gmt(GENERATED_AT)}</time></dd></div>
+          <div><dt>Published prices</dt><dd>{priceCount()}</dd></div>
+          <div><dt>UK providers</dt><dd>{count}</dd></div>
+          <div><dt>Commission or paid placements</dt><dd>None</dd></div>
+        </dl>
+      )}
     </div>
   </section>
 
