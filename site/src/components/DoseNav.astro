@@ -1,0 +1,14 @@
+---
+// Dose tabs: "All doses" (the drug page) plus one page per dose. Plain links, no JS.
+import { DRUGS, doseLabel, dosePath, ranked, type DrugKey } from '../lib/data';
+interface Props { drug: DrugKey; current: string }  // current = 'all' or a dose like '2.5mg'
+const { drug, current } = Astro.props;
+const d = DRUGS[drug];
+---
+<nav class="doses dose-tabs" aria-label={`${d.name} doses`}>
+  <a class="dose" href={d.path} aria-current={current === 'all' ? 'page' : undefined}>All doses</a>
+  {d.doses.map((x) => {
+    const n = ranked(drug, x).length;
+    return n > 0 && <a class="dose" href={dosePath(drug, x)} aria-current={current === x ? 'page' : undefined}>{doseLabel(x)}</a>;
+  })}
+</nav>

@@ -3,10 +3,10 @@
 // data attributes; a tiny script re-sorts them when the dose changes. Without JS the
 // list is correct for the starting dose.
 import { DRUGS, ranked, listingsFor, recentChange, gbp, doseLabel, checkedAt, hostOf, SOURCE_LABEL, type DrugKey } from '../lib/data';
-interface Props { drug: DrugKey; limit?: number; hidden?: boolean; showDoses?: boolean }
-const { drug, limit = 0, hidden = false, showDoses = true } = Astro.props;
+interface Props { drug: DrugKey; dose?: string; limit?: number; hidden?: boolean; showDoses?: boolean }
+const { drug, dose: doseProp, limit = 0, hidden = false, showDoses = false } = Astro.props;
 const d = DRUGS[drug];
-const dose = d.startDose;
+const dose = doseProp || d.startDose;
 const first = ranked(drug, dose).sort((a, b) => a.provider.name.localeCompare(b.provider.name));
 const rest = listingsFor(drug).filter((l) => l.prices[dose] == null)
   .sort((a, b) => a.provider.name.localeCompare(b.provider.name));
@@ -14,7 +14,7 @@ const rows = [...first, ...rest];
 const best = first[0]?.prices[dose];
 const ext = `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M6 3h7v7M13 3 4 12"/></svg>`;
 ---
-<section class="board" data-board={drug} data-limit={limit} hidden={hidden} aria-label={`${d.name} prices`}>
+<section class="board" data-board={drug} data-dose={dose} data-limit={limit} hidden={hidden} aria-label={`${d.name} prices`}>
   <p class="notice small" style="margin:0 0 0.75rem"><strong>Prescription-only.</strong> Supplied only after a consultation with a UK-registered prescriber, who may decide it isn't suitable for you. Choose a provider on more than price.</p>
   {showDoses && (
     <div class="doses" role="group" aria-label={`${d.name} dose`}>

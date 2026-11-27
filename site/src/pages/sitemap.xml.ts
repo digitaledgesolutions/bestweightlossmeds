@@ -9,6 +9,8 @@ export function GET() {
   const urls: [string, string | null][] = [
     ['/uk/', day(GENERATED_AT)],
     ...DRUG_LIST.map((d) => [d.path, day(latestCheck(listingsFor(d.key)))] as [string, string | null]),
+    ...DRUG_LIST.flatMap((d) => d.doses.filter((x) => listingsFor(d.key).some((l) => l.prices[x] != null))
+      .map((x) => [`${d.path}${x.replace('.', '-')}/`, day(latestCheck(listingsFor(d.key)))] as [string, string | null])),
     ['/uk/price-lists/', day(GENERATED_AT)],
     ['/uk/providers/', day(GENERATED_AT)],
     ['/uk/how-we-check-prices/', null],

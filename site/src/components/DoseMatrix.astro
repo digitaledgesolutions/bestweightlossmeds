@@ -2,14 +2,14 @@
 // Every provider x every dose in one table, cheapest in each column marked.
 // Server-rendered; a small script lets you sort by any column. Scrolls sideways on phones.
 import { DRUGS, listingsFor, ranked, gbp, doseLabel, checkedAt, type DrugKey } from '../lib/data';
-interface Props { drug: DrugKey }
-const { drug } = Astro.props;
+interface Props { drug: DrugKey; first?: boolean }
+const { drug, first = false } = Astro.props;
 const d = DRUGS[drug];
 const rows = listingsFor(drug).sort((a, b) => a.provider.name.localeCompare(b.provider.name));
 const lows = Object.fromEntries(d.doses.map((x) => [x, ranked(drug, x)[0]?.prices[x]]));
 const lowYear = Math.min(...rows.map((l) => l.firstYear ?? Infinity));
 ---
-<section class="section" id="all-doses">
+<section class:list={["section", { "section-first": first }]} id="all-doses">
   <div class="wrap">
     <h2>Every dose, every provider</h2>
     <p class="muted measure">{rows.length} providers, listed A to Z. Tap a column heading to sort. A dash means the provider doesn't publish a price for that dose. Each check time links to the page we read the price from.</p>

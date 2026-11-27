@@ -110,6 +110,22 @@ for (const [slug, byDrug] of Object.entries((pricesRaw as any).providers || {}))
   }
 }
 
+// Outlier guard: a starting-dose price far above everyone else's is almost always a
+// multi-pack or bundle read by mistake. Hold it back rather than publish it.
+for (const drug of Object.keys(DRUGS) as DrugKey[]) {
+  const start = DRUGS[drug].startDose;
+  const vals = allListings.filter((l) => l.drug === drug && l.prices[start] != null).map((l) => l.prices[start]).sort((a, b) => a - b);
+  if (vals.length < 5) continue;
+  const median = vals[Math.floor(vals.length / 2)];
+  for (let i = allListings.length - 1; i >= 0; i--) {
+    const l = allListings[i];
+    if (l.drug === drug && l.prices[start] != null && l.prices[start] > median * 1.8) {
+      console.warn(`[outlier] held back ${l.provider.slug} ${drug}: ${l.prices[start]} vs median ${median}`);
+      allListings.splice(i, 1);
+    }
+  }
+}
+
 export function listingsFor(drug: DrugKey) {
   return allListings.filter((l) => l.drug === drug);
 }
@@ -239,3 +255,7 @@ export function coverage() {
   return { tracked, fresh: allListings.length };
 }
 export const priceCount = () => allListings.reduce((n, l) => n + Object.keys(l.prices).length, 0);
+
+/** URL slug for a dose: "2.5mg" -> "2-5mg". */
+export const doseSlug = (d: string) => d.replace('.', '-');
+export const dosePath = (drug: DrugKey, d: string) => `${DRUGS[drug].path}${doseSlug(d)}/`;

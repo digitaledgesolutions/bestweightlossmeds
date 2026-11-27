@@ -86,6 +86,12 @@ export default {
       if (!cookie.split(/;\s*/).includes(`${COOKIE}=${token}`)) return closed(env);
     }
 
+    // Old ?dose=5mg links on a medicine page -> that dose's own page.
+    const dq = url.searchParams.get('dose');
+    if (dq && /^\/uk\/(mounjaro|wegovy|wegovy-pill)\/$/.test(url.pathname) && /^\d+(\.\d+)?mg$/.test(dq)) {
+      return withHeaders(Response.redirect(new URL(url.pathname + dq.replace('.', '-') + '/', url).href, 301), env);
+    }
+
     const to = REDIRECTS.get(url.pathname);
     if (to) return withHeaders(Response.redirect(new URL(to, url).href, 301), env);
 

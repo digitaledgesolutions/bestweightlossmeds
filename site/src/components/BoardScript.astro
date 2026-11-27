@@ -4,7 +4,7 @@
   const label = (d: string) => d.replace('mg', ' mg');
 
   function render(board: HTMLElement) {
-    const dose = board.querySelector<HTMLElement>('.dose[aria-pressed="true"]')?.dataset.dose;
+    const dose = board.querySelector<HTMLElement>('.dose[aria-pressed="true"]')?.dataset.dose || board.dataset.dose;
     if (!dose) return;
     const limit = Number(board.dataset.limit || 0);
     const noSub = board.querySelector<HTMLInputElement>('[data-nosub]')?.checked;
