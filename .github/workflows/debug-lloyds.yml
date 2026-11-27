@@ -1,0 +1,17 @@
+name: debug lloyds text
+on: { pull_request: { paths: ['.github/workflows/debug-lloyds.yml'] } }
+jobs:
+  d:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - run: |
+          python3 - <<'P'
+          import sys; sys.path.insert(0,'scraper'); import refresh as r
+          for h in ['mounjaro-tirzepatide-weight-loss-injection','wegovy-tablets']:
+              b,e,v=r.fetch('https://onlinedoctor.lloydspharmacy.com/products/'+h, False)
+              t=r.strip_html(b or '')
+              i=t.find('1 pen') if '1 pen' in t else t.find('Pack size')
+              print(h, e, len(b or ''), repr(t[max(0,i-300):i+600]))
+              import re; print(re.findall(r'.{0,60}179\.99.{0,40}', b or '')[:3])
+          P
