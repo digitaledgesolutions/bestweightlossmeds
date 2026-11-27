@@ -8,13 +8,13 @@ data/      prices.json (what the site shows), history/*.jsonl (daily price histo
 site/      Astro static site + a small Worker (site/worker/index.js) for the private gate and headers
 ```
 
-## Daily run (`.github/workflows/daily.yml`, 04:17 UTC)
-1. Unit tests for the extractors.
-2. `scraper/refresh.py` checks every row in `scraper/sources.json`.
-3. Commits `data/`, builds the site, deploys with `wrangler deploy`.
+## Daily run (free, hands-off)
+1. `.github/workflows/daily.yml` runs at 06:07 UTC. The repo is public, so GitHub Actions minutes cost nothing.
+2. It tests the extractors, runs `scraper/refresh.py` (pass 2 retries rate-limited sources after a pause), builds the site to catch errors, and commits `data/`.
+3. That push triggers **Cloudflare Workers Builds** (connected in the dashboard: root `/site`, build `npm ci && npx astro build`, deploy `npx wrangler deploy`). No API token lives in GitHub.
 4. `scraper/alert.py` opens a GitHub issue if under 90% of sources succeed, and closes it when they recover.
 
-Pushes to `rebuild-2027` run steps 1–2 and the build only (no commit, no deploy).
+Routes `bestweightlossmeds.com/*` and `www.` point at Worker `bestweightlossmeds` (www 301s to the apex).
 
 ## Publishing rules
 - A price only appears if it was confirmed in the last 48 hours. Every price shows when it was checked.
@@ -26,7 +26,7 @@ Pushes to `rebuild-2027` run steps 1–2 and the build only (no commit, no deplo
 Add it to `scraper/providers.json` (slug, name) and one row per medicine to `scraper/sources.json`.
 Use `"method": "auto"` unless you know the platform: `shopify` (`/products/x.json`), `wcapi` (WooCommerce Store API), `woo`, `jsonld`, `shopify_inline`, `embedded`, `positional`. Set `"proxy": true` for sites that block datacentre IPs (uses `SCRAPERAPI_KEY`).
 
-## Private until launch
+## Public / private switch
 `site/wrangler.jsonc`: `PUBLIC=false` keeps the site closed; open it once with `?preview=<PREVIEW_KEY>` (a Worker secret) to get a 30-day cookie. `INDEXABLE=false` sends `noindex` on every response and a blocking robots.txt. Flip each to `"true"` when ready.
 
 ## Local
