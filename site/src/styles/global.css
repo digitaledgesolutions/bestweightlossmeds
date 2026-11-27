@@ -244,3 +244,11 @@ p { margin: 0 0 1em; text-wrap: pretty; }
 .quick li { background: var(--shelf); border-radius: var(--radius); padding: 0.7rem 0.85rem; display: flex; flex-direction: column; gap: 0.1rem; min-width: 0; }
 .quick strong { font-size: var(--t-xl); letter-spacing: -0.02em; }
 .quick span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+@media (max-width: 40rem) {
+  .quick { grid-template-columns: 1fr; gap: 0.4rem; }
+  .quick li { flex-direction: row; align-items: baseline; gap: 0.6rem; padding: 0.55rem 0.8rem; }
+  .quick li .muted { flex: 0 0 6.5rem; }
+  .quick strong { font-size: var(--t-l); }
+  .quick span { white-space: normal; }
+  .mx .mx-name { white-space: normal; min-width: 8.5rem; max-width: 9.5rem; }
+}
